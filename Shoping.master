@@ -4,8 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Untitled Page</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <style type="text/css">
         #form1
         {
@@ -103,14 +101,14 @@
     <table class="style2">
         <tr>
             <td>
-                <asp:HyperLink ID="hphelp" runat="server" BackColor="#CC99FF" BorderColor="Purple"
-                    BorderStyle="Double" Font-Size="Small">Help</asp:HyperLink>
+                <asp:Label ID="lbhelp" runat="server" BackColor="#CC99FF" BorderColor="Purple"
+                    BorderStyle="Double" Font-Size="Small">Help</asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:HyperLink ID="hph2h" runat="server" BackColor="#CC99FF" BorderColor="Purple"
-                    BorderStyle="Double" Font-Size="Small">H-2-H</asp:HyperLink>
+                <asp:Label ID="lbh2h" runat="server" BackColor="#CC99FF" BorderColor="Purple"
+                    BorderStyle="Double" Font-Size="Small">H-2-H</asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:HyperLink ID="hpkeepintouch" runat="server" BackColor="#CC99FF" BorderColor="Purple"
-                    BorderStyle="Double" Font-Size="Small">Keep in touch</asp:HyperLink>
+                <asp:Label ID="lbkeepintouch" runat="server" BackColor="#CC99FF" BorderColor="Purple"
+                    BorderStyle="Double" Font-Size="Small">Keep in touch</asp:Label>
                 <asp:ImageButton ID="imgbtnfb" runat="server" Height="20px" ImageUrl="~/images/fblogo.jpg"
                     Width="23px" />
                 <asp:ImageButton ID="imgbtntwiter" runat="server" Height="22px" ImageUrl="~/images/twiter.jpg"
