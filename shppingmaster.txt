@@ -1,9 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Shoping.master.cs" Inherits="Shoping" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Shoping.master.cs" Inherits="Shoping" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Welcome to Home 2 Home! </title>
+    <title>Untitled Page</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -13,19 +13,30 @@
         }
         .style1
         {
-            height: 24px;
+            width: 101%;
+            height: 58px;
         }
-        .style2
+        .style4
         {
-            height: 538px;
+            width: 1064px;
+            background-image: url('images/misc372.jpg');
         }
         .style6
         {
-            width: 170px;
+            width: 141px;
         }
         .style7
         {
-            width: 138px;
+            width: 261px;
+        }
+        .style8
+        {
+            width: 261px;
+            height: 401px;
+        }
+        .style9
+        {
+            height: 401px;
         }
     </style>
 </head>
@@ -40,7 +51,7 @@
             </td>
             <td>
             </td>
-            <td  align="right">
+            <td class="style4" align="right">
                 <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black">ContactUs</asp:HyperLink>
                 &nbsp; |&nbsp;
                 <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black">Home</asp:HyperLink>
@@ -88,13 +99,13 @@
             </td>
         </tr>
         <tr>
-            <td class="style7">
+            <td class="style8">
             </td>
-            <td colspan="3" class="style2">
+            <td colspan="3" class="style9">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
-            <td class="style2">
+            <td class="style9">
             </td>
         </tr>
     </table>
