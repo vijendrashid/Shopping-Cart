@@ -4,12 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Welcome to Home 2 Home! </title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
     <style type="text/css">
         #form1
         {
-            height: 800px;
+            height: 100%;
         }
         .style1
         {
@@ -125,22 +123,12 @@
             <td class="style6">
             </td>
             <td>
-                <asp:HyperLink ID="hppayment" runat="server" Font-Size="X-Small" ForeColor="Blue">Payment</asp:HyperLink>
+                <asp:HyperLink ID="hppayment" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/Payment.aspx">Payment</asp:HyperLink>
             </td>
             <td>
-                <asp:HyperLink ID="hph2hcontactus" runat="server" Font-Size="X-Small" ForeColor="Blue">ContactUs</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hpshipping" runat="server" Font-Size="X-Small" ForeColor="Blue">Shipping</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2haboutus" runat="server" Font-Size="X-Small" ForeColor="Blue">AboutUs</asp:HyperLink>
+                <asp:HyperLink ID="hph2hcontactus" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/ContactUs.aspx">ContactUs</asp:HyperLink>
             </td>
             <td>
             </td>
@@ -149,22 +137,12 @@
             <td class="style6">
             </td>
             <td>
-                <asp:HyperLink ID="hpcancellation" runat="server" Font-Size="X-Small" ForeColor="Blue">Cancellation&amp;Return</asp:HyperLink>
+                <asp:HyperLink ID="hpshipping" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/Shipping.aspx">Shipping</asp:HyperLink>
             </td>
             <td>
-                <asp:HyperLink ID="hph2hcarreers" runat="server" Font-Size="X-Small" ForeColor="Blue">Carreers</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hpfaq" runat="server" Font-Size="X-Small" ForeColor="Blue">FAQ</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2hblog" runat="server" Font-Size="X-Small" ForeColor="Blue">Blog</asp:HyperLink>
+                <asp:HyperLink ID="hph2haboutus" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/AboutUs.aspx">AboutUs</asp:HyperLink>
             </td>
             <td>
             </td>
@@ -173,9 +151,38 @@
             <td class="style6">
             </td>
             <td>
+                <asp:HyperLink ID="hpcancellation" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/Cancellation and Returns.aspx">Cancellation&amp;Return</asp:HyperLink>
             </td>
             <td>
-                <asp:HyperLink ID="hph2hpress" runat="server" Font-Size="X-Small" ForeColor="Blue">Press</asp:HyperLink>
+                <asp:HyperLink ID="hph2hcarreers" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/H2H/Careers.aspx">Carreers</asp:HyperLink>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td class="style6">
+            </td>
+            <td>
+                <asp:HyperLink ID="hpfaq" runat="server" Font-Size="X-Small" ForeColor="Blue" 
+                    NavigateUrl="~/Help/Faq.aspx">FAQ</asp:HyperLink>
+            </td>
+            <td>
+                <asp:HyperLink ID="hph2hblog" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/H2H/Blog.aspx">Blog</asp:HyperLink>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td class="style6">
+            </td>
+            <td>
+            </td>
+            <td>
+                <asp:HyperLink ID="hph2hpress" runat="server" Font-Size="X-Small" 
+                    ForeColor="Blue" NavigateUrl="~/H2H/Press.aspx">Press</asp:HyperLink>
             </td>
             <td>
             </td>
