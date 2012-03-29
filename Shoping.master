@@ -13,197 +13,208 @@
         {
             height: 24px;
         }
-        .style2
+        .style10
         {
-            height: 538px;
+            width: 66px;
         }
-        .style6
+        .tableColor
         {
-            width: 170px;
+            background-color: #66CCFF;
         }
-        .style7
+        .engineColor
         {
-            width: 138px;
+            background-color: #C6F5FF;
+        }
+        .style11
+        {
+            height: 23px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" class="style1">
-    <table width="100%">
-        <tr>
-            <td class="style7">
-            </td>
-            <td>
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/HOME2HOME.png" />
-            </td>
-            <td>
-            </td>
-            <td  align="right">
-                <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black">ContactUs</asp:HyperLink>
-                &nbsp; |&nbsp;
-                <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black">Home</asp:HyperLink>
-                &nbsp; |&nbsp;
-                <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black">Account</asp:HyperLink>
-                &nbsp; |&nbsp;
-                <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black">Wishlist</asp:HyperLink>
-                &nbsp; |&nbsp;
-                <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
-                &nbsp; |&nbsp;&nbsp;
-                <asp:HyperLink ID="hpSignup" runat="server">Signup</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style7">
-            </td>
-            <td>
-                <asp:Menu ID="Menu1" runat="server">
-                    <Items>
-                        <asp:MenuItem Text="Categories" Value="Categories"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
-            </td>
-            <td align="right">
-                <asp:Label ID="lbSearch" runat="server" Font-Size="Small" Text="Search :"></asp:Label>
-                &nbsp;&nbsp;<asp:DropDownList ID="ddlSearchCategory" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"
-                    Style="margin-left: 0px" Width="181px" ForeColor="#CD3278">
-                    <asp:ListItem>Categories</asp:ListItem>
-                    <asp:ListItem>Jwellery&amp;Accessories</asp:ListItem>
-                    <asp:ListItem>Home&amp;Kitchen</asp:ListItem>
-                    <asp:ListItem>Books</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td align="right">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:ImageButton ID="btnSearch" runat="server" Height="39px" ImageUrl="~/images/Criminal-Background-Check-a.jpg"
-                    Width="41px" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td>
-                <asp:Button ID="btncart" runat="server" BackColor="#EED2EE" ForeColor="#CD3278" Height="31px"
-                    Text="Cart(0)" Width="80px" Style="margin-left: 0px" />
-            </td>
-        </tr>
-        <tr>
-            <td class="style7">
-            </td>
-            <td colspan="3" class="style2">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </td>
-            <td class="style2">
-            </td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hphelp" runat="server" BackColor="#CC99FF" BorderColor="Purple"
-                    BorderStyle="Double" Font-Size="Small">Help</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2h" runat="server" BackColor="#CC99FF" BorderColor="Purple"
-                    BorderStyle="Double" Font-Size="Small">H-2-H</asp:HyperLink>
-            </td>
-            <td>
-                <asp:Label ID="lbKeepInTouch" runat="server" Text="Keep in touch"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="imgbtnfb" runat="server" Height="20px" ImageUrl="~/images/fblogo.jpg"
-                    Width="23px" />
-                &nbsp;
-                <asp:ImageButton ID="imgbtntwiter" runat="server" Height="22px" ImageUrl="~/images/twiter.jpg"
-                    Width="33px" />
-            &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hppayment" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/Payment.aspx">Payment</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2hcontactus" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/ContactUs.aspx">ContactUs</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hpshipping" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/Shipping.aspx">Shipping</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2haboutus" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/AboutUs.aspx">AboutUs</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hpcancellation" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/Cancellation and Returns.aspx">Cancellation&amp;Return</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2hcarreers" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/H2H/Careers.aspx">Carreers</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:HyperLink ID="hpfaq" runat="server" Font-Size="X-Small" ForeColor="Blue" 
-                    NavigateUrl="~/Help/Faq.aspx">FAQ</asp:HyperLink>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2hblog" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/H2H/Blog.aspx">Blog</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-            </td>
-            <td>
-                <asp:HyperLink ID="hph2hpress" runat="server" Font-Size="X-Small" 
-                    ForeColor="Blue" NavigateUrl="~/H2H/Press.aspx">Press</asp:HyperLink>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-            </td>
-            <td>
-                <asp:Label ID="lbpolicies" runat="server" Font-Size="X-Small">Policies:</asp:Label>
-                &nbsp;<asp:HyperLink ID="hptermofuse" runat="server" Font-Size="XX-Small">Term Of Use</asp:HyperLink>
-                &nbsp;&nbsp;|&nbsp;
-                <asp:HyperLink ID="hpsecurity" runat="server" Font-Size="XX-Small">Security</asp:HyperLink>
-                &nbsp;&nbsp;|&nbsp;
-                <asp:HyperLink ID="hpprivacy" runat="server" Font-Size="XX-Small">Privacy</asp:HyperLink>
-                &nbsp;&nbsp;
-            </td>
-            <td>
-                <asp:Label ID="lbh2hhistory" runat="server" Font-Size="XX-Small">2012 h-2-h.com</asp:Label>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <table width="100%" class="tableColor" frame="border">
+            <tr>
+                <td class="style10">
+                </td>
+                <td>
+                    <div>
+                        <strong>
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/HOME2HOME.png" />
+                        </strong>
+                    </div>
+                </td>
+                <div>
+                    <td colspan="2" align="right">
+                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black">ContactUs</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black">Home</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black">Account</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black">Wishlist</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp;&nbsp; </strong>
+                        <asp:HyperLink ID="hpSignup" runat="server">Signup</asp:HyperLink>
+                    </td>
+                </div>
+                <td>
+                </td>
+            </tr>
+            <tr class="engineColor">
+                <td class="style10" class="tableColor">
+                </td>
+                <div>
+                    <td>
+                        <asp:Menu ID="Menu1" runat="server">
+                            <Items>
+                                <asp:MenuItem Text="Categories" Value="Categories"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                </div>
+                <div>
+                    <td>
+                        <asp:Label ID="lbSearch" runat="server" Font-Size="Small" Text="Search :"></asp:Label>
+                        &nbsp;&nbsp;<asp:DropDownList ID="ddlSearchCategory" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"
+                            Style="margin-left: 0px" Width="181px" ForeColor="#CD3278">
+                            <asp:ListItem>Categories</asp:ListItem>
+                            <asp:ListItem>Jwellery&amp;Accessories</asp:ListItem>
+                            <asp:ListItem>Home&amp;Kitchen</asp:ListItem>
+                            <asp:ListItem>Books</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td align="right">
+                        <asp:TextBox ID="TextBox1" runat="server" Style="margin-left: 0px" Width="222px"></asp:TextBox>
+                        <asp:ImageButton ID="btnSearch" runat="server" Height="39px" ImageUrl="~/images/Criminal-Background-Check-a.jpg"
+                            Width="41px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </div>
+                <td>
+                    <asp:Button ID="btncart" runat="server" BackColor="#EED2EE" ForeColor="#CD3278" Height="31px"
+                        Text="Cart(0)" Width="80px" Style="margin-left: 0px" />
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+        <table width="100%">
+            <tr>
+                <td class="style10">
+                </td>
+                <td colspan="2" valign="top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td class="style10">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lbhelp" runat="server" BackColor="#CC99FF" BorderColor="Purple" BorderStyle="Double"
+                                    Font-Size="Small">Help</asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lbh2h" runat="server" BackColor="#CC99FF" BorderColor="Purple" BorderStyle="Double"
+                                    Font-Size="Small">H-2-H</asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="hppayment" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/Help/Payment.aspx">Payment</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hph2hcontactus" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/H2H/ContactUs.aspx">ContactUs</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="hpshipping" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/Help/Shipping.aspx">Shipping</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hph2haboutus" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/H2H/AboutUs.aspx">AboutUs</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="hpcancellation" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/Help/Cancellation and Returns.aspx">Cancellation&amp;Return</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hph2hcarreers" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/H2H/Careers.aspx">Carreers</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:HyperLink ID="hpfaq" runat="server" Font-Size="X-Small" ForeColor="Blue" NavigateUrl="~/Help/Faq.aspx">FAQ</asp:HyperLink>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hph2hblog" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/H2H/Blog.aspx">Blog</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <asp:HyperLink ID="hph2hpress" runat="server" Font-Size="X-Small" ForeColor="Blue"
+                                    NavigateUrl="~/H2H/Press.aspx">Press</asp:HyperLink>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+                    <asp:Label ID="lbpolicies" runat="server" Font-Size="X-Small">Policies:</asp:Label>
+                    &nbsp;<asp:HyperLink ID="hptermofuse" runat="server" Font-Size="XX-Small">Term Of Use</asp:HyperLink>
+                    &nbsp;&nbsp;|&nbsp;
+                    <asp:HyperLink ID="hpsecurity" runat="server" Font-Size="XX-Small">Security</asp:HyperLink>
+                    &nbsp;&nbsp;|&nbsp;
+                    <asp:HyperLink ID="hpprivacy" runat="server" Font-Size="XX-Small">Privacy</asp:HyperLink>
+                    &nbsp;&nbsp;<asp:Label ID="lbh2hhistory" runat="server" Font-Size="XX-Small">© 2007-2012 h-2-h.com</asp:Label>
+                </td>
+            </tr>
+        </table>
+    </div>
     </form>
 </body>
 </html>
