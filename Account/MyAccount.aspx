@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="MyAccount.aspx.cs" Inherits="Account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/childShopping.master" AutoEventWireup="true" CodeFile="MyAccount.aspx.cs" Inherits="Account" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-</asp:Content>
+
+<%-- Add content controls here --%>
 
