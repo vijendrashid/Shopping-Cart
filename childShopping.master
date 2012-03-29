@@ -15,13 +15,15 @@
                         NavigateUrl="~/Account/MyOrders.aspx">My Order(s)</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink2" runat="server">Order Status</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" 
+                        NavigateUrl="~/Account/OrderStatus.aspx">Order Status</asp:HyperLink>
                 </p>
                 <p>
                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="My Stuff"></asp:Label>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink3" runat="server">My Wishlist</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink3" runat="server" 
+                        NavigateUrl="~/Account/WishList.aspx">My Wishlist</asp:HyperLink>
                 </p>
                 <p>
                     <asp:HyperLink ID="HyperLink4" runat="server">My Profile</asp:HyperLink>
@@ -30,13 +32,16 @@
                     <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Settings"></asp:Label>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink5" runat="server">Personal Information</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink5" runat="server" 
+                        NavigateUrl="~/Account/MyAccount.aspx">Personal Information</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink6" runat="server">Change Password</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink6" runat="server" 
+                        NavigateUrl="~/Account/ChangePassword.aspx">Change Password</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink7" runat="server">Address</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink7" runat="server" 
+                        NavigateUrl="~/Account/Addresses.aspx">Address</asp:HyperLink>
                 </p>
             </td>
             <td>
