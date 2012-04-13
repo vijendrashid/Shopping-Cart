@@ -3,27 +3,24 @@
 <script runat="server">
 
 </script>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table width= "100%">
+<asp:Content ID="master" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table width="100%">
         <tr>
-            <td>
+            <td width="10%" bgcolor=#DDFFFF>
                 <p>
                     <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Orders"></asp:Label>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink1" runat="server" 
-                        NavigateUrl="~/Account/MyOrders.aspx">My Order(s)</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server">My Order(s)</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink2" runat="server" 
-                        NavigateUrl="~/Account/OrderStatus.aspx">Order Status</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Account/OrderStatus.aspx">Order Status</asp:HyperLink>
                 </p>
                 <p>
                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="My Stuff"></asp:Label>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink3" runat="server" 
-                        NavigateUrl="~/Account/WishList.aspx">My Wishlist</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Account/WishList.aspx">My Wishlist</asp:HyperLink>
                 </p>
                 <p>
                     <asp:HyperLink ID="HyperLink4" runat="server">My Profile</asp:HyperLink>
@@ -33,18 +30,18 @@
                 </p>
                 <p>
                     <asp:HyperLink ID="HyperLink5" runat="server" 
-                        NavigateUrl="~/Account/MyAccount.aspx">Personal Information</asp:HyperLink>
+                        NavigateUrl="~/Account/PersonalInformation.aspx">Personal Information</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink6" runat="server" 
-                        NavigateUrl="~/Account/ChangePassword.aspx">Change Password</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Account/ChangePassword.aspx">Change Password</asp:HyperLink>
                 </p>
                 <p>
-                    <asp:HyperLink ID="HyperLink7" runat="server" 
-                        NavigateUrl="~/Account/Addresses.aspx">Address</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Account/Addresses.aspx">Addresses</asp:HyperLink>
                 </p>
             </td>
-            <td>
+            <td valign="top" width="90%">
+                <asp:ContentPlaceHolder ID="ChildMaster" runat="server">
+                </asp:ContentPlaceHolder>
             </td>
         </tr>
     </table>

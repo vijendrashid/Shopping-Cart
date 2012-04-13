@@ -47,17 +47,16 @@
                 </td>
                 <div>
                     <td colspan="2" align="right">
-                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" 
-                            ForeColor="Black" NavigateUrl="~/H2H/ContactUs.aspx">ContactUs</asp:HyperLink>
+                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/H2H/ContactUs.aspx">ContactUs</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" 
-                            NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" 
-                            ForeColor="Black" NavigateUrl="~/Account/MyAccount.aspx">Account</asp:HyperLink>
+                        <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" 
-                            ForeColor="Black" NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
+                        <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
                         <strong>&nbsp; |&nbsp;&nbsp; </strong>
@@ -77,8 +76,7 @@
                                 <asp:MenuItem Text="Categories" Value="Categories">
                                     <asp:MenuItem Text="Mobile &amp; Accessories" Value="Mobile Accessories">
                                         <asp:MenuItem Text="Mobile Home" Value="Mobile Home"></asp:MenuItem>
-                                        <asp:MenuItem Text="Mobile Accessories" Value="Mobile Accessories">
-                                        </asp:MenuItem>
+                                        <asp:MenuItem Text="Mobile Accessories" Value="Mobile Accessories"></asp:MenuItem>
                                         <asp:MenuItem Text="Brand" Value="Brand">
                                             <asp:MenuItem Text="Motorola" Value="Motorola"></asp:MenuItem>
                                             <asp:MenuItem Text="HTC" Value="HTC"></asp:MenuItem>
