@@ -34,11 +34,11 @@ way to fit your requirements.
 {
     float: left;
     width: 150px;
-    -moz-transition: 0.25s 0.25s;
-    -ms-transition: 0.25s;
-    -o-transition: 0.25s;
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
+    -moz-transition: 0.15s 0.15s;
+    -ms-transition: 0.15s;
+    -o-transition: 0.15s;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
 }
 .stretchDrop > li.last
 {

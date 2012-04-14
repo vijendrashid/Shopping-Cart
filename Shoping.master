@@ -4,289 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Welcome to Home 2 Home! </title>
-    <style type="text/css">
-        #form1
-        {
-            height: 100%;
-        }
-        .style1
-        {
-            height: 24px;
-        }
-        .style10
-        {
-            width: 66px;
-        }
-        .tableColor
-        {
-            background-color: #66CCFF;
-        }
-        .engineColor
-        {
-            background-color: #C6F5FF;
-        }
-        
-        /* ================================================================ 
-This copyright notice must be untouched at all times.
-
-The original version of this stylesheet and the associated (x)html
-is available at http://www.cssplay.co.uk/menus/cssplay-stretch-drop.html
-Copyright (c) Stu Nicholls. All rights reserved.
-This stylesheet and the associated (x)html may be modified in any 
-way to fit your requirements.
-=================================================================== */
-        .stretchHolder
-        {
-            width: 970px;
-            height: 38px;
-            margin: 10px 150px 10px 150px;
-            position:relative;
-            z-index: 100;
-            font-family: arial, sans-serif;
-            top: 0px;
-            left: 0px;
-        }
-        .stretchMenu
-        {
-            position: absolute;
-            width: 750px;
-            overflow: hidden;
-        }
-        .stretchDrop
-        {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            width: 1150px;
-            position: relative;
-        }
-        .stretchDrop > li.slide
-        {
-            float: left;
-            width: 150px;
-            -moz-transition: 0.25s 0.25s;
-            -ms-transition: 0.25s;
-            -o-transition: 0.25s;
-            -webkit-transition: 0.25s;
-            transition: 0.25s;
-        }
-        .stretchDrop > li.last
-        {
-            width: 470px;
-            float: left;
-        }
-        
-        .stretchDrop > li > a
-        {
-            display: block;
-            font-weight: bold;
-            line-height: 50px;
-            padding-left: 10px;
-            color: #000;
-            text-decoration: none;
-            font-size: 13px;
-            text-shadow: 0 1px 1px #fff;
-            border-left: 1px solid #fff;
-        }
-        .stretchDrop > li.slide > a
-        {
-            border-right: 1px solid #000;
-        }
-        .stretchDrop > li.p1 > a
-        {
-            background: #09c;
-        }
-        .stretchDrop > li.p2 > a
-        {
-            background: #c90;
-        }
-        .stretchDrop > li.p3 > a
-        {
-            background: #0c9;
-        }
-        .stretchDrop > li.p4 > a
-        {
-            background: #9c0;
-        }
-        .stretchDrop > li.p5 > a
-        {
-            background: #f6c;
-        }
-        
-        .stretchDrop > li.p1 > a, .stretchDrop > li.p2 > a, .stretchDrop > li.p3 > a, .stretchDrop > li.p4 > a, .stretchDrop > li.p5 > a
-        {
-            background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, rgba(255, 255, 255, 0.7)), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(rgba(255, 255, 255, 0.3)));
-            background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.2) 50%, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
-            background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.2) 50%, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
-            background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.2) 50%, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
-            background-image: linear-gradient(top, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0.2) 50%, transparent 50%, rgba(255, 255, 255, 0.3) 100%);
-            -webkit-box-shadow: inset -1px 0 1px rgba(255, 255, 255, 0.4), inset 1px 0 1px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.4);
-            -moz-box-shadow: inset -1px 0 1px rgba(255, 255, 255, 0.4), inset 1px 0 1px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.4);
-            box-shadow: inset -1px 0 1px rgba(255, 255, 255, 0.4), inset 1px 0 1px rgba(255, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.4);
-            text-shadow: 0 1px 1px #fff;
-        }
-        
-        .stretchDrop > li > div
-        {
-            height: 0;
-            width: 469px;
-            overflow: hidden;
-            position: relative;
-            border-radius: 0 0 20px 20px;
-            margin-left: 1px;
-            -moz-transition: height 0.25s;
-            -ms-transition: height 0.25s;
-            -o-transition: height 0.25s;
-            -webkit-transition: height 0.25s;
-            transition: height 0.25s;
-        }
-        .stretchDrop > li.p1 > div
-        {
-            background: #09c;
-        }
-        .stretchDrop > li.p2 > div
-        {
-            background: #c90;
-        }
-        .stretchDrop > li.p3 > div
-        {
-            background: #0c9;
-        }
-        .stretchDrop > li.p4 > div
-        {
-            background: #9c0;
-        }
-        .stretchDrop > li.p5 > div
-        {
-            background: #f6c;
-        }
-        
-        .stretchDrop > li.p1 > div, .stretchDrop > li.p2 > div, .stretchDrop > li.p3 > div, .stretchDrop > li.p4 > div, .stretchDrop > li.p5 > div
-        {
-            background-image: -moz-linear-gradient(90deg, rgba(255, 255, 255,0.3), rgba(255, 255, 255,0));
-            background-image: -webkit-linear-gradient(900deg, rgba(255, 255, 255,0.3), rgba(255, 255, 255,0));
-            background-image: -ms-linear-gradient(90deg, rgba(255, 255, 255,0.3), rgba(255, 255, 255,0));
-            background-image: -o-linear-gradient(90deg, rgba(255, 255, 255,0.3), rgba(255, 255, 255,0));
-            background-image: linear-gradient(90deg, rgba(255, 255, 255,0.3), rgba(255, 255, 255,0));
-        }
-        
-        .stretchDrop:hover
-        {
-            direction: ltr;
-        }
-        .stretchDrop:hover > li.slide
-        {
-            width: 70px;
-            -moz-transition: 0.25s 0.25s;
-            -ms-transition: 0.25s;
-            -o-transition: 0.25s;
-            -webkit-transition: 0.25s;
-            transition: 0.25s;
-        }
-        
-        .stretchDrop:hover > li.slide:hover
-        {
-            width: 470px;
-            -moz-transition: 0.25s 0.25s;
-            -ms-transition: 0.25s;
-            -o-transition: 0.25s;
-            -webkit-transition: 0.25s;
-            transition: 0.25s;
-        }
-        .stretchDrop:hover > li:hover > div
-        {
-            height: 210px;
-            -moz-transition: 0.25s 0.5s;
-            -ms-transition: 0.25s 1s;
-            -o-transition: 0.25s 1s;
-            -webkit-transition: 0.25s 1s;
-            transition: 0.25s 1s;
-        }
-        
-        .stretchDrop > li > div b
-        {
-            display: block;
-            width: 470px;
-            height: 50px;
-            background: #888;
-            margin-top: -50px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.8);
-        }
-        .stretchDrop > li > div dl
-        {
-            width: 110px;
-            float: left;
-            padding: 5px 10px;
-            margin: 12px;
-            font-weight: bold;
-        }
-        
-        .stretchDrop > li > div dl dt
-        {
-            padding-left: 10px;
-            margin-bottom: 5px;
-            font-size: 13px;
-            line-height: 25px;
-            border-bottom: 1px dotted #000;
-            text-shadow: 0 1px 1px #fff;
-        }
-        .stretchDrop > li.p1 > div dl dt
-        {
-            color: #036;
-        }
-        .stretchDrop > li.p2 > div dl dt
-        {
-            color: #630;
-        }
-        .stretchDrop > li.p3 > div dl dt
-        {
-            color: #063;
-        }
-        .stretchDrop > li.p4 > div dl dt
-        {
-            color: #360;
-        }
-        .stretchDrop > li.p5 > div dl dt
-        {
-            color: #906;
-        }
-        
-        
-        .stretchDrop > li > div dl dd
-        {
-            padding: 0;
-            margin: 0;
-        }
-        .stretchDrop > li > div dl dd a
-        {
-            display: block;
-            color: #fff;
-            font-size: 11px;
-            line-height: 20px;
-            text-decoration: none;
-            padding-left: 10px;
-        }
-        .stretchDrop > li > div dl dd a:hover
-        {
-            color: #fff;
-            background: rgba(0,0,0,0.3);
-            border-radius: 5px;
-        }
-        #info .stretchDrop > li > div p
-        {
-            width: 404px;
-            height: 30px;
-            background: #eee;
-            position: absolute;
-            bottom: 5px;
-            left: 12px;
-            padding: 0 20px;
-            line-height: 30px;
-            font-size: 12px;
-            margin: 0;
-            border-radius: 30px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="CSS/master.css" />
 </head>
 <body>
     <form id="form1" runat="server" class="style1">
@@ -361,104 +79,104 @@ way to fit your requirements.
                                     <div>
                                         <b></b>
                                         <dl>
-                                            <dt>Cameras</dt>
+                                            <dt>Brands</dt>
                                             <dd>
-                                                <a href="url">Model #1</a></dd>
+                                                <a href="url">Nokia</a></dd>
                                             <dd>
-                                                <a href="url">Model #2</a></dd>
+                                                <a href="url">Blackberry</a></dd>
                                             <dd>
-                                                <a href="url">Model #3</a></dd>
+                                                <a href="url">Samsung</a></dd>
                                             <dd>
-                                                <a href="url">Model #4</a></dd>
+                                                <a href="url">HTC</a></dd>
                                             <dd>
-                                                <a href="url">Model #5</a></dd>
+                                                <a href="url">Sony Ericson</a></dd>
                                             <dd>
-                                                <a href="url">Model #6</a></dd>
+                                                <a href="url">All Brands</a></dd>
                                         </dl>
                                         <dl>
-                                            <dt>Lenses</dt>
+                                            <dt>Type</dt>
                                             <dd>
-                                                <a href="url">Standard</a></dd>
+                                                <a href="url">SmartPhones</a></dd>
                                             <dd>
-                                                <a href="url">Telephoto</a></dd>
+                                                <a href="url">Android Phones</a></dd>
                                             <dd>
-                                                <a href="url">Wide</a></dd>
+                                                <a href="url">Dual SIM Phones</a></dd>
                                             <dd>
-                                                <a href="url">Zoom</a></dd>
+                                                <a href="url">Business Phones</a></dd>
                                             <dd>
-                                                <a href="url">Ultra Zoom</a></dd>
+                                                <a href="url">Video Call Phones</a></dd>
                                             <dd>
-                                                <a href="url">Fish Eye</a></dd>
+                                                <a href="url">All Types</a></dd>
                                         </dl>
                                         <dl>
                                             <dt>Accessories</dt>
                                             <dd>
-                                                <a href="url">Filters</a></dd>
+                                                <a href="url">Headsets</a></dd>
                                             <dd>
-                                                <a href="url">Tripods</a></dd>
+                                                <a href="url">Screen Guards</a></dd>
                                             <dd>
-                                                <a href="url">Flashguns</a></dd>
-                                            <dd>
-                                                <a href="url">Lens Hoods</a></dd>
-                                            <dd>
-                                                <a href="url">Gadget Bags</a></dd>
+                                                <a href="url">Cases, Covers</a></dd>
                                             <dd>
                                                 <a href="url">Batteries</a></dd>
+                                            <dd>
+                                                <a href="url">Memory Cards</a></dd>
+                                            <dd>
+                                                <a href="url">Show All </a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Digital Cameras</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Mobile Phones</a> &#9002;</p>
                                     </div>
                                 </li>
                                 <li class="slide p2"><a href="#url">Appliances</a>
                                     <div>
                                         <b></b>
                                         <dl>
-                                            <dt>Cameras</dt>
+                                            <dt>Home Appliances</dt>
                                             <dd>
-                                                <a href="url">Model #1</a></dd>
+                                                <a href="url">Irons</a></dd>
                                             <dd>
-                                                <a href="url">Model #2</a></dd>
+                                                <a href="url">Emergency Lights</a></dd>
                                             <dd>
-                                                <a href="url">Model #3</a></dd>
+                                                <a href="url">Vacuum Cleanners</a></dd>
                                             <dd>
-                                                <a href="url">Model #4</a></dd>
+                                                <a href="url">Washing Machines</a></dd>
                                             <dd>
-                                                <a href="url">Model #5</a></dd>
+                                                <a href="url">Air Coolers</a></dd>
                                             <dd>
-                                                <a href="url">Model #6</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <dl>
-                                            <dt>Lenses</dt>
+                                            <dt>Kitchen Appliances</dt>
                                             <dd>
-                                                <a href="url">Standard</a></dd>
+                                                <a href="url">Mixer Ginder Juicer</a></dd>
                                             <dd>
-                                                <a href="url">Telephoto</a></dd>
+                                                <a href="url">Food Processors</a></dd>
                                             <dd>
-                                                <a href="url">Wide</a></dd>
+                                                <a href="url">Coffee Makers</a></dd>
                                             <dd>
-                                                <a href="url">Zoom</a></dd>
+                                                <a href="url">Microwave Owns</a></dd>
                                             <dd>
-                                                <a href="url">Ultra Zoom</a></dd>
+                                                <a href="url">Refigertors</a></dd>
                                             <dd>
-                                                <a href="url">Fish Eye</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <dl>
-                                            <dt>Accessories</dt>
+                                            <dt>Brands</dt>
                                             <dd>
-                                                <a href="url">Filters</a></dd>
+                                                <a href="url">Philips</a></dd>
                                             <dd>
-                                                <a href="url">Tripods</a></dd>
+                                                <a href="url">Bajaj</a></dd>
                                             <dd>
-                                                <a href="url">Flashguns</a></dd>
+                                                <a href="url">Whirlpool</a></dd>
                                             <dd>
-                                                <a href="url">Lens Hoods</a></dd>
+                                                <a href="url">Orpat</a></dd>
                                             <dd>
-                                                <a href="url">Gadget Bags</a></dd>
+                                                <a href="url">Voltas</a></dd>
                                             <dd>
-                                                <a href="url">Batteries</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Digital Cameras</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Appliances</a> &#9002;</p>
                                     </div>
                                 </li>
                                 <li class="slide p3"><a href="#url">Flowers</a>
@@ -517,52 +235,52 @@ way to fit your requirements.
                                     <div>
                                         <b></b>
                                         <dl>
-                                            <dt>Cameras</dt>
+                                            <dt>Computer Components</dt>
                                             <dd>
-                                                <a href="url">Model #1</a></dd>
+                                                <a href="url">RAM</a></dd>
                                             <dd>
-                                                <a href="url">Model #2</a></dd>
+                                                <a href="url">Graphic Cards</a></dd>
                                             <dd>
-                                                <a href="url">Model #3</a></dd>
+                                                <a href="url">Internal Hard Drive</a></dd>
                                             <dd>
-                                                <a href="url">Model #4</a></dd>
+                                                <a href="url">Motherboard</a></dd>
                                             <dd>
-                                                <a href="url">Model #5</a></dd>
+                                                <a href="url">Processor</a></dd>
                                             <dd>
-                                                <a href="url">Model #6</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <dl>
-                                            <dt>Lenses</dt>
+                                            <dt>Laptops</dt>
                                             <dd>
-                                                <a href="url">Standard</a></dd>
+                                                <a href="url">Dell</a></dd>
                                             <dd>
-                                                <a href="url">Telephoto</a></dd>
+                                                <a href="url">HP</a></dd>
                                             <dd>
-                                                <a href="url">Wide</a></dd>
+                                                <a href="url">Asus</a></dd>
                                             <dd>
-                                                <a href="url">Zoom</a></dd>
+                                                <a href="url">Sony</a></dd>
                                             <dd>
-                                                <a href="url">Ultra Zoom</a></dd>
+                                                <a href="url">Acer</a></dd>
                                             <dd>
-                                                <a href="url">Fish Eye</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <dl>
                                             <dt>Accessories</dt>
                                             <dd>
-                                                <a href="url">Filters</a></dd>
+                                                <a href="url">Pen Drives</a></dd>
                                             <dd>
-                                                <a href="url">Tripods</a></dd>
+                                                <a href="url">External Hard Disks</a></dd>
                                             <dd>
-                                                <a href="url">Flashguns</a></dd>
+                                                <a href="url">HeadPhones</a></dd>
                                             <dd>
-                                                <a href="url">Lens Hoods</a></dd>
+                                                <a href="url">Speakers</a></dd>
                                             <dd>
-                                                <a href="url">Gadget Bags</a></dd>
+                                                <a href="url">WebCam</a></dd>
                                             <dd>
-                                                <a href="url">Batteries</a></dd>
+                                                <a href="url">View All</a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Digital Cameras</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Computers</a> &#9002;</p>
                                     </div>
                                 </li>
                                 <li class="last p5"><a href="#url">Pentax</a>
