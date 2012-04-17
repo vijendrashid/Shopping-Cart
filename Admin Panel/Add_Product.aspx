@@ -1,14 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin Panel/Admin.master" AutoEventWireup="true"  %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
-    <title>Untitled Page</title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" Runat="Server">
     <div>
+        <br />
         <asp:Label ID="lbl_proidid" runat="server" 
             Style="left: 0px; position: relative" Text="Product Id :"></asp:Label>&nbsp;
         <asp:TextBox ID="txt_prodid" runat="server" 
@@ -43,13 +40,12 @@
         <br />
         <asp:Label ID="lbl_featr" runat="server" Style="position: relative" 
             Text="Features :"></asp:Label>&nbsp;
-        <asp:TextBox ID="txt_featr" runat="server" 
-            Style="position: relative; top: 3px; left: -1px;" TextMode="MultiLine"></asp:TextBox><br />
+        <CKEditor:CKEditorControl ID="ckeditorFeatures"  runat="server"></CKEditor:CKEditorControl><br />
         <br />
         <asp:Label ID="lbl_descp" runat="server" Style="position: relative" 
             Text="Description :"></asp:Label>&nbsp;
-        <asp:TextBox ID="txt_descp" runat="server" Style="position: relative" 
-            TextMode="MultiLine"></asp:TextBox><br />
+            <CKEditor:CKEditorControl ID="ckeditorDescription"  runat="server"></CKEditor:CKEditorControl>
+        <br />
         <br />
         <asp:Label ID="lbl_price" runat="server" Style="position: relative" 
             Text="Price :"></asp:Label>&nbsp;
@@ -87,6 +83,4 @@
             Style="position: relative; top: 1px; left: 0px;" /><br />
         <br />
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

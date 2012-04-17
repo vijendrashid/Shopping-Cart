@@ -9,345 +9,332 @@
 <body>
     <form id="form1" runat="server" class="style1">
     <div>
-        <table width="100%">
+        <div class="stretchHolder">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/H2H.png" Height="35px"
+                            Width="184px" />
+                    </td>
+                    <td align="right">
+                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/H2H/ContactUs.aspx">ContactUs</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
+                            NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
+                        <strong>&nbsp; |&nbsp;&nbsp; </strong>
+                        <asp:HyperLink ID="hpSignup" runat="server">Signup</asp:HyperLink>
+                    </td>
+                    <td>
+                        <div>
+                            <asp:Button ID="btncart" runat="server" Text="Cart(0)" CssClass="Button" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="stretchHolder">
+            <table>
+                <tr>
+                    <td>
+                        <asp:Label ID="lbSearch" runat="server" Font-Size="Small" Text="Search :"></asp:Label>
+                        <div class="wrapper1">
+                            <div class="content-wrapper1">
+                               								<div class="search-button1 hide-search-button">
+                                    <span>
+                                        <img src="images/search-icon.png" runat="server"/></span>
+                                </div>
+                                <div class="search-box1 show-search-box showed-search-box">
+                                    <input type="text" placeholder="Type your keyword..."/>
+                                    <img src="images/close.png" runat="server"/>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table>
             <tr>
                 <td>
                     <div class="stretchHolder">
-                        <table width="100%">
-                            <tr>
-                                <td>
-                                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/H2H.png" Height="64px"
-                                        Width="184px" />
-                                </td>
-                                <td align="right">
-                                    <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black"
-                                        NavigateUrl="~/H2H/ContactUs.aspx">ContactUs</asp:HyperLink>
-                                    <strong>&nbsp; |&nbsp; </strong>
-                                    <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
-                                    <strong>&nbsp; |&nbsp; </strong>
-                                    <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
-                                        NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
-                                    <strong>&nbsp; |&nbsp; </strong>
-                                    <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
-                                        NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
-                                    <strong>&nbsp; |&nbsp; </strong>
-                                    <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
-                                    <strong>&nbsp; |&nbsp;&nbsp; </strong>
-                                    <asp:HyperLink ID="hpSignup" runat="server">Signup</asp:HyperLink>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="stretchHolder">
-                        <table width="100%">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lbSearch" runat="server" Font-Size="Small" Text="Search :"></asp:Label>
-                                    &nbsp;&nbsp;<asp:DropDownList ID="ddlSearchCategory" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"
-                                        ForeColor="#CD3278" Height="19px" Width="152px">
-                                        <asp:ListItem Selected="True">Categories</asp:ListItem>
-                                        <asp:ListItem>Mobiles</asp:ListItem>
-                                        <asp:ListItem>Home Appliances</asp:ListItem>
-                                        <asp:ListItem>Flowers</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="TextBox1" runat="server" Style="margin-left: 0px" Width="222px"></asp:TextBox>
-                                    <asp:ImageButton ID="btnSearch" runat="server" Height="39px" ImageUrl="~/images/Criminal-Background-Check-a.jpg"
-                                        Width="41px" />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                </td>
-                                <td>
-                                    <asp:Button ID="btncart" runat="server" Text="Cart(0)" CssClass="Button"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="stretchHolder">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="stretchMenu">
-                                        <ul class="stretchDrop">
-                                            <li class="slide p1"><a href="#url">Mobile</a>
-                                                <div>
-                                                    <b></b>
-                                                    <dl>
-                                                        <dt>Brands</dt>
-                                                        <dd>
-                                                            <a href="url">Nokia</a></dd>
-                                                        <dd>
-                                                            <a href="url">Blackberry</a></dd>
-                                                        <dd>
-                                                            <a href="url">Samsung</a></dd>
-                                                        <dd>
-                                                            <a href="url">HTC</a></dd>
-                                                        <dd>
-                                                            <a href="url">Sony Ericson</a></dd>
-                                                        <dd>
-                                                            <a href="url">All Brands</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Type</dt>
-                                                        <dd>
-                                                            <a href="url">SmartPhones</a></dd>
-                                                        <dd>
-                                                            <a href="url">Android Phones</a></dd>
-                                                        <dd>
-                                                            <a href="url">Dual SIM Phones</a></dd>
-                                                        <dd>
-                                                            <a href="url">Business Phones</a></dd>
-                                                        <dd>
-                                                            <a href="url">Video Call Phones</a></dd>
-                                                        <dd>
-                                                            <a href="url">All Types</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Accessories</dt>
-                                                        <dd>
-                                                            <a href="url">Headsets</a></dd>
-                                                        <dd>
-                                                            <a href="url">Screen Guards</a></dd>
-                                                        <dd>
-                                                            <a href="url">Cases, Covers</a></dd>
-                                                        <dd>
-                                                            <a href="url">Batteries</a></dd>
-                                                        <dd>
-                                                            <a href="url">Memory Cards</a></dd>
-                                                        <dd>
-                                                            <a href="url">Show All </a>
-                                                        </dd>
-                                                    </dl>
-                                                    <p>
-                                                        Special Offers on all <a href="#url">Mobile Phones</a> &#9002;</p>
-                                                </div>
-                                            </li>
-                                            <li class="slide p2"><a href="#url">Appliances</a>
-                                                <div>
-                                                    <b></b>
-                                                    <dl>
-                                                        <dt>Home Appliances</dt>
-                                                        <dd>
-                                                            <a href="url">Irons</a></dd>
-                                                        <dd>
-                                                            <a href="url">Emergency Lights</a></dd>
-                                                        <dd>
-                                                            <a href="url">Vacuum Cleanners</a></dd>
-                                                        <dd>
-                                                            <a href="url">Washing Machines</a></dd>
-                                                        <dd>
-                                                            <a href="url">Air Coolers</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Kitchen Appliances</dt>
-                                                        <dd>
-                                                            <a href="url">Mixer Ginder Juicer</a></dd>
-                                                        <dd>
-                                                            <a href="url">Food Processors</a></dd>
-                                                        <dd>
-                                                            <a href="url">Coffee Makers</a></dd>
-                                                        <dd>
-                                                            <a href="url">Microwave Owns</a></dd>
-                                                        <dd>
-                                                            <a href="url">Refigertors</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Brands</dt>
-                                                        <dd>
-                                                            <a href="url">Philips</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bajaj</a></dd>
-                                                        <dd>
-                                                            <a href="url">Whirlpool</a></dd>
-                                                        <dd>
-                                                            <a href="url">Orpat</a></dd>
-                                                        <dd>
-                                                            <a href="url">Voltas</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <p>
-                                                        Special Offers on all <a href="#url">Appliances</a> &#9002;</p>
-                                                </div>
-                                            </li>
-                                            <li class="slide p3"><a href="#url">Flowers</a>
-                                                <div>
-                                                    <b></b>
-                                                    <dl>
-                                                        <dt>Availability</dt>
-                                                        <dd>
-                                                            <a href="url">Midnight Delivery</a></dd>
-                                                        <dd>
-                                                            <a href="url">Regular Delivery</a></dd>
-                                                        <dd>
-                                                            <a href="url">Same Day Delivery</a></dd>
-                                                        <dd>
-                                                            <a href="url"></a>
-                                                        </dd>
-                                                        <dd>
-                                                            <a href="url"></a>
-                                                        </dd>
-                                                        <dd>
-                                                            <a href="url"></a>
-                                                        </dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Category</dt>
-                                                        <dd>
-                                                            <a href="url">Arrangement</a></dd>
-                                                        <dd>
-                                                            <a href="url">Basket</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bouquet</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bud</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bunch</a></dd>
-                                                        <dd>
-                                                            <a href="url">Vase</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Type</dt>
-                                                        <dd>
-                                                            <a href="url">Roses</a></dd>
-                                                        <dd>
-                                                            <a href="url">Lilies</a></dd>
-                                                        <dd>
-                                                            <a href="url">Daisies</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bird of Paradise</a></dd>
-                                                        <dd>
-                                                            <a href="url">Mix</a></dd>
-                                                        <dd>
-                                                            <a href="url">All Type</a></dd>
-                                                    </dl>
-                                                    <p>
-                                                        Special Offers on all <a href="#url">Flowers</a> &#9002;</p>
-                                                </div>
-                                            </li>
-                                            <li class="slide p4"><a href="#url">Computers</a>
-                                                <div>
-                                                    <b></b>
-                                                    <dl>
-                                                        <dt>Components</dt>
-                                                        <dd>
-                                                            <a href="url">RAM</a></dd>
-                                                        <dd>
-                                                            <a href="url">Graphic Cards</a></dd>
-                                                        <dd>
-                                                            <a href="url">Internal Hard Drive</a></dd>
-                                                        <dd>
-                                                            <a href="url">Motherboard</a></dd>
-                                                        <dd>
-                                                            <a href="url">Processor</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Laptops</dt>
-                                                        <dd>
-                                                            <a href="url">Dell</a></dd>
-                                                        <dd>
-                                                            <a href="url">HP</a></dd>
-                                                        <dd>
-                                                            <a href="url">Asus</a></dd>
-                                                        <dd>
-                                                            <a href="url">Sony</a></dd>
-                                                        <dd>
-                                                            <a href="url">Acer</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Accessories</dt>
-                                                        <dd>
-                                                            <a href="url">Pen Drives</a></dd>
-                                                        <dd>
-                                                            <a href="url">External Hard Disks</a></dd>
-                                                        <dd>
-                                                            <a href="url">HeadPhones</a></dd>
-                                                        <dd>
-                                                            <a href="url">Speakers</a></dd>
-                                                        <dd>
-                                                            <a href="url">WebCam</a></dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <p>
-                                                        Special Offers on all <a href="#url">Computers</a> &#9002;</p>
-                                                </div>
-                                            </li>
-                                            <li class="last p5"><a href="#url">Music CDs</a>
-                                                <div>
-                                                    <b></b>
-                                                    <dl>
-                                                        <dt>Music Home</dt>
-                                                        <dd>
-                                                            <a href="url">Bollywood New</a></dd>
-                                                        <dd>
-                                                            <a href="url">Hollywood New</a></dd>
-                                                        <dd>
-                                                            <a href="url">Box Office Top 10</a></dd>
-                                                        <dd>
-                                                            <a href="url"></a>
-                                                        </dd>
-                                                        <dd>
-                                                            <a href="url"></a>
-                                                        </dd>
-                                                        <dd>
-                                                            <a href="url">View All</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Genre</dt>
-                                                        <dd>
-                                                            <a href="url">Bollywood OST</a></dd>
-                                                        <dd>
-                                                            <a href="url">Devotional</a></dd>
-                                                        <dd>
-                                                            <a href="url">Heavy Metallic</a></dd>
-                                                        <dd>
-                                                            <a href="url">R&B</a></dd>
-                                                        <dd>
-                                                            <a href="url">Rap</a></dd>
-                                                        <dd>
-                                                            <a href="url">All Genre</a></dd>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Languages</dt>
-                                                        <dd>
-                                                            <a href="url">English</a></dd>
-                                                        <dd>
-                                                            <a href="url">Hindi</a></dd>
-                                                        <dd>
-                                                            <a href="url">Marathi</a></dd>
-                                                        <dd>
-                                                            <a href="url">Tamil</a></dd>
-                                                        <dd>
-                                                            <a href="url">Bengali</a></dd>
-                                                        <dd>
-                                                            <a href="url">&nbsp</a></dd>
-                                                    </dl>
-                                                    <p>
-                                                        Special Offers on all <a href="#url">Music CDs</a> &#9002;</p>
-                                                </div>
-                                            </li>
-                                        </ul>
+                        <div class="stretchMenu">
+                            <ul class="stretchDrop">
+                                <li class="slide p1"><a href="#url">Mobile</a>
+                                    <div>
+                                        <b></b>
+                                        <dl>
+                                            <dt>Brands</dt>
+                                            <dd>
+                                                <a href="url">Nokia</a></dd>
+                                            <dd>
+                                                <a href="url">Blackberry</a></dd>
+                                            <dd>
+                                                <a href="url">Samsung</a></dd>
+                                            <dd>
+                                                <a href="url">HTC</a></dd>
+                                            <dd>
+                                                <a href="url">Sony Ericson</a></dd>
+                                            <dd>
+                                                <a href="url">All Brands</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Type</dt>
+                                            <dd>
+                                                <a href="url">SmartPhones</a></dd>
+                                            <dd>
+                                                <a href="url">Android Phones</a></dd>
+                                            <dd>
+                                                <a href="url">Dual SIM Phones</a></dd>
+                                            <dd>
+                                                <a href="url">Business Phones</a></dd>
+                                            <dd>
+                                                <a href="url">Video Call Phones</a></dd>
+                                            <dd>
+                                                <a href="url">All Types</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Accessories</dt>
+                                            <dd>
+                                                <a href="url">Headsets</a></dd>
+                                            <dd>
+                                                <a href="url">Screen Guards</a></dd>
+                                            <dd>
+                                                <a href="url">Cases, Covers</a></dd>
+                                            <dd>
+                                                <a href="url">Batteries</a></dd>
+                                            <dd>
+                                                <a href="url">Memory Cards</a></dd>
+                                            <dd>
+                                                <a href="url">Show All </a>
+                                            </dd>
+                                        </dl>
+                                        <p>
+                                            Special Offers on all <a href="#url">Mobile Phones</a> &#9002;</p>
                                     </div>
-                                </td>
-                            </tr>
-                        </table>
+                                </li>
+                                <li class="slide p2"><a href="#url">Appliances</a>
+                                    <div>
+                                        <b></b>
+                                        <dl>
+                                            <dt>Home Appliances</dt>
+                                            <dd>
+                                                <a href="url">Irons</a></dd>
+                                            <dd>
+                                                <a href="url">Emergency Lights</a></dd>
+                                            <dd>
+                                                <a href="url">Vacuum Cleanners</a></dd>
+                                            <dd>
+                                                <a href="url">Washing Machines</a></dd>
+                                            <dd>
+                                                <a href="url">Air Coolers</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Kitchen Appliances</dt>
+                                            <dd>
+                                                <a href="url">Mixer Ginder Juicer</a></dd>
+                                            <dd>
+                                                <a href="url">Food Processors</a></dd>
+                                            <dd>
+                                                <a href="url">Coffee Makers</a></dd>
+                                            <dd>
+                                                <a href="url">Microwave Owns</a></dd>
+                                            <dd>
+                                                <a href="url">Refigertors</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Brands</dt>
+                                            <dd>
+                                                <a href="url">Philips</a></dd>
+                                            <dd>
+                                                <a href="url">Bajaj</a></dd>
+                                            <dd>
+                                                <a href="url">Whirlpool</a></dd>
+                                            <dd>
+                                                <a href="url">Orpat</a></dd>
+                                            <dd>
+                                                <a href="url">Voltas</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <p>
+                                            Special Offers on all <a href="#url">Appliances</a> &#9002;</p>
+                                    </div>
+                                </li>
+                                <li class="slide p3"><a href="#url">Flowers</a>
+                                    <div>
+                                        <b></b>
+                                        <dl>
+                                            <dt>Availability</dt>
+                                            <dd>
+                                                <a href="url">Midnight Delivery</a></dd>
+                                            <dd>
+                                                <a href="url">Regular Delivery</a></dd>
+                                            <dd>
+                                                <a href="url">Same Day Delivery</a></dd>
+                                            <dd>
+                                                <a href="url"></a>
+                                            </dd>
+                                            <dd>
+                                                <a href="url"></a>
+                                            </dd>
+                                            <dd>
+                                                <a href="url"></a>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Category</dt>
+                                            <dd>
+                                                <a href="url">Arrangement</a></dd>
+                                            <dd>
+                                                <a href="url">Basket</a></dd>
+                                            <dd>
+                                                <a href="url">Bouquet</a></dd>
+                                            <dd>
+                                                <a href="url">Bud</a></dd>
+                                            <dd>
+                                                <a href="url">Bunch</a></dd>
+                                            <dd>
+                                                <a href="url">Vase</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Type</dt>
+                                            <dd>
+                                                <a href="url">Roses</a></dd>
+                                            <dd>
+                                                <a href="url">Lilies</a></dd>
+                                            <dd>
+                                                <a href="url">Daisies</a></dd>
+                                            <dd>
+                                                <a href="url">Bird of Paradise</a></dd>
+                                            <dd>
+                                                <a href="url">Mix</a></dd>
+                                            <dd>
+                                                <a href="url">All Type</a></dd>
+                                        </dl>
+                                        <p>
+                                            Special Offers on all <a href="#url">Flowers</a> &#9002;</p>
+                                    </div>
+                                </li>
+                                <li class="slide p4"><a href="#url">Computers</a>
+                                    <div>
+                                        <b></b>
+                                        <dl>
+                                            <dt>Components</dt>
+                                            <dd>
+                                                <a href="url">RAM</a></dd>
+                                            <dd>
+                                                <a href="url">Graphic Cards</a></dd>
+                                            <dd>
+                                                <a href="url">Internal Hard Drive</a></dd>
+                                            <dd>
+                                                <a href="url">Motherboard</a></dd>
+                                            <dd>
+                                                <a href="url">Processor</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Laptops</dt>
+                                            <dd>
+                                                <a href="url">Dell</a></dd>
+                                            <dd>
+                                                <a href="url">HP</a></dd>
+                                            <dd>
+                                                <a href="url">Asus</a></dd>
+                                            <dd>
+                                                <a href="url">Sony</a></dd>
+                                            <dd>
+                                                <a href="url">Acer</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Accessories</dt>
+                                            <dd>
+                                                <a href="url">Pen Drives</a></dd>
+                                            <dd>
+                                                <a href="url">External Hard Disks</a></dd>
+                                            <dd>
+                                                <a href="url">HeadPhones</a></dd>
+                                            <dd>
+                                                <a href="url">Speakers</a></dd>
+                                            <dd>
+                                                <a href="url">WebCam</a></dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <p>
+                                            Special Offers on all <a href="#url">Computers</a> &#9002;</p>
+                                    </div>
+                                </li>
+                                <li class="last p5"><a href="#url">Music CDs</a>
+                                    <div>
+                                        <b></b>
+                                        <dl>
+                                            <dt>Music Home</dt>
+                                            <dd>
+                                                <a href="url">Bollywood New</a></dd>
+                                            <dd>
+                                                <a href="url">Hollywood New</a></dd>
+                                            <dd>
+                                                <a href="url">Box Office Top 10</a></dd>
+                                            <dd>
+                                                <a href="url"></a>
+                                            </dd>
+                                            <dd>
+                                                <a href="url"></a>
+                                            </dd>
+                                            <dd>
+                                                <a href="url">View All</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Genre</dt>
+                                            <dd>
+                                                <a href="url">Bollywood OST</a></dd>
+                                            <dd>
+                                                <a href="url">Devotional</a></dd>
+                                            <dd>
+                                                <a href="url">Heavy Metallic</a></dd>
+                                            <dd>
+                                                <a href="url">R&B</a></dd>
+                                            <dd>
+                                                <a href="url">Rap</a></dd>
+                                            <dd>
+                                                <a href="url">All Genre</a></dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Languages</dt>
+                                            <dd>
+                                                <a href="url">English</a></dd>
+                                            <dd>
+                                                <a href="url">Hindi</a></dd>
+                                            <dd>
+                                                <a href="url">Marathi</a></dd>
+                                            <dd>
+                                                <a href="url">Tamil</a></dd>
+                                            <dd>
+                                                <a href="url">Bengali</a></dd>
+                                            <dd>
+                                                <a href="url">&nbsp</a></dd>
+                                        </dl>
+                                        <p>
+                                            Special Offers on all <a href="#url">Music CDs</a> &#9002;</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -436,14 +423,6 @@
                         <td>
                             <asp:HyperLink ID="hph2hpress" runat="server" NavigateUrl="~/H2H/Press.aspx">Press</asp:HyperLink>
                         </td>
-                        <div>
-                            <tr>
-                                <div>
-                                    <td>
-                                    </td>
-                                </div>
-                            </tr>
-                        </div>
                     </tr>
                 </table>
             </div>
@@ -456,9 +435,14 @@
                 <asp:HyperLink ID="hpsecurity" runat="server" Font-Size="XX-Small">Security</asp:HyperLink>
                 &nbsp;&nbsp;|&nbsp;
                 <asp:HyperLink ID="hpprivacy" runat="server" Font-Size="XX-Small">Privacy</asp:HyperLink>
-                &nbsp;&nbsp;<asp:Label ID="lbh2hhistory" runat="server" Font-Size="XX-Small">© 2007-2012 h-2-h.com</asp:Label></div>
+                &nbsp;&nbsp;<asp:Label ID="lbh2hhistory" runat="server" Font-Size="XX-Small">© 2007-2012 h-2-h.com</asp:Label>
+            </div>
         </div>
     </div>
+    <script>        !window.jQuery && document.write(unescape('%3Cscript src="Scripts/jquery-1.7.1.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="Scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/modernizr.js"></script>
+    <script type="text/javascript" src="Scripts/demo.js"></script>
     </form>
 </body>
 </html>
