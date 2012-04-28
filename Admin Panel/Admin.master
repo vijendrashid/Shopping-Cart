@@ -12,10 +12,10 @@
     <form id="form1" runat="server">
     <div id="top_navigation" class="stretchHolder">
         <ul class="nav">
-            <li><a href="#">Home </a></li>
-            <li><a href="#">Your Blog </a></li>
-            <li><a href="#">About You </a></li>
-            <li><a href="#">More stuff </a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Settings</a></li>
             <li><a href="#">Contact </a></li>
         </ul>
     </div>

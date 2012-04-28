@@ -22,7 +22,7 @@ prod_img2 image,
 prod_img3 image,
 prod_img4 image,
 prod_cat_name nvarchar(30) check(cat_name in('Mobiles','Home_Appliances','flowers'),
-prod_Status 
+prod_Status ,
 prod_Added_by nvarchar(30),
 prod_Modified_by nvarchar(30),
 prod_Deleted_by nvarchar(30)
@@ -37,7 +37,10 @@ name nvarchar(30) check(name in('Mobiles','Home_Appliances','flowers')),
 brand nvarchar(50) not null,
 sub_category nvarchar(50) not null,
 prod_id nvarchar(30),
-FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id)
+FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 
@@ -48,7 +51,10 @@ create table Quantity
 (
 prod_id  nvarchar(30),
 stock int not null,
-FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id)
+FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 go
@@ -59,7 +65,10 @@ prod_id nvarchar(30),
 m_price money  not null,
 O_price money  not null,
 discount_percent as ((m_price - O_price)* m_price/100),
-FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id)
+FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 go
@@ -76,7 +85,10 @@ prod_id nvarchar(30),
 order_date datetime default getdate(),
 total_amount money not null,
 quantities int  not null,
-FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id)
+FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 go
@@ -87,7 +99,10 @@ userid  nvarchar(30) primary key,
 userame nvarchar(50),
 user_role nvarchar(30) check(user_role IN('Staff', 'User', 'Admin', 'sub-admin')),
 email_id nvarchar(50) not null,
-password nvarchar(15) not null
+password nvarchar(15) not null,
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 go
@@ -107,7 +122,10 @@ city nvarchar(20),
 state nvarchar(30),
 country nvarchar(20),
 landmark nvarchar(30),
-FOREIGN KEY (userid)REFERENCES User_Details(userid)
+FOREIGN KEY (userid)REFERENCES User_Details(userid),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 ) 
 
 go
@@ -120,7 +138,10 @@ userid nvarchar(30),
 review_prod nvarchar(500),
 ratings int,
 FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
-FOREIGN KEY (userid)REFERENCES User_Details(userid)
+FOREIGN KEY (userid)REFERENCES User_Details(userid),
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 create table SpacialDiscountOnAll
@@ -136,10 +157,18 @@ endDate datetime default getdate(),
 RequiresCouponCode bit,
 CouponCode nvarchar(100),
 DiscountLimitationId int,
-LimitationTimes int
+LimitationTimes int,
+prod_Added_by nvarchar(30),
+prod_Modified_by nvarchar(30),
+prod_Deleted_by nvarchar(30)
 )
 
 Create table returnRequest
+(
+
+)
+
+Create table webEvents
 (
 
 )
