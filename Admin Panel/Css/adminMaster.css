@@ -1,4 +1,15 @@
-﻿#top_navigation {
+﻿.stretchHolder
+{
+    width: 950px;
+    height: 38px;
+    margin: 10px 150px 10px 150px;
+    position: relative;
+    z-index: 100;
+    font-family: arial, sans-serif;
+    top: 0px;
+    left: 0px;
+}
+##top_navigation {
 background : transparent;
 width: 800px;
 height : 77px;

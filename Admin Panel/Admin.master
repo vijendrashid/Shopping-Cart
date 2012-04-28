@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="top_navigation">
+    <div id="top_navigation" class="stretchHolder">
         <ul class="nav">
             <li><a href="#">Home </a></li>
             <li><a href="#">Your Blog </a></li>
@@ -19,6 +19,7 @@
             <li><a href="#">Contact </a></li>
         </ul>
     </div>
+    <div></div>
     <div>
         <asp:ContentPlaceHolder ID="AdminPanelMaster" runat="server">
         </asp:ContentPlaceHolder>
