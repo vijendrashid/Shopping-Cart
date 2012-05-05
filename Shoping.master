@@ -40,28 +40,7 @@
                 </tr>
             </table>
         </div>
-        <div class="stretchHolder">
-            <table>
-                <tr>
-                    <td>
-                        <asp:Label ID="lbSearch" runat="server" Font-Size="Small" Text="Search :"></asp:Label>
-                        <div class="wrapper1">
-                            <div class="content-wrapper1">
-                               								<div class="search-button1 hide-search-button">
-                                    <span>
-                                        <img src="images/search-icon.png" runat="server"/></span>
-                                </div>
-                                <div class="search-box1 show-search-box showed-search-box">
-                                    <input type="text" placeholder="Type your keyword..."/>
-                                    <img src="images/close.png" runat="server"/>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <table>
+       <table>
             <tr>
                 <td>
                     <div class="stretchHolder">
