@@ -1,5 +1,7 @@
-<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="Payment.aspx.cs" Inherits="Payment" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" 
+     Title="Untitled Page" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2 style="padding-right: 0px; padding-left: 10px; font-size: 16px; padding-bottom: 0px;
         margin: 20px 0px 0px -10px; word-spacing: 1px; text-transform: none; color: rgb(51,51,51);
         text-indent: 0px; padding-top: 0px; font-style: normal; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
@@ -35,7 +37,8 @@
         text-align: justify; orphans: 2; widows: 2; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">
         Home2Home offer multiple methods to make payments for your order: Credit Card &amp;
         Debit Card (including American Express), Net Banking, E-Gift Voucher and Cash on
-        Delivery. </p>
+        Delivery.
+    </p>
     <br style="word-spacing: 1px; font: 13px/22px 'lucida grande', tahoma, verdana, arial, sans-serif;
         text-transform: none; color: rgb(51,51,51); text-indent: 0px; white-space: normal;
         letter-spacing: normal; background-color: rgb(255,255,255); text-align: justify;
@@ -56,14 +59,15 @@
         white-space: normal; letter-spacing: normal; background-color: rgb(255,255,255);
         text-align: justify; font-variant: normal; orphans: 2; widows: 2; webkit-text-size-adjust: auto;
         webkit-text-stroke-width: 0px">
-        Are there any hidden charges when I make a purchase on Home2Home (Octroi, Sales Tax)?</h1>
+        Are there any hidden charges when I make a purchase on Home2Home (Octroi, Sales
+        Tax)?</h1>
     <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px;
         word-spacing: 1px; font: 13px/22px 'lucida grande', tahoma, verdana, arial, sans-serif;
         text-transform: none; color: rgb(51,51,51); text-indent: 0px; padding-top: 0px;
         white-space: normal; letter-spacing: normal; background-color: rgb(255,255,255);
         text-align: justify; orphans: 2; widows: 2; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">
-        There are absolutely no hidden charges when you make a purchase with Home2Home. We
-        offer free delivery if the order is Rs. 200 or over, otherwise you will be charged
+        There are absolutely no hidden charges when you make a purchase with Home2Home.
+        We offer free delivery if the order is Rs. 200 or over, otherwise you will be charged
         an additional Rs. 30 for delivery. The prices listed for all items are final and
         all-inclusive. The prices you see on our product pages are exactly what you pay
         for the item.</p>
@@ -130,4 +134,3 @@
         text-align: justify; orphans: 2; widows: 2; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">
         Please note, we do not accept foreign currency as payment against a COD order.</p>
 </asp:Content>
-

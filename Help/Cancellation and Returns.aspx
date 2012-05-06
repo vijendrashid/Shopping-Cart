@@ -1,5 +1,6 @@
-<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="Cancellation and Returns.aspx.cs" Inherits="Cancellation_and_Returns" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" Title="Untitled Page" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2 style="padding-right: 0px; padding-left: 10px; font-size: 16px; padding-bottom: 0px;
         margin: 20px 0px 0px -10px; word-spacing: 1px; text-transform: none; color: rgb(51,51,51);
         text-indent: 0px; padding-top: 0px; font-style: normal; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
@@ -248,4 +249,3 @@
         the case of reproductions and antiquarian texts, where the subject matter does not
         exceed the minimum number of pages required for binding.</p>
 </asp:Content>
-

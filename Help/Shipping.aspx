@@ -1,5 +1,7 @@
-<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="Shipping.aspx.cs" Inherits="Shipping" Title="Untitled Page" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" 
+    Title="Untitled Page" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2 style="padding-right: 0px; padding-left: 10px; font-size: 16px; padding-bottom: 0px;
         margin: 20px 0px 0px -10px; word-spacing: 1px; text-transform: none; color: rgb(51,51,51);
         text-indent: 0px; padding-top: 0px; font-style: normal; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
@@ -108,8 +110,8 @@
         text-transform: none; color: rgb(51,51,51); text-indent: 0px; padding-top: 0px;
         white-space: normal; letter-spacing: normal; background-color: rgb(255,255,255);
         text-align: justify; orphans: 2; widows: 2; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">
-        Home2Home provides free delivery on all items if your total order amount is Rs. 200/-
-        or more. Otherwise Rs. 30/- is charged as delivery charges.</p>
+        Home2Home provides free delivery on all items if your total order amount is Rs.
+        200/- or more. Otherwise Rs. 30/- is charged as delivery charges.</p>
     <br style="word-spacing: 1px; font: 13px/22px 'lucida grande', tahoma, verdana, arial, sans-serif;
         text-transform: none; color: rgb(51,51,51); text-indent: 0px; white-space: normal;
         letter-spacing: normal; background-color: rgb(255,255,255); text-align: justify;
@@ -366,6 +368,4 @@
         Home2Home doesn't deliver items internationally. You are more than welcome to make
         your purchases on our site from anywhere in the world, but you'll have to ensure
         the Delivery Address is within India.</p>
-
 </asp:Content>
-
