@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin Panel/Admin.master" AutoEventWireup="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin Panel/Admin.master" AutoEventWireup="true" ValidateRequest="false" %>
 
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" runat="Server">
@@ -16,7 +16,7 @@
         <br />
         <asp:Label ID="lbl_cat" runat="server" Style="position: relative" Text="Category :"></asp:Label>&nbsp;
         <asp:DropDownList ID="ddl_cat" runat="server" Style="position: relative">
-            <asp:ListItem>Mobiles &amp; Accesories</asp:ListItem>
+            <asp:ListItem>Mobiles &amp; Accessories</asp:ListItem>
             <asp:ListItem>Home &amp; Appliances</asp:ListItem>
             <asp:ListItem>Flowers</asp:ListItem>
         </asp:DropDownList>
@@ -36,7 +36,7 @@
             left: 0px;"></asp:TextBox><br />
         <br />
         <asp:Label ID="lbl_featr" runat="server" Style="position: relative" Text="Features :"></asp:Label>&nbsp;
-        <CKEditor:CKEditorControl ID="ckeditorFeatures" runat="server"></CKEditor:CKEditorControl><br />
+        <CKEditor:CKEditorControl ID="ckeditorFeatures" runat="server"  ></CKEditor:CKEditorControl><br />
         <br />
         <asp:Label ID="lbl_descp" runat="server" Style="position: relative" Text="Description :"></asp:Label>&nbsp;
         <CKEditor:CKEditorControl ID="ckeditorDescription" runat="server"></CKEditor:CKEditorControl>

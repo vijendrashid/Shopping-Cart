@@ -11,10 +11,11 @@ go
 create table Product_Details
 (
 prod_id  nvarchar(30) primary key,
-prod_title nvarchar(30) not null,
-prod_color nvarchar(50),
+sku nvarchar(50
+prod_title nvarchar(50) not null,
+prod_color nvarchar(10),
 prod_brand nvarchar(30) not null,
-prod_weight float
+prod_weight float(2,2) not null,
 prod_description nvarchar(max) not null,
 prod_feature nvarchar(150),
 prod_img1 image,
