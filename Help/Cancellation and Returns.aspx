@@ -1,5 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" Title="Untitled Page" %>
-
+<asp:Content ID="head" ContentPlaceHolderID="ShoppingMasterHead" Runat="Server">
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <h2 style="padding-right: 0px; padding-left: 10px; font-size: 16px; padding-bottom: 0px;
         margin: 20px 0px 0px -10px; word-spacing: 1px; text-transform: none; color: rgb(51,51,51);
