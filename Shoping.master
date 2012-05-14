@@ -30,9 +30,9 @@
                         <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
                             NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hpLogin" runat="server">Login</asp:HyperLink>
+                        <asp:HyperLink ID="hpLogin" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>
                         <strong>&nbsp; |&nbsp;&nbsp; </strong>
-                        <asp:HyperLink ID="hpSignup" runat="server">Signup</asp:HyperLink>
+                        <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/signup.aspx">Signup</asp:HyperLink>
                     </td>
                     <td>
                         <div>
@@ -420,7 +420,6 @@
             </div>
         </div>
     </div>
-
     </form>
 </body>
 </html>
