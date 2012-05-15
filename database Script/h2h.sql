@@ -5,20 +5,44 @@ go
 use h2h
 
 --drop database h2h;
+go 
+
+create table categories
+(
+	cat_id int Identity(10, 1) ,
+	cat_name nvarchar(30), --check(name in('Mobiles','Home_Appliances','flowers')),
+	brand_id int,
+	--brand nvarchar(50) not null,
+	sub_cat_id int Identity(10, 1),
+	sub_cat_name nvarchar(50),
+	cat_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	cat_Modified_by nvarchar(30),
+	date_modified datetime default getdate()
+	primary key (cat_id, cat_name),
+)
+
+create table brand
+(
+brand_id int,
+brand_name nvarchar(30),
+
+)
+
 
 go
 
 create table Product_Details
 (
-	prod_id  nvarchar(30) primary key,
+	prod_id  nvarchar(30) primary key Identity(10, 1),
 	sku nvarchar(50),
 	prod_title nvarchar(50) not null,
 	prod_color nvarchar(10),
 	prod_brand nvarchar(30) not null,
-	prod_weight float(2,2) not null,
-	prod_description nvarchar(5000) not null,
+	prod_weight float(20) not null,
+	prod_description nvarchar(max) not null,
 	prod_feature nvarchar(150),
-	prod_tax_class_id int(10),
+	prod_tax_class_id int,
 	prod_img1 image not null,
 	prod_img2 image,
 	prod_img3 image,
@@ -29,7 +53,7 @@ create table Product_Details
 	--prod_status int(1),
 	meta_keywords_optional nvarchar(150),
 	meta_description nvarchar(150),
-	prod_added_by nvarchar(30) default super_admin,
+	prod_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),
 	prod_Modified_by nvarchar(30),
 	date_modified datetime default getdate()
@@ -39,7 +63,7 @@ go
 
 create table tax_class
 (
-	tax_class_id int(5) primary key,
+	tax_class_id int(5) primary key Identity(10, 1),
 	tax_class_title varchar(50),
 	tax_class_Description varchar(300),
 	tax_class_by nvarchar(30) default super_admin,
@@ -52,7 +76,7 @@ go
 
 create table tax_rates
 (
-	tax_rates_id int(10) primary key,
+	tax_rates_id int(10) primary key Identity(10, 1),
 	tax_zone_id  int(10),
 	tax_class_id int(10),
 	tax_rates_priority int(10),
@@ -68,30 +92,14 @@ create table tax_rates
 
 go
 
-create table categories
-(
-	cat_id int primary key,
-	name nvarchar(30), --check(name in('Mobiles','Home_Appliances','flowers')),
-	brand nvarchar(50) not null,
-	sub_category nvarchar(50) not null,
-	--prod_id nvarchar(30),
-	--FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
-	cat_added_by nvarchar(30) default super_admin,
-	date_added datetime default getdate(),
-	cat_Modified_by nvarchar(30),
-	date_modified datetime default getdate()
-)
 
-
-
-go
 
 create table quantity 
 (
-	prod_id  nvarchar(30),
+	prod_id  nvarchar(30) Identity(10, 1),
 	stock int not null,
 	FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
-	quantity_added_by nvarchar(30) default super_admin,
+	quantity_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),
 	quantity_Modified_by nvarchar(30),
 	date_modified datetime default getdate()
@@ -101,12 +109,12 @@ go
 
 create table price
 (
-	prod_id nvarchar(30),
+	prod_id nvarchar(30) Identity(10, 1),
 	m_price money  not null,
 	O_price money  not null,
 	discount_percent as ((m_price - O_price)* m_price/100),
 	FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
-	price_added_by nvarchar(30) default super_admin,
+	price_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),
 	price_Modified_by nvarchar(30),
 	date_modified datetime default getdate()
@@ -228,3 +236,83 @@ Create table webEvents
 
 
 )
+
+/*
+create table categories
+(
+	cat_id int ,
+	cat_name nvarchar(30), --check(name in('Mobiles','Home_Appliances','flowers')),
+	brand_id int,
+	brand nvarchar(50) not null,
+	sub_category nvarchar(50),
+	cat_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	cat_Modified_by nvarchar(30),
+	date_modified datetime default getdate()
+	primary key (cat_id, cat_name),
+)
+
+
+
+
+
+go
+
+create table Product_Details
+(
+	prod_id  nvarchar(30) primary key,
+	sku nvarchar(50),
+	prod_title nvarchar(50) not null,
+	prod_color nvarchar(10),
+	prod_brand nvarchar(30) not null,
+	prod_weight float(20) not null,
+	prod_description nvarchar(max) not null,
+	prod_feature nvarchar(150),
+	prod_tax_class_id int,
+	prod_img1 image not null,
+	prod_img2 image,
+	prod_img3 image,
+	prod_img4 image,
+	prod_cat_name nvarchar(30), -- check(cat_name in('Mobiles','Home_Appliances','flowers'),
+	prod_cat int,
+	foreign key (prod_cat) references categories(cat_id),
+	--prod_status int(1),
+	meta_keywords_optional nvarchar(150),
+	meta_description nvarchar(150),
+	prod_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	prod_Modified_by nvarchar(30),
+	date_modified datetime default getdate()
+)
+
+go
+
+
+
+create table quantity 
+(
+	prod_id  nvarchar(30),
+	stock int not null,
+	FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+	quantity_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	quantity_Modified_by nvarchar(30),
+	date_modified datetime default getdate()
+)
+
+go
+
+create table price
+(
+	prod_id nvarchar(30),
+	m_price money  not null,
+	O_price money  not null,
+	discount_percent as ((m_price - O_price)* m_price/100),
+	FOREIGN KEY (prod_id)REFERENCES Product_Details(prod_id),
+	price_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	price_Modified_by nvarchar(30),
+	date_modified datetime default getdate()
+)
+
+/*

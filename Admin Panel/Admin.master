@@ -6,7 +6,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="AdminPanelhead" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="Stylesheet" type="text/css" href="Css/adminMaster.css" />
+    <link rel="stylesheet" type="text/css" href="Css/adminMaster.css" />
 </head>
 <body>
     <form id="form1" runat="server">
