@@ -105,6 +105,9 @@
         <br />
     </div>
     <div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:h2hConnectionString %>" 
+            SelectCommand="SELECT * FROM [Product_Details]"></asp:SqlDataSource>
         <br />
         <br />
     </div>
