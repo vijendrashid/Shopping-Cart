@@ -5,19 +5,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" runat="Server">
-    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1" EnableModelValidation="True">
+    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1" EnableModelValidation="True"
+        DefaultMode="Insert">
         <InsertItemTemplate>
-            <CKEditor:CKEditorControl ID="markup" runat="server" Text='<%# Bind("markup") %>'></CKEditor:CKEditorControl>
+            <asp:FileUpload ID="FileUpload1" runat="server" FileBytes='<%# Bind("img1") %>' />
             <br />
             <asp:LinkButton ID="LinkButton1" runat="server" CommandName="INSERT">save</asp:LinkButton>
         </InsertItemTemplate>
-        <ItemTemplate>
-            <br />
-            <%# Eval("markup") %>
-            
-        </ItemTemplate>
     </asp:FormView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:h2hConnectionString %>"
-        SelectCommand="SELECT [markup] FROM [ckEditor]" InsertCommand="INSERT ckeditor (markup) VALUES (@markup)">
+        SelectCommand="SELECT [img1] FROM [Html]"
+        InsertCommand="Insert html (img1) values (@img1)">
     </asp:SqlDataSource>
 </asp:Content>

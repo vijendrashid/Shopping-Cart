@@ -8,9 +8,9 @@ go
 
 create table Html
 (
-ID int;
-markup
-
+ID int,
+img1 image,
+)
 
 
 /*create database h2h

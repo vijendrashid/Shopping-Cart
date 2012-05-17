@@ -19,7 +19,7 @@
             <li><a href="#">Contact </a></li>
         </ul>
     </div>
-    <div></div>
+    <div><hr /></div>
     <div>
         <asp:ContentPlaceHolder ID="AdminPanelMaster" runat="server">
         </asp:ContentPlaceHolder>
