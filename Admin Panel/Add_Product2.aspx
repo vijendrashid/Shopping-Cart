@@ -10,7 +10,6 @@
             DataSourceID="SqlDataSource1">
             <InsertItemTemplate>
                 <div>
-                    <br />
                     <asp:Label ID="lbl_sku" runat="server" Text="SKU : "></asp:Label>
                     &nbsp;&nbsp;<asp:TextBox ID="txtSku" runat="server" Text='<%# Bind("sku") %>' MaxLength="30"></asp:TextBox>
                     <br />
@@ -121,6 +120,7 @@
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" CommandName="Insert" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnReset" runat="server" Text="Reset" CommandName="Cancel" /></div>
+                <asp:Button ID="btnEdit" runat="server" Text="Edit" CommandName="Edit" />
                 <br />
                 <br />
             </InsertItemTemplate>

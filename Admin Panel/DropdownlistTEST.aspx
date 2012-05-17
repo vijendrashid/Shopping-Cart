@@ -5,17 +5,34 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" Runat="Server">
     <asp:FormView ID="FormView1" runat="server" EnableModelValidation="True" DefaultMode="Insert" 
     DataSourceID="SqlDataSource1">
+        <EditItemTemplate>
+            category:
+            <asp:TextBox ID="categoryTextBox" runat="server" 
+                Text='<%# Bind("category") %>' />
+            <br />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" 
+                CommandName="Update" Text="Update" />
+            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
+                CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+        </EditItemTemplate>
         <InsertItemTemplate>
-            <asp:DropDownList ID="DropDownList1" runat="server" 
-                SelectedValue='<%# Bind("Category") %>'>
-                <asp:ListItem>Mobile</asp:ListItem>
-                <asp:ListItem>Tab</asp:ListItem>
-            </asp:DropDownList>
+            category:
+            <asp:TextBox ID="categoryTextBox" runat="server" 
+                Text='<%# Bind("category") %>' />
             <br />
-            <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" CommandName="Insert" Text="Submit" />
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
+                CommandName="Insert" Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
+                CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            <asp:Button ID="Button1" runat="server" Text="Button" CommandName="Edit" />
         </InsertItemTemplate>
+        <ItemTemplate>
+            category:
+            <asp:Label ID="categoryLabel" runat="server" Text='<%# Bind("category") %>' />
+            <br />
+            <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" 
+                CommandName="New" Text="New" />
+        </ItemTemplate>
     </asp:FormView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:h2hConnectionString %>" 
