@@ -701,5 +701,14 @@ way to fit your requirements.
     border-radius: 30px;
 }
 
+.homeItems {
+	padding: 10px 0px 10px 0px;
+	margin: 0px 50px 0px 50px;
+	
+}
 
+.itemTemplate {
+	color: Blue;
+	padding: 25px 25px 25px 25px;
 
+}

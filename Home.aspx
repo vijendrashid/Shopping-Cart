@@ -1,22 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true"
     CodeFile="Home.aspx.cs" Inherits="Home" %>
 
-<%@ Register Assembly="System.Web.DynamicData, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-    Namespace="System.Web.DynamicData" TagPrefix="cc1" %>
-<%@ Register Assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-    Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
 <asp:Content ID="HomeHead" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
 </asp:Content>
 <asp:Content ID="HomeBody" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="homesql"
-        EnableModelValidation="True" GroupItemCount="2" >
+        EnableModelValidation="True" GroupItemCount="2">
         <AlternatingItemTemplate>
-            <td runat="server" style="">
+            <td runat="server" class="itemTemplate">
+               
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
-                    Width="100px" Height="200" />
+                    Height="200" Width="100" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
-                <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("prod_title") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("prod_title") %>' NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+                    Target="_self"></asp:HyperLink>
                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("prod_features", "{0}") %>' />
                 Price: ₹
                 <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price", "{0:n2}") %>' />
@@ -43,15 +41,17 @@
             </tr>
         </GroupTemplate>
         <ItemTemplate>
-            <td runat="server" style="">
+            <td runat="server" class="itemTemplate">
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
                     Width="100px" Height="200" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
-                <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("prod_title") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("prod_title") %>' NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+                    Target="_self"></asp:HyperLink>
                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("prod_features", "{0}") %>' />
                 Price: ₹
                 <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price", "{0:n2}") %>' />
+                <br />
                 <br />
             </td>
         </ItemTemplate>
@@ -59,8 +59,8 @@
             <table runat="server">
                 <tr runat="server">
                     <td runat="server">
-                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
-                            <tr id="groupPlaceholder" runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" class="homeItems">
+                            <tr id="groupPlaceholder" runat="server" class="homeItems">
                             </tr>
                         </table>
                     </td>
