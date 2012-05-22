@@ -7,9 +7,10 @@
     <asp:GridView ID="GridView1" runat="server" EnableModelValidation="True"
         AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True"
-                SortExpression="id" />
-            <asp:ImageField DataImageUrlField="imagePath" ControlStyle-Width="200px" ControlStyle-Height="200" />
+            <asp:BoundField DataField="prod_id" HeaderText="prod_id" InsertVisible="False" ReadOnly="True"
+                SortExpression="prod_id" />
+                
+            <asp:ImageField DataImageUrlField="prod_img1" ControlStyle-Width="100px" ControlStyle-Height="200" />
         </Columns>
     </asp:GridView>
 

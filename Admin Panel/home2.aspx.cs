@@ -18,7 +18,7 @@ public partial class Admin_Panel_home2 : System.Web.UI.Page
 
         SqlConnection con = new SqlConnection(strConnString);
 
-        string strQuery = "SELECT (id), (imagePath) FROM path";
+        string strQuery = "SELECT prod_id, prod_title, prod_features, O_price, prod_img1, discount_percent FROM Product_Details";
 
         SqlCommand cmd = new SqlCommand(strQuery);
 

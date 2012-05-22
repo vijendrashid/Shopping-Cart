@@ -7,37 +7,24 @@
 </asp:Content>
 <asp:Content ID="HomeBody" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <asp:SqlDataSource ID="homeSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-        SelectCommand="SELECT [prod_id], [prod_title], [prod_feature], [O_price], [prod_img1], [discount_percent] FROM [Product_Details]">
+        SelectCommand="SELECT [prod_id], [prod_title], [prod_features], [O_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details]">
     </asp:SqlDataSource>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
-        DataSourceID="homeSql" EnableModelValidation="True" 
-        AutoGenerateColumns="False" DataKeyNames="prod_id">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" DataSourceID="homeSql"
+        EnableModelValidation="True" AutoGenerateColumns="False" DataKeyNames="prod_id">
         <Columns>
-       
-            <asp:TemplateField HeaderText="prod_img1" SortExpression="prod_img1">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("prod_img1") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' Width="300" Height="200" />
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="prod_title" HeaderText="prod_title" 
-                SortExpression="prod_title" />
-            <asp:TemplateField HeaderText="prod_feature" SortExpression="prod_feature">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("prod_feature") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("prod_feature") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="O_price" HeaderText="O_price" 
-                SortExpression="O_price" />
-            <asp:BoundField DataField="discount_percent" HeaderText="discount_percent" 
-                ReadOnly="True" SortExpression="discount_percent" />
+            <asp:BoundField DataField="prod_id" HeaderText="prod_id" InsertVisible="False" ReadOnly="True"
+                SortExpression="prod_id" />
+            <asp:BoundField DataField="prod_title" HeaderText="prod_title" SortExpression="prod_title" />
+            <asp:BoundField DataField="prod_features" HeaderText="prod_features" SortExpression="prod_features" />
+            <asp:BoundField DataField="O_price" HeaderText="O_price" SortExpression="O_price" />
+            <asp:BoundField DataField="prod_img1" HeaderText="prod_img1" SortExpression="prod_img1" />
+            <asp:BoundField DataField="discount_percent" HeaderText="discount_percent" ReadOnly="True"
+                SortExpression="discount_percent" />
+            <asp:BoundField DataField="prod_description" HeaderText="prod_description" SortExpression="prod_description" />
+            <asp:HyperLinkField />
+            <asp:ImageField>
+            </asp:ImageField>
         </Columns>
-       
     </asp:GridView>
 </asp:Content>

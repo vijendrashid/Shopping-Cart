@@ -22,7 +22,7 @@ create table Product_Details
 	prod_description nvarchar(max)  null,
 	O_price money   null,
 	m_price money  null,
-	stock int  null,
+	stock int null,
 	days_delivered int  null,
 	prod_img1 varchar(300)  null,
 	prod_img2 varchar(300),
