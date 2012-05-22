@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_Panel_DropdownlistTEST : System.Web.UI.Page
+public partial class Admin_Panel_addproducta0 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

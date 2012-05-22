@@ -1,20 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin Panel/Admin.master" AutoEventWireup="true"
-    CodeFile="ckeditor.aspx.cs" Inherits="Admin_Panel_ckeditor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin Panel/Admin.master" AutoEventWireup="true" CodeFile="ckeditor.aspx.cs" Inherits="Admin_Panel_ckeditor" %>
 
-<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" runat="Server">
+<%@ Register assembly="CKEditor.NET" namespace="CKEditor.NET" tagprefix="CKEditor" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" runat="Server">
-    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1" EnableModelValidation="True"
-        DefaultMode="Insert">
-        <InsertItemTemplate>
-            <asp:FileUpload ID="FileUpload1" runat="server" FileBytes='<%# Bind("img1") %>' />
-            <br />
-            <asp:LinkButton ID="LinkButton1" runat="server" CommandName="INSERT">save</asp:LinkButton>
-        </InsertItemTemplate>
-    </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:h2hConnectionString %>"
-        SelectCommand="SELECT [img1] FROM [Html]"
-        InsertCommand="Insert html (img1) values (@img1)">
-    </asp:SqlDataSource>
+<asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" Runat="Server">
+    <CKEditor:CKEditorControl ID="EditorControl1" runat="server">
+    </CKEditor:CKEditorControl>
+    <CKEditor:CKEditorControl ID="EditorControl2" runat="server"></CKEditor:CKEditorControl>
+    <br />
+    <br />
+    <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" />
 </asp:Content>
+
