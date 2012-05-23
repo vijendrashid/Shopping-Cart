@@ -7,8 +7,10 @@ using System.Web.UI.WebControls;
 
 public partial class product_details : System.Web.UI.Page
 {
+    //string getQuery = ClientQueryString; //obtain variables from passed link ?passedinstruction
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        
     }
 }

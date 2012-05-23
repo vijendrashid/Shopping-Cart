@@ -48,7 +48,7 @@
                     <div class="stretchHolder">
                         <div class="stretchMenu">
                             <ul class="stretchDrop">
-                                <li class="slide p1"><a href="#url">Mobile</a>
+                                <li class="slide p1"><a href="#url">TouchScreen</a>
                                     <div>
                                         <b></b>
                                         <dl>
@@ -101,7 +101,7 @@
                                             Special Offers on all <a href="#url">Mobile Phones</a> &#9002;</p>
                                     </div>
                                 </li>
-                                <li class="slide p2"><a href="#url">Appliances</a>
+                                <li class="slide p2"><a href="#url">Tab</a>
                                     <div>
                                         <b></b>
                                         <dl>
@@ -153,7 +153,7 @@
                                             Special Offers on all <a href="#url">Appliances</a> &#9002;</p>
                                     </div>
                                 </li>
-                                <li class="slide p3"><a href="#url">Flowers</a>
+                                <li class="slide p3"><a href="#url">Qwerty</a>
                                     <div>
                                         <b></b>
                                         <dl>
@@ -205,10 +205,10 @@
                                                 <a href="url">All Type</a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Flowers</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Laptop</a> &#9002;</p>
                                     </div>
                                 </li>
-                                <li class="slide p4"><a href="#url">Computers</a>
+                                <li class="slide p4"><a href="#url">Laptop</a>
                                     <div>
                                         <b></b>
                                         <dl>
@@ -257,14 +257,14 @@
                                                 <a href="url">View All</a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Computers</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Laptop</a> &#9002;</p>
                                     </div>
                                 </li>
-                                <li class="last p5"><a href="#url">Music CDs</a>
+                                <li class="last p5"><a href="#url">Accessories</a>
                                     <div>
                                         <b></b>
                                         <dl>
-                                            <dt>Music Home</dt>
+                                            <dt>Accessories</dt>
                                             <dd>
                                                 <a href="url">Bollywood New</a></dd>
                                             <dd>
@@ -311,7 +311,7 @@
                                                 <a href="url">&nbsp</a></dd>
                                         </dl>
                                         <p>
-                                            Special Offers on all <a href="#url">Music CDs</a> &#9002;</p>
+                                            Special Offers on all <a href="#url">Accessories</a> &#9002;</p>
                                     </div>
                                 </li>
                             </ul>

@@ -7,48 +7,163 @@
     <asp:SqlDataSource ID="homeSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
         SelectCommand="SELECT [prod_id], [prod_title], [prod_features], [O_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
         <SelectParameters>
-            <asp:QueryStringParameter
-                Name="prod_id"
-                QueryStringField="prod_id" />
+            <asp:QueryStringParameter Name="prod_id" QueryStringField="prod_id" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" 
+        DataSourceID="homeSql" EnableModelValidation="True">
+        <AlternatingItemTemplate>
+            <span style="">prod_id:
+            <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' />
+            <br />
+            prod_title:
+            <asp:Label ID="prod_titleLabel" runat="server" 
+                Text='<%# Eval("prod_title") %>' />
+            <br />
+            prod_features:
+            <asp:Label ID="prod_featuresLabel" runat="server" 
+                Text='<%# Eval("prod_features") %>' />
+            <br />
+            O_price:
+            <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price") %>' />
+            <br />
+            prod_img1:
+            <asp:Label ID="prod_img1Label" runat="server" Text='<%# Eval("prod_img1") %>' />
+            <br />
+            discount_percent:
+            <asp:Label ID="discount_percentLabel" runat="server" 
+                Text='<%# Eval("discount_percent") %>' />
+            <br />
+            prod_description:
+            <asp:Label ID="prod_descriptionLabel" runat="server" 
+                Text='<%# Eval("prod_description") %>' />
+            <br />
+<br /></span>
+        </AlternatingItemTemplate>
+        <EditItemTemplate>
+            <span style="">prod_id:
+            <asp:Label ID="prod_idLabel1" runat="server" Text='<%# Eval("prod_id") %>' />
+            <br />
+            prod_title:
+            <asp:TextBox ID="prod_titleTextBox" runat="server" 
+                Text='<%# Bind("prod_title") %>' />
+            <br />
+            prod_features:
+            <asp:TextBox ID="prod_featuresTextBox" runat="server" 
+                Text='<%# Bind("prod_features") %>' />
+            <br />
+            O_price:
+            <asp:TextBox ID="O_priceTextBox" runat="server" Text='<%# Bind("O_price") %>' />
+            <br />
+            prod_img1:
+            <asp:TextBox ID="prod_img1TextBox" runat="server" 
+                Text='<%# Bind("prod_img1") %>' />
+            <br />
+            discount_percent:
+            <asp:TextBox ID="discount_percentTextBox" runat="server" 
+                Text='<%# Bind("discount_percent") %>' />
+            <br />
+            prod_description:
+            <asp:TextBox ID="prod_descriptionTextBox" runat="server" 
+                Text='<%# Bind("prod_description") %>' />
+            <br />
+            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" 
+                Text="Update" />
+            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
+                Text="Cancel" />
+            <br /><br /></span>
+        </EditItemTemplate>
+        <EmptyDataTemplate>
+            <span>No data was returned.</span>
+        </EmptyDataTemplate>
+        <InsertItemTemplate>
+            <span style="">prod_title:
+            <asp:TextBox ID="prod_titleTextBox" runat="server" 
+                Text='<%# Bind("prod_title") %>' />
+            <br />prod_features:
+            <asp:TextBox ID="prod_featuresTextBox" runat="server" 
+                Text='<%# Bind("prod_features") %>' />
+            <br />O_price:
+            <asp:TextBox ID="O_priceTextBox" runat="server" Text='<%# Bind("O_price") %>' />
+            <br />prod_img1:
+            <asp:TextBox ID="prod_img1TextBox" runat="server" 
+                Text='<%# Bind("prod_img1") %>' />
+            <br />discount_percent:
+            <asp:TextBox ID="discount_percentTextBox" runat="server" 
+                Text='<%# Bind("discount_percent") %>' />
+            <br />prod_description:
+            <asp:TextBox ID="prod_descriptionTextBox" runat="server" 
+                Text='<%# Bind("prod_description") %>' />
+            <br />
+            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" 
+                Text="Insert" />
+            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
+                Text="Clear" />
+            <br /><br /></span>
+        </InsertItemTemplate>
+        <ItemTemplate>
+            <span style="">prod_id:
+            <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' />
+            <br />
+            prod_title:
+            <asp:Label ID="prod_titleLabel" runat="server" 
+                Text='<%# Eval("prod_title") %>' />
+            <br />
+            prod_features:
+            <asp:Label ID="prod_featuresLabel" runat="server" 
+                Text='<%# Eval("prod_features") %>' />
+            <br />
+            O_price:
+            <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price") %>' />
+            <br />
+            prod_img1:
+            <asp:Label ID="prod_img1Label" runat="server" Text='<%# Eval("prod_img1") %>' />
+            <br />
+            discount_percent:
+            <asp:Label ID="discount_percentLabel" runat="server" 
+                Text='<%# Eval("discount_percent") %>' />
+            <br />
+            prod_description:
+            <asp:Label ID="prod_descriptionLabel" runat="server" 
+                Text='<%# Eval("prod_description") %>' />
+            <br />
+<br /></span>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <div ID="itemPlaceholderContainer" runat="server" style="">
+                <span runat="server" id="itemPlaceholder" />
+            </div>
+            <div style="">
+            </div>
+        </LayoutTemplate>
+        <SelectedItemTemplate>
+            <span style="">prod_id:
+            <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' />
+            <br />
+            prod_title:
+            <asp:Label ID="prod_titleLabel" runat="server" 
+                Text='<%# Eval("prod_title") %>' />
+            <br />
+            prod_features:
+            <asp:Label ID="prod_featuresLabel" runat="server" 
+                Text='<%# Eval("prod_features") %>' />
+            <br />
+            O_price:
+            <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price") %>' />
+            <br />
+            prod_img1:
+            <asp:Label ID="prod_img1Label" runat="server" Text='<%# Eval("prod_img1") %>' />
+            <br />
+            discount_percent:
+            <asp:Label ID="discount_percentLabel" runat="server" 
+                Text='<%# Eval("discount_percent") %>' />
+            <br />
+            prod_description:
+            <asp:Label ID="prod_descriptionLabel" runat="server" 
+                Text='<%# Eval("prod_description") %>' />
+            <br />
+<br /></span>
+        </SelectedItemTemplate>
+    </asp:ListView>
     <br />
-    <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px"
-        AutoGenerateRows="False" DataKeyNames="prod_id" DataSourceID="homeSql" 
-        EnableModelValidation="True">
-        <Fields>
-            <asp:BoundField DataField="prod_id" HeaderText="prod_id" InsertVisible="False" ReadOnly="True"
-                SortExpression="prod_id" />
-            <asp:BoundField DataField="prod_title" HeaderText="prod_title" SortExpression="prod_title" />
-            <asp:TemplateField HeaderText="prod_features" SortExpression="prod_features">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("prod_features") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("prod_features") %>'></asp:TextBox>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("prod_features") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:BoundField DataField="O_price" HeaderText="O_price" SortExpression="O_price" />
-            <asp:BoundField DataField="prod_img1" HeaderText="prod_img1" SortExpression="prod_img1" />
-            <asp:BoundField DataField="discount_percent" HeaderText="discount_percent" ReadOnly="True"
-                SortExpression="discount_percent" />
-            <asp:TemplateField HeaderText="prod_description" 
-                SortExpression="prod_description">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" 
-                        Text='<%# Bind("prod_description") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" 
-                        Text='<%# Bind("prod_description") %>'></asp:TextBox>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("prod_description") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Fields>
-    </asp:DetailsView>
-</asp:Content>
+    </asp:Content>
