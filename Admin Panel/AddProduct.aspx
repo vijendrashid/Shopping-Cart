@@ -5,6 +5,17 @@
 <asp:Content ID="addproductHead" ContentPlaceHolderID="AdminPanelhead" runat="Server">
 </asp:Content>
 <asp:Content ID="addproductbody" ContentPlaceHolderID="AdminPanelMaster" runat="Server">
+    <div class="button">
+        <asp:Button ID="btnAdd" runat="server" Text="Add" />
+        <asp:Button ID="btnEdit" runat="server" Text="Edit" onclick="btnEdit_Click" />
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+            onclick="btnSubmit_Click" /></div>
+    <br />
+    <asp:Label ID="lblProd_id" runat="server" Text="Product ID : "></asp:Label>
+    <asp:TextBox ID="txtProd_id" runat="server" 
+        ontextchanged="txtProd_id_TextChanged" TextMode="MultiLine"></asp:TextBox>
+    <asp:Button ID="btnGetData" runat="server" onclick="btnGetData_Click" 
+        Text="Get Data" />
     <br />
     <br />
     <asp:Label ID="lbl_sku" runat="server" Text="SKU : "></asp:Label>
@@ -110,9 +121,8 @@
     <asp:FileUpload ID="fupl_img11" runat="server" />
     <br />
     <br />
-    <div>
+    <div class="button">
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" CommandName="Insert" OnClick="btnSubmit_Click" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnReset" runat="server" Text="Reset" CommandName="Cancel" /></div>
     <br />
     <br />

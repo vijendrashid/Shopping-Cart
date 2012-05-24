@@ -68,6 +68,7 @@ create table Product_Details
 	m_price money  null,
 	stock int not null,
 	days_delivered int not null,
+	folder_images varchar(100) not null,
 	prod_img1 varchar(300) not null,
 	prod_img2 varchar(300),
 	prod_img3 varchar(300),

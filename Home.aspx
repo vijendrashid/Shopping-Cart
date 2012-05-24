@@ -15,7 +15,7 @@
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
                 <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("prod_title") %>' NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
                     Target="_self"></asp:HyperLink>
-                <asp:Label ID="Label1" runat="server" Text='<%# Eval("prod_features", "{0}") %>' />
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("prod_features") %>' />
                 Price: ₹
                 <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price", "{0:n2}") %>' />
                 <br />

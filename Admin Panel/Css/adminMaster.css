@@ -65,3 +65,8 @@ ul.nav a:hover
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
+
+.button
+{
+    padding: 0 5px 0 5px;
+}

@@ -10,41 +10,64 @@ using System.Data;
 using System.Data.SqlClient;
 public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 {
+    string prodId = null;
+    string skuNo = null;
+    string productTitle = null;
+    decimal weight = 0;
+    string metaKeywords = null;
+    string metaDesc = null;
+    string category = null;
+    string brandName = null;
+    string color = null;
+    string features = null;
+    string description = null;
+    float productPrice = 0;
+    float marketPrice = 0;
+    int quantity = 0;
+    int delivrdDays = 0;
+    string folderName = null;
+
+    String activeDir = null;
+    String newFolderPath = null;
+    String rootDir = null;
+    String filePath1 = null;
+    String filePath2 = null;
+    String filePath3 = null;
+    String filePath4 = null;
+    String filePath5 = null;
+    String filePath6 = null;
+    String filePath7 = null;
+    String filePath8 = null;
+    String filePath9 = null;
+    String filePath10 = null;
+    String filePath11 = null;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        btnAdd.Enabled = false;
+
+
     }
+
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-
-        string skuNo = txtSku.Text;
-        string productTitle = txtPro_Title.Text;
-        decimal weight = Convert.ToDecimal(txtWeight.Text);
-        string metaKeywords = txtMetaKeywords.Text;
-        string metaDesc = txtMetaDescription.Text;
-        string category = ddlCategory.SelectedItem.Text;
-        string brandName = txtBrand.Text;
-        string color = txtColour.Text;
-        string features = ckeditorFeatures.Text;
-        string description = ckeditorDescription.Text;
-        float productPrice = float.Parse(txtPrice.Text);
-        float marketPrice = float.Parse(txtMrkt_price.Text);
-        int quantity = Convert.ToInt32(txtQty.Text);
-        int delivrdDays = Convert.ToInt16(txtDelivrd_Days.Text);
-
-        string folderName = txtProductFolderName.Text;
-
-        String filePath1 = null;
-        String filePath2 = null;
-        String filePath3 = null;
-        String filePath4 = null;
-        String filePath5 = null;
-        String filePath6 = null;
-        String filePath7 = null;
-        String filePath8 = null;
-        String filePath9 = null;
-        String filePath10 = null;
-        String filePath11 = null;
+        prodId = txtProd_id.Text;
+        skuNo = txtSku.Text;
+        productTitle = txtPro_Title.Text;
+        weight = Convert.ToDecimal(txtWeight.Text);
+        metaKeywords = txtMetaKeywords.Text;
+        metaDesc = txtMetaDescription.Text;
+        category = ddlCategory.SelectedItem.Text;
+        brandName = txtBrand.Text;
+        color = txtColour.Text;
+        features = ckeditorFeatures.Text;
+        description = ckeditorDescription.Text;
+        productPrice = float.Parse(txtPrice.Text);
+        marketPrice = float.Parse(txtMrkt_price.Text);
+        quantity = Convert.ToInt32(txtQty.Text);
+        delivrdDays = Convert.ToInt16(txtDelivrd_Days.Text);
+        folderName = txtProductFolderName.Text;
 
         #region Upload Files
         if (fupl_img1.HasFile)
@@ -69,7 +92,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
             // Append Filename with the path to images               
             filePath1 = rootDir + fupl_img1.FileName;
-            
+
 
             //Image1
             fupl_img1.SaveAs(MapPath(filePath1));
@@ -82,7 +105,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             }
             else
             {
-                filePath2 = "" ;
+                filePath2 = "";
             }
             //image3   
             if (fupl_img3.HasFile)
@@ -197,18 +220,18 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         SqlConnection con = new SqlConnection(strConnString);
 
         string strQuery = "INSERT INTO Product_Details (sku, prod_title, "
-                        +   "prod_weight_kgs, meta_keywords_optional, meta_description, "
-                        +   "category, prod_brand,prod_color, prod_features, "
-                        +   "prod_description, O_price, m_price,stock, days_delivered, "
-                        +   "prod_img1, prod_img2, prod_img3, prod_img4, "
-                        +   "prod_img5, prod_img6, prod_img7, prod_img8, prod_img9, "
-                        +   "prod_img10,prod_img11) "
-                        +   "VALUES (@sku, @prod_title, @prod_weight_kgs, @meta_keywords_optional, "
-                        +   "@meta_description, @category, @prod_brand, @prod_color, "
-                        +   "@prod_features, @prod_description, @O_price, @m_price, @stock, "
-                        +   "@days_delivered, @prod_img1, @prod_img2, @prod_img3, @prod_img4, "
-                        +   "@prod_img5, @prod_img6, @prod_img7, @prod_img8, "
-                        +   "@prod_img9,@prod_img10, @prod_img11) ";
+                        + "prod_weight_kgs, meta_keywords_optional, meta_description, "
+                        + "category, prod_brand,prod_color, prod_features, "
+                        + "prod_description, O_price, m_price,stock, days_delivered, "
+                        + "prod_img1, prod_img2, prod_img3, prod_img4, "
+                        + "prod_img5, prod_img6, prod_img7, prod_img8, prod_img9, "
+                        + "prod_img10,prod_img11) "
+                        + "VALUES (@sku, @prod_title, @prod_weight_kgs, @meta_keywords_optional, "
+                        + "@meta_description, @category, @prod_brand, @prod_color, "
+                        + "@prod_features, @prod_description, @O_price, @m_price, @stock, "
+                        + "@days_delivered, @prod_img1, @prod_img2, @prod_img3, @prod_img4, "
+                        + "@prod_img5, @prod_img6, @prod_img7, @prod_img8, "
+                        + "@prod_img9,@prod_img10, @prod_img11) ";
 
         SqlCommand cmd = new SqlCommand(strQuery);
 
@@ -242,59 +265,58 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         cmd.CommandType = CommandType.Text;
         cmd.Connection = con;
 
-        con.Open();
-        cmd.ExecuteNonQuery();
-        //try
-        //{
-        //    con.Open();
-        //    cmd.ExecuteNonQuery();
-        //}
-        //catch (Exception ex)
-        //{
-        //    Response.Write(ex.Message);
-        //}
-        //finally
-        //{
-        //    con.Close();
-        //    con.Dispose();
-        //}
-
-        //}
-
-
-
+        try
+        {
+            con.Open();
+            cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+        finally
+        {
+            con.Close();
+            con.Dispose();
+        }
         ////Note: Finding Controls from FormView and giving same name as id
         //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;
+    }
+    protected void btnGetData_Click(object sender, EventArgs e)
+    {
+
 
 
     }
+    protected void txtProd_id_TextChanged(object sender, EventArgs e)
+    {
+        string prodId = txtProd_id.Text;
+        String strConnString = System.Configuration.ConfigurationManager
+                                        .ConnectionStrings["HomeConnectionString"]
+                                        .ConnectionString;
+        SqlConnection con = new SqlConnection(strConnString);
+        con.Open();
+        SqlCommand cmd = new SqlCommand("SELECT prod_id from product_details WHERE prod_id LIKE '"
+                                            + prodId + "%'", con);
+        SqlDataReader reader = cmd.ExecuteReader();
+        while (reader.Read())
+        {
+            //txtProd_id.Text = reader["prod_id"].ToString();
+        }
 
+        reader.Close();
 
-    //bool CheckFileType(string fileName)
-    //{
-    //    string ext = Path.GetExtension(fileName);
-    //    switch (ext.ToLower())
-    //    {
-    //        case ".gif":
-    //            return true;
-    //        case ".png":
-    //            return true;
-    //        case ".jpg":
-    //            return true;
-    //        case ".jpeg":
-    //            return true;
-    //        default:
-    //            return false;
-    //    }
-    //}
+    }
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //strQuery = "UPDATE Product_Details SET sku=@sku, prod_title=@prod_title,prod_weight_kgs=@prod_weight_kgs, "
+        //                        + "meta_keywords_optional=@meta_keywords_optional, meta_description=@meta_description, category=@category, "
+        //                        + "prod_brand=@prod_brand,prod_color=@prod_color, prod_features=@prod_features, prod_description=@prod_description, "
+        //                        + "O_price=@O_price, m_price=@m_price,stock=@stock, days_delivered=@days_delivered, prod_img1=@prod_img1, "
+        //                        + "prod_img2=@prod_img2, prod_img3=@prod_img3, prod_img4=@prod_img4, prod_img5=@prod_img5, prod_img6=@prod_img6, "
+        //                        + "prod_img7=@prod_img7, prod_img8=@prod_img8, prod_img9=@prod_img9, prod_img10=@prod_img10, "
+        //                        + "prod_img11=@prod_img11,folder_images=@folder_images WHERE prod_id=@prod_id";
 
-    //void Page_PreRender()
-    //{
-
-
-    //    DirectoryInfo dir = new DirectoryInfo(newFolderPath);
-    //    dlstImages.DataSource = dir.GetFiles();
-    //    dlstImages.DataBind();
-
-    //}
+        //cmd.Parameters.AddWithValue("@prod_id", prodId);
+    }
 }
