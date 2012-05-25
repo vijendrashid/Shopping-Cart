@@ -4,6 +4,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Welcome to Home 2 Home! </title>
+    <style type='text/css'>
+        @font-face
+        {
+            font-family: 'DancingScriptRegular';
+            src: url('DancingScript/dancing_script-webfont.eot');
+            src: url('DancingScript/dancing_script-webfont.eot?#iefix') format('embedded-opentype'), url('DancingScript/dancing_script-webfont.woff') format('woff'), url('DancingScript/dancing_script-webfont.ttf') format('truetype'), url('DancingScript/dancing_script-webfont.svg#') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <script type="text/javascript" src="javascripts/jquery_min.js"></script>
+    <script type="text/javascript" src="javascripts/neonTextEffects.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("p").neonTextEffects({ fontFamily: "DancingScriptRegular", fontSize: 64, waves: true, waveColors: ["#55F246", "#F24646", "#D346F2", "#F2F246", "#F24646"], waveSize: 5, jitter: true, glow: true, animateGlow: true, jitterSize: 5, animateWave: true, color: "#4669F2", strokeColor: "#F246E7", animateJitter: true, strokeSize: 0.5 });
+        });
+    </script>
+    <style type='text/css'>
+        @font-face
+        {
+            font-family: 'DancingScriptRegular';
+            src: url('DancingScript/dancing_script-webfont.eot');
+            src: url('DancingScript/dancing_script-webfont.eot?#iefix') format('embedded-opentype'), url('DancingScript/dancing_script-webfont.woff') format('woff'), url('DancingScript/dancing_script-webfont.ttf') format('truetype'), url('DancingScript/dancing_script-webfont.svg#') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="ShoppingMasterHead" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="CSS/master.css" />
@@ -15,12 +42,11 @@
             <table width="100%">
                 <tr>
                     <td>
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/H2H.png" Height="35px"
-                            Width="184px" />
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/Mobile Shop 1234.png"
+                            Height="35px" Width="184px" PostBackUrl="~/Home.aspx" />
                     </td>
                     <td align="right">
-                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" 
-                            ForeColor="Black">ContactUs</asp:HyperLink>
+                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black">ContactUs</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
