@@ -35,6 +35,7 @@ create table Product_Details
 	prod_img9 varchar(300),
 	prod_img10 varchar(300),
 	prod_img11 varchar(300),
+	folder_images varchar(150),
 	discount_percent as ((m_price - O_price)/m_price*100),
 	prod_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),

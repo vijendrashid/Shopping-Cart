@@ -15,6 +15,7 @@ public partial class product_details : System.Web.UI.Page
     //string getQuery = ClientQueryString; //obtain variables from passed link ?passedinstruction
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Request to querystring value for retriving product details
         string getQuery = Request.QueryString["prod_id"];
 
         String strConnString = System.Configuration.ConfigurationManager
@@ -28,6 +29,7 @@ public partial class product_details : System.Web.UI.Page
 
         SqlCommand cmd = new SqlCommand(strQuery, con);
         con.Open();
+
         SqlDataReader myReader = cmd.ExecuteReader();
 
         while (myReader.Read())
@@ -35,27 +37,25 @@ public partial class product_details : System.Web.UI.Page
             folderImages = myReader["folder_images"].ToString();
         }
 
-        //string rootdir = @"E:/Git Hub/Shopping-Cart/";
-
-        //
+        // Returns physical path that returns all files name
         string[] filesindirectory = Directory.GetFiles(Server.MapPath(folderImages));
+
 
         List<String> lstImages = new List<string>(filesindirectory.Count());
 
+        //Dyanamically add HTML controls
         foreach (string image in filesindirectory)
         {
-            //lstImages.Add (String.Format("~"+folderImages, Path.GetPathRoot(image)));
-            //string imageFileName = lstImages.ToString();
-
-
-
+            //Append li to ul
             HtmlGenericControl li = new HtmlGenericControl("li");
             ul1.Controls.Add(li);
 
+            // Create anchor tag with attribute value set for href
             HtmlGenericControl anchor = new HtmlGenericControl("a");
             anchor.Attributes.Add("href", folderImages + Path.GetFileName(image));
             li.Controls.Add(anchor);
 
+            // Create <img> with attribute value set for height and width, added within anchor tag
             HtmlGenericControl img = new HtmlGenericControl("img");
             img.Attributes.Add("src", folderImages + Path.GetFileName(image));
             img.Attributes.Add("width", "72");

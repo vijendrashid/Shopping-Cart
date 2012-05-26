@@ -85,14 +85,14 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             Directory.CreateDirectory(newFolderPath);
             //newFolderPath = newFolderPath + "/";
 
-            // Note: Root Folder Specified explicitly
+            // Note: Virtual Root Folder Specified explicitly
             string rootDir = "~/images/Products/" + folderName + "/";
 
+            folderName = "/images/Products/" + folderName + "/";
 
 
-            // Append Filename with the path to images               
+            // Append Filename with the Virtual path to images               
             filePath1 = rootDir + fupl_img1.FileName;
-
 
             //Image1
             fupl_img1.SaveAs(MapPath(filePath1));
@@ -128,7 +128,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath4 = "";
             }
 
-            //image1               
+            //image5               
             if (fupl_img5.HasFile)
             {
                 filePath5 = rootDir + fupl_img5.FileName;
@@ -139,7 +139,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath5 = "";
             }
 
-            //image1               
+            //image6               
             if (fupl_img6.HasFile)
             {
                 filePath6 = rootDir + fupl_img6.FileName;
@@ -150,7 +150,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath6 = "";
             }
 
-            //image1         
+            //image7         
             if (fupl_img7.HasFile)
             {
                 filePath7 = rootDir + fupl_img7.FileName;
@@ -161,7 +161,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath7 = "";
             }
 
-            //image1               
+            //image8               
             if (fupl_img8.HasFile)
             {
                 filePath8 = rootDir + fupl_img8.FileName;
@@ -172,7 +172,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath8 = "";
             }
 
-            //image1 
+            //image9 
             if (fupl_img9.HasFile)
             {
                 filePath9 = rootDir + fupl_img9.FileName;
@@ -183,7 +183,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath9 = "";
             }
 
-            //image1        
+            //image10        
             if (fupl_img10.HasFile)
             {
                 filePath10 = rootDir + fupl_img10.FileName;
@@ -194,7 +194,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath10 = "";
             }
 
-            //image1      
+            //image11
             if (fupl_img11.HasFile)
             {
                 filePath11 = rootDir + fupl_img11.FileName;
@@ -207,11 +207,6 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         }
         #endregion
 
-
-        //dlstImages.DataSource = filePath;
-        //dlstImages.DataBind();
-
-
         //Add Entry to Database
         String strConnString = System.Configuration.ConfigurationManager
                                 .ConnectionStrings["HomeConnectionString"]
@@ -219,19 +214,20 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
         SqlConnection con = new SqlConnection(strConnString);
 
+        // Insert Query
         string strQuery = "INSERT INTO Product_Details (sku, prod_title, "
                         + "prod_weight_kgs, meta_keywords_optional, meta_description, "
                         + "category, prod_brand,prod_color, prod_features, "
                         + "prod_description, O_price, m_price,stock, days_delivered, "
                         + "prod_img1, prod_img2, prod_img3, prod_img4, "
                         + "prod_img5, prod_img6, prod_img7, prod_img8, prod_img9, "
-                        + "prod_img10,prod_img11) "
+                        + "prod_img10,prod_img11, folder_images) "
                         + "VALUES (@sku, @prod_title, @prod_weight_kgs, @meta_keywords_optional, "
                         + "@meta_description, @category, @prod_brand, @prod_color, "
                         + "@prod_features, @prod_description, @O_price, @m_price, @stock, "
                         + "@days_delivered, @prod_img1, @prod_img2, @prod_img3, @prod_img4, "
                         + "@prod_img5, @prod_img6, @prod_img7, @prod_img8, "
-                        + "@prod_img9,@prod_img10, @prod_img11) ";
+                        + "@prod_img9,@prod_img10, @prod_img11, @folder_images) ";
 
         SqlCommand cmd = new SqlCommand(strQuery);
 
@@ -261,6 +257,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@prod_img9", filePath9);
         cmd.Parameters.AddWithValue("@prod_img10", filePath10);
         cmd.Parameters.AddWithValue("@prod_img11", filePath11);
+        cmd.Parameters.AddWithValue("@folder_images", folderName);
 
         cmd.CommandType = CommandType.Text;
         cmd.Connection = con;
