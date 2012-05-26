@@ -44,9 +44,9 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Body" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="productDetailsBody" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:SqlDataSource ID="homeSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-        SelectCommand="SELECT [prod_id], [prod_title], [prod_features], [O_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
+        SelectCommand="SELECT [prod_id], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
         <SelectParameters>
             <asp:QueryStringParameter Name="prod_id" QueryStringField="prod_id" />
         </SelectParameters>
@@ -61,25 +61,33 @@
             <span>No data was returned.</span>
         </EmptyDataTemplate>
         <ItemTemplate>
-            <div>
-                <div>
-                    <asp:Label ID="Label1" runat="server" Text="Product Title :"></asp:Label>
-                    
-                    <asp:Label ID="prod_titleLabel" runat="server" Text='<%# Eval("prod_title") %>' />
-                    <br />
+            <div style="color:#333; line-height: 35px; margin:0 200px 0 50px; ">
+                <div style="display: block; text-align: left;">
+                    <h1 style="display: inline;">
+                        <%# Eval("prod_title") %></h1>
+                    <span>(<%# Eval("prod_color")%>)</span>
                 </div>
+                <div style="display: block; text-align: left; ">
+                    <div style="display: inline; color: Gray;  ">
+                        <span>Price : </span>
+                    </div>
+                    <span style="text-decoration: line-through;">₹
+                        <%# Eval("m_price", "{0:##}") %></span> <span id="pricecolor" style="color: Red;
+                            font-size: 24px;">₹
+                            <%# Eval("O_price", "{0:##}") %></span></span>
+                </div>
+                <div style="display: block; text-align: left;">
+                    <span style="display: inline; color: Gray;">Discount : </span><span style="font-size:25px;">
+                        <%# Eval("discount_percent", "{0:N2}") %>
+                        %</span></div>
                 <div>
-                    Features :
-                    <asp:Label ID="prod_featuresLabel" runat="server" Text='<%# Eval("prod_features") %>' /></div>
-                <div>
-                    Our Price :
-                    <asp:Label ID="O_priceLabel" runat="server" Text='<%# Eval("O_price") %>' /></div>
-                <div>
-                    Discount :
-                    <asp:Label ID="discount_percentLabel" runat="server" Text='<%# Eval("discount_percent") %>' /></div>
-                <div>
-                    Description :
-                    <asp:Label ID="prod_descriptionLabel" runat="server" Text='<%# Eval("prod_description") %>' /></div>
+                    <div style="display: block; text-align: left;">
+                        <span style="display: inline-table; color: Gray;">Features : </span><span>
+                            <%# Eval("prod_features") %></span>
+                    </div>
+                    <span style="font-size:20px;">Description : </span><span>
+                        <%# Eval("prod_description") %></span>
+                </div>
             </div>
         </ItemTemplate>
         <LayoutTemplate>
