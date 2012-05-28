@@ -45,8 +45,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="productDetailsBody" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:SqlDataSource ID="homeSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-        SelectCommand="SELECT [prod_id], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
+    <asp:SqlDataSource ID="DetailsSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
+        SelectCommand="SELECT [prod_id], [category], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
         <SelectParameters>
             <asp:QueryStringParameter Name="prod_id" QueryStringField="prod_id" />
         </SelectParameters>
@@ -55,37 +55,37 @@
         <ul id="ul1" runat="server">
         </ul>
     </div>
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="homeSql"
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="DetailsSql"
         EnableModelValidation="True">
         <EmptyDataTemplate>
             <span>No data was returned.</span>
         </EmptyDataTemplate>
         <ItemTemplate>
-            <div style="color:#333; line-height: 35px; margin:0 200px 0 50px; ">
+            <div style="color: #333; line-height: 35px; margin: 0 200px 0 50px;">
                 <div style="display: block; text-align: left;">
                     <h1 style="display: inline;">
                         <%# Eval("prod_title") %></h1>
                     <span>(<%# Eval("prod_color")%>)</span>
                 </div>
-                <div style="display: block; text-align: left; ">
-                    <div style="display: inline; color: Gray;  ">
+                <div style="display: block; text-align: left;">
+                    <div style="display: inline; color: Gray;">
                         <span>Price : </span>
                     </div>
-                    <span style="text-decoration: line-through;">₹
+                    <span style="text-decoration: line-through;">Rs.
                         <%# Eval("m_price", "{0:##}") %></span> <span id="pricecolor" style="color: Red;
-                            font-size: 24px;">₹
+                            font-size: 24px;">Rs.
                             <%# Eval("O_price", "{0:##}") %></span></span>
                 </div>
                 <div style="display: block; text-align: left;">
-                    <span style="display: inline; color: Gray;">Discount : </span><span style="font-size:25px;">
+                    <span style="display: inline; color: Gray;">Discount : </span><span style="font-size: 25px;">
                         <%# Eval("discount_percent", "{0:N2}") %>
                         %</span></div>
+                <div style="display: block; text-align: left;">
+                    <span style="display: inline-table; color: Gray;">Features : </span><span>
+                        <%# Eval("prod_features") %></span>
+                </div>
                 <div>
-                    <div style="display: block; text-align: left;">
-                        <span style="display: inline-table; color: Gray;">Features : </span><span>
-                            <%# Eval("prod_features") %></span>
-                    </div>
-                    <span style="font-size:20px;">Description : </span><span>
+                    <span style="font-size: 20px;">Description : </span><span>
                         <%# Eval("prod_description") %></span>
                 </div>
             </div>

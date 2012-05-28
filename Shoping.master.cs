@@ -13,4 +13,9 @@ using System.Xml.Linq;
 
 public partial class Shoping : System.Web.UI.MasterPage
 {
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        lblmsg.Text = "This website has been visited " + (Application["PageRequestCount"]) + " times.";
+    }
 }

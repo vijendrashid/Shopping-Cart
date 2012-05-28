@@ -72,10 +72,12 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         #region Upload Files
         if (fupl_img1.HasFile)
         {
-            //if (CheckFileType(fupl_img1.FileName))
-            //{
-            // Specify a "currently active folder"
-            string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
+            // Specify a "Application folder"
+            string appPath = HttpContext.Current.Request.ApplicationPath;
+
+            //Specify a "currently active folder"
+            string activeDir = HttpContext.Current.Request.MapPath(appPath + "/images/Products");
+           // string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
 
 
             //Create a new subfolder under the current active folder
@@ -89,7 +91,6 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             string rootDir = "~/images/Products/" + folderName + "/";
 
             folderName = "/images/Products/" + folderName + "/";
-
 
             // Append Filename with the Virtual path to images               
             filePath1 = rootDir + fupl_img1.FileName;

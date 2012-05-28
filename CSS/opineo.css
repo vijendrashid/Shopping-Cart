@@ -1,0 +1,101 @@
+@charset "utf-8";
+.red-bar{
+  height:30px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  -webkit-box-shadow: rgba(115, 115, 115, 1) 0px 1px 1px;
+  -moz-box-shadow: rgba(115, 115, 115, 1) 0px 1px 0px; /* FF 3.5+ */
+  
+  text-align:center;
+  margin:0px 10px 10px 0px;
+  float:left;
+
+}
+
+
+.red-bar p{
+  font-size:12px; font-weight:bold;
+  padding-top:8px;
+  margin:0px;
+}
+
+
+.orange-bar{
+  height:30px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  -webkit-box-shadow: rgba(115, 115, 115, 1) 0px 1px 1px;
+  -moz-box-shadow: rgba(115, 115, 115, 1) 0px 1px 0px; /* FF 3.5+ */
+  
+  text-align:center;
+  margin:0px 10px 10px 0px; float:left;
+}
+.orange-bar p{
+  padding-top:8px;
+  font-size:12px; font-weight:bold;
+  margin:0px;
+}
+
+
+.yellow-bar{
+  height:30px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  -webkit-box-shadow: rgba(115, 115, 115, 1) 0px 1px 1px;
+  -moz-box-shadow: rgba(115, 115, 115, 1) 0px 1px 0px; /* FF 3.5+ */
+  
+  text-align:center;
+  margin:0px 10px 10px 0px;  float:left;
+}
+.yellow-bar p{
+  padding-top:8px;
+  font-size:12px; font-weight:bold;
+  margin:0px;
+}
+
+.light-green-bar{
+  height:30px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  -webkit-box-shadow: rgba(115, 115, 115, 1) 0px 1px 1px;
+  -moz-box-shadow: rgba(115, 115, 115, 1) 0px 1px 0px; /* FF 3.5+ */
+  
+  text-align:center;
+  margin:0px 10px 10px 0px; float:left;
+}
+.light-green-bar p{
+  padding-top:8px;
+  font-size:12px; font-weight:bold;
+  margin:0px;
+}
+
+
+
+.dark-green-bar{
+  height:30px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+	
+  -webkit-box-shadow: rgba(115, 115, 115, 1) 0px 1px 1px;
+  -moz-box-shadow: rgba(115, 115, 115, 1) 0px 1px 0px; /* FF 3.5+ */
+  
+  text-align:center;
+  margin:0px 10px 10px 0px; float:left;
+  
+}
+.dark-green-bar p{
+  padding-top:8px;
+  font-size:12px; font-weight:bold;
+  margin:0px;
+}
+
+.all-stars{margin:15px 5px 15px 0px; float:left;}
+.star{margin:0px 2px 0px 0px; float:left;}
+.bar-label{font-size:11px; padding-top:8px;}
+.user-vote{font-size:11px;  padding-top:25px;}
+.all-votes{font-size:12px; margin:0px 0px 9px 3px;}
+.clearfix:after{content: "."; display:block; visibility: hidden; height:0; clear: both;}
