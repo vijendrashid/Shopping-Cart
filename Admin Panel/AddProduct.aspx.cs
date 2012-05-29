@@ -54,7 +54,12 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         
         skuNo = txtSku.Text;
         productTitle = txtPro_Title.Text;
-        weight = Convert.ToDecimal(txtWeight.Text);
+        // If Product weight is not available
+        if(weight != 0)
+        {
+            weight = Convert.ToDecimal(txtWeight.Text);
+        }
+        
         metaKeywords = txtMetaKeywords.Text;
         metaDesc = txtMetaDescription.Text;
         category = ddlCategory.SelectedItem.Text;
@@ -275,7 +280,10 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         {
             con.Close();
             con.Dispose();
+            Response.Redirect("AddProduct.aspx");
         }
+
+
         ////Note: Finding Controls from FormView and giving same name as id
         //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;
     }

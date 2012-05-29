@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="HomeBody" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="homesql"
-        EnableModelValidation="True" GroupItemCount="3">
+        EnableModelValidation="True" GroupItemCount="3" >
         <AlternatingItemTemplate>
             <td runat="server" class="itemTemplate">
                 <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
@@ -66,7 +66,7 @@
                 </tr>
                 <tr runat="server">
                     <td runat="server" style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="6">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
                             </Fields>
@@ -77,7 +77,7 @@
         </LayoutTemplate>
     </asp:ListView>
     <asp:SqlDataSource ID="homesql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-        SelectCommand="SELECT TOP 100 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] ORDER BY NEWID()">
+        SelectCommand="SELECT TOP 50 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] ORDER BY NEWID()">
     </asp:SqlDataSource>
     <br />
 </asp:Content>

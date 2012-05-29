@@ -36,8 +36,6 @@
     <asp:Label ID="lblWeight" runat="server" Text="Weight : " 
         AssociatedControlID="txtWeight"></asp:Label>
     &nbsp;&nbsp;<asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rfvWeight" runat="server" 
-        ControlToValidate="txtWeight" Display="Dynamic">(Required)</asp:RequiredFieldValidator>
     <asp:CompareValidator ID="cvWeight" runat="server" 
         ControlToValidate="txtWeight" Operator="DataTypeCheck" Type="Double"> (Invalid Weight)</asp:CompareValidator>
     <br />
@@ -60,9 +58,10 @@
     <asp:Label ID="lblCategory" runat="server" Text="Category :" 
         AssociatedControlID="ddlCategory"></asp:Label>
     <asp:DropDownList ID="ddlCategory" runat="server">
-        <asp:ListItem>Touch Screen</asp:ListItem>
+        <asp:ListItem Selected="True">Touch Screen</asp:ListItem>
         <asp:ListItem>Qwerty</asp:ListItem>
         <asp:ListItem>Tab</asp:ListItem>
+        <asp:ListItem>Dual Sim</asp:ListItem>
         <asp:ListItem>Accessories</asp:ListItem>
     </asp:DropDownList>
     <br />
@@ -77,8 +76,6 @@
     <asp:Label ID="lbl_colour" runat="server" Text="Colour :" 
         AssociatedControlID="txtColour"></asp:Label>
     &nbsp;&nbsp;<asp:TextBox ID="txtColour" runat="server" MaxLength="20"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rfvColour" runat="server" 
-        ControlToValidate="txtColour" Display="Dynamic">(Required)</asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lbl_featr" runat="server" Text="Features :" 
