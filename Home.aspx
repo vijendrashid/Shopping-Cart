@@ -8,7 +8,7 @@
         EnableModelValidation="True" GroupItemCount="3">
         <AlternatingItemTemplate>
             <td runat="server" class="itemTemplate">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
                     Height="200" Width="100" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
@@ -41,7 +41,7 @@
         </GroupTemplate>
         <ItemTemplate>
             <td id="Td1" runat="server" class="itemTemplate">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
                     Height="200" Width="100" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />

@@ -29,7 +29,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
     String activeDir = null;
     String newFolderPath = null;
-    String rootDir = null;
+    //String rootDir = null;
     String filePath1 = null;
     String filePath2 = null;
     String filePath3 = null;
@@ -45,14 +45,13 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        btnAdd.Enabled = false;
-
+       
 
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        prodId = txtProd_id.Text;
+        
         skuNo = txtSku.Text;
         productTitle = txtPro_Title.Text;
         weight = Convert.ToDecimal(txtWeight.Text);
@@ -67,7 +66,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         marketPrice = float.Parse(txtMrkt_price.Text);
         quantity = Convert.ToInt32(txtQty.Text);
         delivrdDays = Convert.ToInt16(txtDelivrd_Days.Text);
-        folderName = txtProductFolderName.Text;
+        folderName = txtPro_Title.Text + "-" + txtColour.Text;
 
         #region Upload Files
         if (fupl_img1.HasFile)
@@ -76,12 +75,12 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             string appPath = HttpContext.Current.Request.ApplicationPath;
 
             //Specify a "currently active folder"
-            string activeDir = HttpContext.Current.Request.MapPath(appPath + "/images/Products");
+            activeDir = HttpContext.Current.Request.MapPath(appPath + "/images/Products");
            // string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
 
 
             //Create a new subfolder under the current active folder
-            string newFolderPath = Path.Combine(activeDir, folderName);
+            newFolderPath = Path.Combine(activeDir, folderName);
 
             // Create the subfolder
             Directory.CreateDirectory(newFolderPath);
@@ -90,7 +89,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             // Note: Virtual Root Folder Specified explicitly
             string rootDir = "~/images/Products/" + folderName + "/";
 
-            folderName = "/images/Products/" + folderName + "/";
+            folderName = "images/Products/" + folderName + "/";
 
             // Append Filename with the Virtual path to images               
             filePath1 = rootDir + fupl_img1.FileName;
@@ -288,7 +287,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
     }
     protected void txtProd_id_TextChanged(object sender, EventArgs e)
     {
-        string prodId = txtProd_id.Text;
+        //string prodId = txtProd_id.Text;
         String strConnString = System.Configuration.ConfigurationManager
                                         .ConnectionStrings["HomeConnectionString"]
                                         .ConnectionString;

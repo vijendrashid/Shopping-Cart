@@ -84,6 +84,9 @@
                     <span style="display: inline-table; color: Gray;">Features : </span><span>
                         <%# Eval("prod_features") %></span>
                 </div>
+                <span>
+                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy This Now" />
+                </span>
                 <div>
                     <span style="font-size: 20px;">Description : </span><span>
                         <%# Eval("prod_description") %></span>
