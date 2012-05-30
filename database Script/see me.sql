@@ -94,3 +94,41 @@ create table rating
 (
 	prod_id int,
 	rates int
+	)
+
+
+
+
+	/* Add Membership to app_data folder####
+		aspnet_regsql -A all -C 
+		"Data Source=Don-PC\SQLExpress;Integrated Security=True;User Instance=True" -d 
+		"E:\Git Hub\Shopping-Cart\App_Data\mobileshop1234.mdf" */
+	
+	/*
+This provider assumes the existence of the following Profiles table:
+
+CREATE TABLE Profiles
+(
+  UniqueID IDENTITY NOT NULL PRIMARY KEY,
+  UserName NVarchar(255) NOT NULL,
+  ApplicationName NVarchar(255) NOT NULL,
+  IsAnonymous BIT, 
+  LastActivityDate DateTime,
+  LastUpdatedDate DateTime,
+)
+
+Profile data is stored in a table named ProfileData. This table must
+include a column named ProfileID. The remaining columns correspond
+to the profile properties that you define in the Web.Config file.
+  
+  
+CREATE TABLE ProfileData
+{
+  ProfileID INT,
+  ProfileProp1,
+  ProfileProp2,
+  ProfileProp3, ...
+}  
+  
+  
+*/

@@ -18,5 +18,9 @@ public partial class Shoping : System.Web.UI.MasterPage
     {
         lblmsg.Text = "This website has been visited " + (Application["PageRequestCount"]) + " times.";
 
+        if(Request.IsAuthenticated)
+        {
+            lblLoginName.Text = Page.User.Identity.Name;
+        }
     }
 }

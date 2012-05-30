@@ -28,17 +28,20 @@
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
                             NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
-                        <strong>&nbsp; |&nbsp; </strong>
+                        <%--<strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
-                            NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>
-                        <strong>&nbsp; |&nbsp; </strong>
+                            NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>--%>
+                        <%if (!Request.IsAuthenticated)
+                          { %>
+                          <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpLogin" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>
                         <strong>&nbsp; |&nbsp;&nbsp; </strong>
-                        <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/signup.aspx">Signup</asp:HyperLink>
+                        <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/Register.aspx">Signup</asp:HyperLink>
+                          <% } %>
                     </td>
                     <td>
                         <div>
-                            <asp:Button ID="btncart" runat="server" Text="Cart(0)" CssClass="Button" />
+                            <asp:Button ID="btncart" runat="server" Text="Cart(No Item)" CssClass="Button" />
                         </div>
                     </td>
                 </tr>
@@ -98,6 +101,8 @@
         </table>
         <div>
             <asp:Label ID="lblmsg" runat="server" Text="Label" ForeColor="#30A9A2"></asp:Label>
+            <br />
+            <asp:Label ID="lblLoginName" runat="server"></asp:Label>
         </div>
         <%--<div>
             <div class="stretchHolder">

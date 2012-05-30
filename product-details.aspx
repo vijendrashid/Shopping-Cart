@@ -5,6 +5,7 @@
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/jquery.lightbox-0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/jquery.lightbox-0.5.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="CSS/buybutton.css" />
     <!-- Ativando o jQuery lightBox plugin -->
     <script type="text/javascript">
         $(function () {
@@ -84,11 +85,12 @@
                     <span style="display: inline-table; color: Gray;">Features : </span><span>
                         <%# Eval("prod_features") %></span>
                 </div>
-                <span>
-                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy This Now" />
+                <span style="display:inline-block; text-align: left;"><a href="#" class="buybtn">
+                    <span class="buybtn-text">Buy Now</span> <span class="buybtn-hidden-text">£149.99</span>
+                    <span class="buybtn-image"><span></span></span></a>
                 </span>
-                <div>
-                    <span style="font-size: 20px;">Description : </span><span>
+                <div style="display: block; text-align: left;">
+                    <span style=" style="display: inline; font-size: 20px;">Description : </span><span>
                         <%# Eval("prod_description") %></span>
                 </div>
             </div>
