@@ -1,15 +1,25 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Shoping.master.cs" Inherits="Shoping" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Welcome to Mobile Shop 1234...! </title>
     <asp:ContentPlaceHolder ID="ShoppingMasterHead" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="CSS/StyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="CSS/master.css" />
+    <script type="text/javascript">
+        var styleToSelect;
+        function onOk() {
+            document.getElementById('Paragraph1').className = styleToSelect;
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server" class="style1">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
     <div>
         <div class="stretchHolder">
             <table width="100%">
@@ -171,6 +181,21 @@
                 &nbsp;&nbsp;<asp:Label ID="lbh2hhistory" runat="server" Font-Size="XX-Small">© 2007-2012 h-2-h.com</asp:Label>
             </div>
         </div>
+    </div>
+    <div>
+        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none">
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <div align="center">
+                <asp:Button ID="OkButton" runat="server" Text="OK" />
+                <asp:Button ID="CancelButton" runat="server" Text="Cancel" />
+            </div>
+        </asp:Panel>
+        <br />
+        <asp:ModalPopupExtender ID="ModalPopupExtender2" runat="server" TargetControlID="btncart"
+            PopupControlID="Panel1" BackgroundCssClass="modalBackground" DropShadow="true"
+            OkControlID="OkButton" OnOkScript="onOk()" CancelControlID="CancelButton">
+        </asp:ModalPopupExtender>
     </div>
     </form>
 </body>

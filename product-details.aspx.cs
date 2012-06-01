@@ -13,17 +13,14 @@ using customCart;
 
 public partial class product_details : System.Web.UI.Page
 {
-    Label vName;
-    Label vPrice;
     static String name;
-    decimal price;
-
-    void Page_PreRender()
-    {
-        GridView1.DataSource = Profile.ShoppingCart.Items;
-        GridView1.DataBind();
-    }
-
+    static String sPrice;
+    static decimal price;
+    //void Page_PreRender()
+    //{
+    //    GridView1.DataSource = Profile.ShoppingCart.Items;
+    //    GridView1.DataBind();
+    //}
     //string getQuery = ClientQueryString; //obtain variables from passed link ?passedinstruction
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -53,7 +50,6 @@ public partial class product_details : System.Web.UI.Page
         // Returns physical path that returns all files name
         string[] filesindirectory = Directory.GetFiles(Server.MapPath(folderImages));
 
-
         List<String> lstImages = new List<string>(filesindirectory.Count());
 
         //Dyanamically add HTML controls
@@ -80,12 +76,8 @@ public partial class product_details : System.Web.UI.Page
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
-        ////Note: Finding Controls from FormView and giving same name as id
-        //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;
-        Response.Write("Price" + name);
-
-        //CartItem newItem = new CartItem(name, price);
-        //Profile.ShoppingCart.Items.Add(newItem);
+        CartItem newItem = new CartItem(name, price);
+        Profile.ShoppingCart.Items.Add(newItem);
 
     }
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -96,13 +88,9 @@ public partial class product_details : System.Web.UI.Page
             DataRowView rowView = (DataRowView)dataItem.DataItem;
 
             name = rowView["prod_title"].ToString();
-
-            //vName = (Label)e.Item.FindControl("lblProdTitle");
-            //vPrice = (Label)e.Item.FindControl("lblOurPrice");
-            //name = (vName.Text.ToString());
-            //price = (decimal.Parse(vPrice.Text));
+            sPrice = rowView["O_price"].ToString();
+            price = decimal.Parse(sPrice);
         }
-        //vName = (Label)DetailsListView.FindControl("lblProdTitle");
         
     }
 

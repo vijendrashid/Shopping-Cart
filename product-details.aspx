@@ -61,8 +61,7 @@
         </ul>
     </div>
     <asp:ListView ID="DetailsListView" runat="server" DataKeyNames="prod_id" DataSourceID="DetailsSql"
-        EnableModelValidation="True" 
-        onitemdatabound="DetailsListView_ItemDataBound">
+        EnableModelValidation="True" OnItemDataBound="DetailsListView_ItemDataBound">
         <EmptyDataTemplate>
             <span>No data was returned.</span>
         </EmptyDataTemplate>
@@ -81,7 +80,7 @@
                         <%# Eval("m_price", "{0:##}") %></span> <span id="pricecolor" style="color: Red;
                             font-size: 24px;">Rs.
                             <asp:Label ID="lblOurPrice" runat="server" Text='<%# Eval("O_price", "{0:##}") %>'></asp:Label>
-                            </span></span>
+                        </span></span>
                 </div>
                 <div style="display: block; text-align: left;">
                     <span style="display: inline; color: Gray;">Discount : </span><span style="font-size: 25px;">
@@ -109,8 +108,4 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
-    <br />
-    <asp:GridView ID="GridView1" runat="server">
-    </asp:GridView>
-    <br />
 </asp:Content>

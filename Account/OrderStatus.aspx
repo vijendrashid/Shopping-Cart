@@ -32,13 +32,18 @@
     </tr>
     <tr>
         <td>
-            <asp:TextBox ID="txtorder" runat="server"></asp:TextBox>         
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
-            <asp:Button ID="btnorder" runat="server" Text="Go" BackColor="#CCFFCC" BorderColor="#FFCCCC" />
+            <asp:TextBox ID="txtorder" runat="server"></asp:TextBox>                
+            <asp:Button ID="btnorder" runat="server" Text="Go"  />
         </td>
         <td>
             &nbsp;</td>
     </tr>
 </table>
+<div>
+    <asp:GridView ID="GridView1" runat="server">
+    </asp:GridView>
+    <br />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+</div>
 </asp:Content>
 

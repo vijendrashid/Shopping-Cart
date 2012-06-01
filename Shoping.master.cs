@@ -13,6 +13,11 @@ using System.Xml.Linq;
 
 public partial class Shoping : System.Web.UI.MasterPage
 {
+    void Page_PreRender()
+    {
+        GridView1.DataSource = Profile.ShoppingCart.Items;
+        GridView1.DataBind();
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
