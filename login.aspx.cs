@@ -11,11 +11,14 @@ public partial class login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Request.IsAuthenticated)
+            Response.Redirect("Home.aspx");
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+        
+
         if(Membership.ValidateUser(txtUserName.Text, txtPassword.Text))
         {
             FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, chkRememberMe.Checked);

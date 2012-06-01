@@ -16,11 +16,15 @@ public partial class Shoping : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Response.Cache.SetExpires(DateTime.Now.AddMonths(1));
+        //Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
+        //Response.Cache.SetValidUntilExpires(true);
+
         lblmsg.Text = "This website has been visited " + (Application["PageRequestCount"]) + " times.";
 
-        if(Request.IsAuthenticated)
-        {
-            lblLoginName.Text = Page.User.Identity.Name;
-        }
+        //if(Request.IsAuthenticated)
+        //{
+        //    lblLoginName.Text = Page.User.Identity.Name;
+        //}
     }
 }

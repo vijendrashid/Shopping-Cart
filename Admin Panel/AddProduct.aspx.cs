@@ -212,7 +212,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         }
         #endregion
 
-        //Add Entry to Database
+        #region Add Entry to Database
         String strConnString = System.Configuration.ConfigurationManager
                                 .ConnectionStrings["HomeConnectionString"]
                                 .ConnectionString;
@@ -282,7 +282,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             con.Dispose();
             Response.Redirect("AddProduct.aspx");
         }
-
+        #endregion
 
         ////Note: Finding Controls from FormView and giving same name as id
         //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;

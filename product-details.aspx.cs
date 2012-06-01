@@ -9,12 +9,25 @@ using System.IO;
 using System.Web.UI.HtmlControls;
 using System.Data;
 using System.Data.SqlClient;
+using customCart;
 
 public partial class product_details : System.Web.UI.Page
 {
+    Label vName;
+    Label vPrice;
+    static String name;
+    decimal price;
+
+    void Page_PreRender()
+    {
+        GridView1.DataSource = Profile.ShoppingCart.Items;
+        GridView1.DataBind();
+    }
+
     //string getQuery = ClientQueryString; //obtain variables from passed link ?passedinstruction
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         // Request to querystring value for retriving product details
         string getQuery = Request.QueryString["prod_id"];
 
@@ -62,5 +75,35 @@ public partial class product_details : System.Web.UI.Page
             img.Attributes.Add("height", "80");
             anchor.Controls.Add(img);
         }
+        
     }
+
+    protected void addToCart1_Click(object sender, EventArgs e)
+    {
+        ////Note: Finding Controls from FormView and giving same name as id
+        //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;
+        Response.Write("Price" + name);
+
+        //CartItem newItem = new CartItem(name, price);
+        //Profile.ShoppingCart.Items.Add(newItem);
+
+    }
+    protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            DataRowView rowView = (DataRowView)dataItem.DataItem;
+
+            name = rowView["prod_title"].ToString();
+
+            //vName = (Label)e.Item.FindControl("lblProdTitle");
+            //vPrice = (Label)e.Item.FindControl("lblOurPrice");
+            //name = (vName.Text.ToString());
+            //price = (decimal.Parse(vPrice.Text));
+        }
+        //vName = (Label)DetailsListView.FindControl("lblProdTitle");
+        
+    }
+
 }

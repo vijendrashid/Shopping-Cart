@@ -131,6 +131,8 @@ go
 
 create table cart
 (
+userid
+
 
 
 

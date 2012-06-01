@@ -96,6 +96,10 @@ create table rating
 	rates int
 	)
 
+CREATE TABLE CART
+(
+	
+
 
 
 

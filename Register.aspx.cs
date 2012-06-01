@@ -28,7 +28,7 @@ public partial class Register : System.Web.UI.Page
         //try
         //{
             // Create an User
-            MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewUserName.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
+            MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
 
             if (newUser == null)
             {

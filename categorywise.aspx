@@ -1,14 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true"
     CodeFile="categorywise.aspx.cs" Inherits="categorywise" %>
 
+<%--<%@ OutputCache Duration="120" VaryByParam="category" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id,category" DataSourceID="CategoryWiseSql"
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="CategoryWiseSql"
         EnableModelValidation="True" GroupItemCount="3">
         <AlternatingItemTemplate>
             <td id="Td1" runat="server" class="itemTemplate">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
+                    PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
                     Height="200" Width="100" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
@@ -41,7 +43,8 @@
         </GroupTemplate>
         <ItemTemplate>
             <td id="Td1" runat="server" class="itemTemplate">
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>' PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl='<%# Eval("prod_img1") %>'
+                    PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
                     Height="200" Width="100" />
                 <br />
                 <asp:Label ID="prod_idLabel" runat="server" Text='<%# Eval("prod_id") %>' Visible="False" />
@@ -66,7 +69,7 @@
                 </tr>
                 <tr id="Tr2" runat="server">
                     <td id="Td4" runat="server" style="">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="6">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
                             </Fields>
@@ -77,12 +80,10 @@
         </LayoutTemplate>
     </asp:ListView>
     <asp:SqlDataSource ID="CategoryWiseSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-        SelectCommand="SELECT  [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] "
-        FilterExpression="category LIKE '{0}%'" >
+        SelectCommand="SELECT  [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] " FilterExpression="category LIKE '{0}%'">
         <FilterParameters>
             <asp:QueryStringParameter Name="category" QueryStringField="category" />
         </FilterParameters>
-        
     </asp:SqlDataSource>
     <br />
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true"
     CodeFile="product-details.aspx.cs" Inherits="product_details" %>
 
+<%--<%@ OutputCache Duration="120" VaryByParam="prod_id" %>--%>
 <asp:Content ID="head" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/jquery.lightbox-0.5.js"></script>
@@ -10,7 +11,10 @@
     <script type="text/javascript">
         $(function () {
             $('#gallery a').lightBox();
+
         });
+
+
     </script>
     <style type="text/css">
         /* jQuery lightBox plugin - Gallery style */
@@ -56,8 +60,9 @@
         <ul id="ul1" runat="server">
         </ul>
     </div>
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="DetailsSql"
-        EnableModelValidation="True">
+    <asp:ListView ID="DetailsListView" runat="server" DataKeyNames="prod_id" DataSourceID="DetailsSql"
+        EnableModelValidation="True" 
+        onitemdatabound="DetailsListView_ItemDataBound">
         <EmptyDataTemplate>
             <span>No data was returned.</span>
         </EmptyDataTemplate>
@@ -65,7 +70,7 @@
             <div style="color: #333; line-height: 35px; margin: 0 200px 0 50px;">
                 <div style="display: block; text-align: left;">
                     <h1 style="display: inline;">
-                        <%# Eval("prod_title") %></h1>
+                        <asp:Label ID="lblProdTitle" runat="server" Text='<%# Eval("prod_title") %>'></asp:Label></h1>
                     <span>(<%# Eval("prod_color")%>)</span>
                 </div>
                 <div style="display: block; text-align: left;">
@@ -75,7 +80,8 @@
                     <span style="text-decoration: line-through;">Rs.
                         <%# Eval("m_price", "{0:##}") %></span> <span id="pricecolor" style="color: Red;
                             font-size: 24px;">Rs.
-                            <%# Eval("O_price", "{0:##}") %></span></span>
+                            <asp:Label ID="lblOurPrice" runat="server" Text='<%# Eval("O_price", "{0:##}") %>'></asp:Label>
+                            </span></span>
                 </div>
                 <div style="display: block; text-align: left;">
                     <span style="display: inline; color: Gray;">Discount : </span><span style="font-size: 25px;">
@@ -85,12 +91,12 @@
                     <span style="display: inline-table; color: Gray;">Features : </span><span>
                         <%# Eval("prod_features") %></span>
                 </div>
-                <span style="display:inline-block; text-align: left;"><a href="#" class="buybtn">
-                    <span class="buybtn-text">Buy Now</span> <span class="buybtn-hidden-text">£149.99</span>
-                    <span class="buybtn-image"><span></span></span></a>
-                </span>
+                <asp:Button ID="addToCart1" CssClass="buybtn" runat="server" Text="Buy Now" OnClick="addToCart1_Click" />
+                <%--<span style="display: inline-block; text-align: left;"><a href="#" class="buybtn"><span
+                    class="buybtn-text">Buy Now</span> <span class="buybtn-hidden-text">Rs.<%# Eval("O_price", "{0:##}") %></span><span
+                        class="buybtn-image"><span></span></span></a></span>--%>
                 <div style="display: block; text-align: left;">
-                    <span style=" style="display: inline; font-size: 20px;">Description : </span><span>
+                    <span style="display: inline; font-size: 20px;">Description : </span><span>
                         <%# Eval("prod_description") %></span>
                 </div>
             </div>
@@ -103,5 +109,8 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
+    <br />
+    <asp:GridView ID="GridView1" runat="server">
+    </asp:GridView>
     <br />
 </asp:Content>

@@ -4,7 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Welcome to Mobile Shop 1234...! </title>
-  
     <asp:ContentPlaceHolder ID="ShoppingMasterHead" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="CSS/master.css" />
@@ -17,31 +16,33 @@
                 <tr>
                     <td>
                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/Mobile Shop 1234.png"
-                            Height="35px" Width="184px" PostBackUrl="~/Home.aspx" />
+                            Height="35px" Width="184px" PostBackUrl="~/Home.aspx" CausesValidation="False" />
+                        <asp:LoginName ID="LoginName1" runat="server" />
                     </td>
                     <td align="right">
-                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" 
-                            ForeColor="Black" EnableViewState="False">ContactUs</asp:HyperLink>
+                        <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black"
+                            EnableViewState="False" NavigateUrl="~/ContactUs.aspx">ContactUs</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" 
-                            NavigateUrl="~/Home.aspx" EnableViewState="False">Home</asp:HyperLink>
+                        <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx"
+                            EnableViewState="False">Home</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
                             NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
-                        <%--<strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
+                        <strong>&nbsp; |&nbsp; </strong>
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        <%--<asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
                             NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>--%>
                         <%if (!Request.IsAuthenticated)
                           { %>
-                          <strong>&nbsp; |&nbsp; </strong>
-                        <asp:HyperLink ID="hpLogin" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>
+                        <%--<strong>&nbsp; |&nbsp; </strong>
+                        <asp:HyperLink ID="hpLogin" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>--%>
                         <strong>&nbsp; |&nbsp;&nbsp; </strong>
                         <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/Register.aspx">Signup</asp:HyperLink>
-                          <% } %>
+                        <% } %>
                     </td>
                     <td>
                         <div>
-                            <asp:Button ID="btncart" runat="server" Text="Cart(No Item)" CssClass="Button" />
+                            <asp:Button ID="btncart" runat="server" Text="Cart(No Item)" CssClass="Button" CausesValidation="False" />
                         </div>
                     </td>
                 </tr>
@@ -53,11 +54,14 @@
                     <div class="stretchHolder">
                         <div class="stretchMenu">
                             <ul class="stretchDrop">
-                                <li class="slide p1"><a href="categorywise.aspx?category=Touch Screen">TouchScreen</a> </li>
+                                <li class="slide p1"><a href="categorywise.aspx?category=Touch Screen">TouchScreen</a>
+                                </li>
                                 <li class="slide p2"><a href="categorywise.aspx?category=Tab">Tab</a> </li>
                                 <li class="slide p3"><a href="categorywise.aspx?category=Qwerty">Qwerty</a> </li>
-                                <li class="slide p4"><a href="categorywise.aspx?category=Dual Sim">Dual Sim</a> </li>
-                                <li class="last p5"><a href="categorywise.aspx?category=Accessories">Accessories</a> </li>
+                                <li class="slide p4"><a href="categorywise.aspx?category=Dual Sim">Dual Sim</a>
+                                </li>
+                                <li class="last p5"><a href="categorywise.aspx?category=Accessories">Accessories</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -102,7 +106,6 @@
         <div>
             <asp:Label ID="lblmsg" runat="server" Text="Label" ForeColor="#30A9A2"></asp:Label>
             <br />
-            <asp:Label ID="lblLoginName" runat="server"></asp:Label>
         </div>
         <%--<div>
             <div class="stretchHolder">

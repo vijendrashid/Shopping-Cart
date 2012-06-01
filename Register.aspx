@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true"
     CodeFile="Register.aspx.cs" Inherits="Register" %>
 
+<%--<%@ OutputCache Duration="120" VaryByParam="none" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -20,8 +21,7 @@
             <asp:TextBox ID="txtNewPassword" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNewPass" runat="server" ControlToValidate="txtNewPassword"
                 Display="Dynamic">(Required)</asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                Visible="False">(Password is too weak.)</asp:RegularExpressionValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Visible="False">(Password is too weak.)</asp:RegularExpressionValidator>
         </div>
         <div>
             <asp:Label ID="lblNewPassAgain" runat="server" Text="New Password Again : " AssociatedControlID="txtNewPassAgain"></asp:Label>
@@ -39,10 +39,11 @@
             <asp:RegularExpressionValidator ID="revEmailID" runat="server" ControlToValidate="txtEmailID"
                 Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">(Invalid EmailID)</asp:RegularExpressionValidator>
         </div>
-        <div></div>
+        <div>
+        </div>
         <div>
             <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
-            <asp:Button ID="btnLogin" runat="server" Text="Already an User?" 
-                PostBackUrl="~/login.aspx" CausesValidation="False" /></div>
+            <asp:Button ID="btnLogin" runat="server" Text="Already an User?" PostBackUrl="~/login.aspx"
+                CausesValidation="False" /></div>
     </div>
 </asp:Content>
