@@ -8,7 +8,14 @@
         txtmobilenumber.Text = Profile.PersonalInformation.MobileNumber;
         txtlandlinenumber.Text = Profile.PersonalInformation.LandlineNumber;
         drpgender.SelectedItem.Text = Profile.PersonalInformation.Gender;
-        
+        if (drpgender.SelectedItem.Text != "")
+        {
+            drpgender.SelectedItem.Text = Profile.PersonalInformation.Gender;
+        }
+        else
+        {
+            drpgender.SelectedItem.Text = "Male";
+        }
     }
     protected void btnpersonalinformationsavechange_Click(object sender, EventArgs e)
     {
@@ -32,8 +39,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtfirstname" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="revFName" runat="server" 
-                            ControlToValidate="txtfirstname" Display="Dynamic" EnableViewState="False">(First Name is invalid)</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revFName" runat="server" ControlToValidate="txtfirstname"
+                            Display="Dynamic" EnableViewState="False">(First Name is invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -44,8 +51,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtlastname" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="revLName" runat="server" 
-                            ControlToValidate="txtlastname" Display="Dynamic">(Last Name is invalid)</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revLName" runat="server" ControlToValidate="txtlastname"
+                            Display="Dynamic">(Last Name is invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -56,8 +63,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtmobilenumber" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="revMNumber" runat="server" 
-                            ControlToValidate="txtmobilenumber" Display="Dynamic">(Number is Invalid)</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revMNumber" runat="server" ControlToValidate="txtmobilenumber"
+                            Display="Dynamic">(Number is Invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -68,8 +75,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtlandlinenumber" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="revLNumber" runat="server" 
-                            ControlToValidate="txtlandlinenumber" Display="Dynamic">Land number is Invalid)</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="revLNumber" runat="server" ControlToValidate="txtlandlinenumber"
+                            Display="Dynamic">Land number is Invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -81,7 +88,6 @@
                     <td>
                         <asp:DropDownList ID="drpgender" runat="server">
                             <asp:ListItem Selected="True">Select</asp:ListItem>
-                            <asp:ListItem>Male</asp:ListItem>
                             <asp:ListItem>Female</asp:ListItem>
                         </asp:DropDownList>
                     </td>

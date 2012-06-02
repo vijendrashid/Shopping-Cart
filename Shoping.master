@@ -18,7 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server" class="style1">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <asp:ToolkitScriptManager ID="tm" runat="server">
     </asp:ToolkitScriptManager>
     <div>
         <div class="stretchHolder">

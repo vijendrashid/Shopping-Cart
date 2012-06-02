@@ -93,5 +93,35 @@ public partial class product_details : System.Web.UI.Page
         }
         
     }
+    protected void ButtonSubmit_Click(object sender, EventArgs e)
+    {
+        string howMuch = "[unknown]";
 
+        switch (likeRating.CurrentRating)
+        {
+            case 1:
+                howMuch = "a bit.";
+                break;
+            case 2:
+                howMuch = "some.";
+                break;
+            case 3:
+                howMuch = "a fair bit.";
+                break;
+            case 4:
+                howMuch = "a lot.";
+                break;
+            case 5:
+                howMuch = "more than any thing.";
+                break;
+        }
+
+        LabelResponse.Text = "You like ASP.NET AJAX <b>" + howMuch + "</b>.";
+
+    }
+
+    protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
+    {
+
+    }
 }

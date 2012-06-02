@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true"
     CodeFile="product-details.aspx.cs" Inherits="product_details" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%--<%@ OutputCache Duration="120" VaryByParam="prod_id" %>--%>
 <asp:Content ID="head" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/jquery.lightbox-0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/jquery.lightbox-0.5.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="CSS/buybutton.css" />
+    <link href="CSS/starrating.css" rel="stylesheet" type="text/css" />
     <!-- Ativando o jQuery lightBox plugin -->
     <script type="text/javascript">
         $(function () {
             $('#gallery a').lightBox();
 
         });
-
-
     </script>
     <style type="text/css">
         /* jQuery lightBox plugin - Gallery style */
@@ -72,6 +72,25 @@
                         <asp:Label ID="lblProdTitle" runat="server" Text='<%# Eval("prod_title") %>'></asp:Label></h1>
                     <span>(<%# Eval("prod_color")%>)</span>
                 </div>
+                <div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div>
+                                <asp:Rating ID="likeRating" runat="server" CurrentRating="3" MaxRating="5" StarCssClass="ratingStar"
+                                    WaitingStarCssClass="savedRatingStar" FilledStarCssClass="filledRatingStar" EmptyStarCssClass="emptyRatingStar"
+                                    OnChanged="likeRating_Changed" Style="float: left;">
+                                </asp:Rating>
+                            </div>
+                            <div>
+                                <br />
+                                <br />
+                                <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" OnClick="ButtonSubmit_Click" /><br />
+                                <br />
+                                <asp:Label ID="LabelResponse" runat="server" Text="[ No response provioded yet.]"></asp:Label>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
                 <div style="display: block; text-align: left;">
                     <div style="display: inline; color: Gray;">
                         <span>Price : </span>
@@ -108,4 +127,8 @@
             </div>
         </LayoutTemplate>
     </asp:ListView>
+    <br />
+    <br />
+    <div>
+    </div>
 </asp:Content>

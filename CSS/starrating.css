@@ -1,0 +1,27 @@
+﻿
+/* Rating */
+.ratingStar
+{
+    font-size: 8pt;
+    width: 43px;
+    height: 41px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+.filledRatingStar
+{
+    background-image: url('../images/img-full-star.png'); /*background-image: url('../images/filledstar.png');*/
+}
+
+.emptyRatingStar
+{
+    background-image: url('../images/img-full-star-grey.png'); /*background-image: url('../images/emptystar.png');*/
+}
+
+.savedRatingStar
+{
+    background-image: url('../images/img-full-star.png'); /*background-image: url('../images/savedstar.png');*/
+}

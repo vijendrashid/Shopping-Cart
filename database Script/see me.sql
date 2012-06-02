@@ -43,14 +43,6 @@ go
 --	date_modified datetime default getdate()
 --)
 
-
-
-create table path
-(
-	id int Identity(10,2),
-	imagePath varchar(300)
-)
-
 create table Product_Details
 (
 	prod_id  int primary key Identity(10000,1000),
@@ -90,15 +82,49 @@ create table Product_Details
 
 go
 
-create table rating
+create table user_Ratings
 (
-	prod_id int,
-	rates int
-	)
+	UserId uniqueidentifier not null,
+	prod_id int not null,
+	rating int,
+	reviewTitle varchar(30),
+	yourReview varchar(300),
+	date_added datetime default getdate(),
+	date_modified datetime default getdate(),
+	FOREIGN KEY(UserId) REFERENCES aspnet_Membership(UserId),
+	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
+)
 
-CREATE TABLE CART
+go
+
+create table Order_details
 (
-	
+	order_no int primary key IDENTITY(2200,10),
+	UserId uniqueidentifier not null,
+	products_title nvarchar(300) not null,
+	order_date datetime default getdate(),
+	total_amount money not null,
+	quantities int  not null,
+	o_status nvarchar(20) default 'In Process',
+	FOREIGN KEY(UserId) REFERENCES aspnet_Membership(UserId),
+	prod_Added_by nvarchar(30),
+	prod_Modified_by nvarchar(30),
+	date_added datetime default getdate(),
+	date_modified datetime default getdate()
+)
+
+create table track_orders
+(	
+	trackingID int primary key IDENTITY(1234,6),
+	emailId nvarchar(50) not null,
+	order_no int,
+	t_status nvarchar(50),
+	FOREIGN KEY(emailId) REFERENCES aspnet_Membership(Email),
+	track_added_by nvarchar(30) default 'super_admin',
+	date_added datetime default getdate(),
+	track_Modified_by nvarchar(30) default 'super_admin',
+	date_modified datetime default getdate()
+)
 
 
 
