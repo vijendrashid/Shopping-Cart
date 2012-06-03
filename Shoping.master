@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Shoping.master.cs" Inherits="Shoping" %>
 
+<%@ Import Namespace="customCart" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,12 +10,12 @@
     </asp:ContentPlaceHolder>
     <link href="CSS/StyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="CSS/master.css" />
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var styleToSelect;
         function onOk() {
             document.getElementById('Paragraph1').className = styleToSelect;
         }
-    </script>
+    </script>--%>
 </head>
 <body>
     <form id="form1" runat="server" class="style1">
@@ -30,16 +31,19 @@
                         <asp:LoginName ID="LoginName1" runat="server" />
                     </td>
                     <td align="right">
+                        <asp:HyperLink ID="hlAdminPanel" runat="server" Font-Size="Small" Font-Underline="False"
+                            ForeColor="Black" NavigateUrl="~/Admin Panel/AddProduct.aspx">Admin Panel</asp:HyperLink>
+                        &nbsp;|
                         <asp:HyperLink ID="hpcontactus" runat="server" Font-Size="Small" ForeColor="Black"
-                            EnableViewState="False" NavigateUrl="~/ContactUs.aspx">ContactUs</asp:HyperLink>
+                            EnableViewState="False" NavigateUrl="~/ContactUs.aspx" Font-Underline="False">ContactUs</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hphome" runat="server" Font-Size="Small" ForeColor="Black" NavigateUrl="~/Home.aspx"
-                            EnableViewState="False">Home</asp:HyperLink>
+                            EnableViewState="False" Font-Underline="False">Home</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpaccount" runat="server" Font-Size="Small" ForeColor="Black"
-                            NavigateUrl="~/Account/PersonalInformation.aspx">Account</asp:HyperLink>
+                            NavigateUrl="~/Account/PersonalInformation.aspx" Font-Underline="False">Account</asp:HyperLink>
                         <strong>&nbsp; |&nbsp; </strong>
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" Font-Underline="False" />
                         <%--<asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
                             NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>--%>
                         <%if (!Request.IsAuthenticated)
@@ -47,7 +51,7 @@
                         <%--<strong>&nbsp; |&nbsp; </strong>
                         <asp:HyperLink ID="hpLogin" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>--%>
                         <strong>&nbsp; |&nbsp;&nbsp; </strong>
-                        <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/Register.aspx">Signup</asp:HyperLink>
+                        <asp:HyperLink ID="hpSignup" runat="server" NavigateUrl="~/Register.aspx" Font-Underline="False">Signup</asp:HyperLink>
                         <% } %>
                     </td>
                     <td>
@@ -183,18 +187,38 @@
         </div>
     </div>
     <div>
-        <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none">
-            <asp:GridView ID="GridView1" runat="server">
+        <asp:Panel ID="Panel1" runat="server" Style="display: none; width: 500px; height: 440px;"
+            BackColor="White" BorderStyle="Solid" BorderWidth="5px" ScrollBars="Vertical">
+            <asp:GridView ID="gvCart" runat="server" BackColor="White" BorderStyle="None" BorderWidth="1px"
+                CellPadding="4" ForeColor="#323232" EnableModelValidation="True" Style="width: 380px;"
+                OnRowDeleting="GridView1_RowDeleting"  AutoGenerateColumns="false">
+                <Columns>
+                    <asp:CommandField DeleteImageUrl="~/images/deleteItem.png" DeleteText="Delete Item" ButtonType="Image"
+                        ShowDeleteButton="true" />
+                    <asp:ImageField HeaderText="Item" DataImageUrlField="ItemPic" ControlStyle-Height="75px"
+                        ControlStyle-Width="42px" />
+                    <asp:BoundField HeaderText="Type" DataField="Type" />
+                    <asp:BoundField HeaderText="Item Description" DataField="Name" />
+                    <asp:BoundField HeaderText="Price" DataField="Price" />
+                    <asp:BoundField HeaderText="Quantity" DataField="Quantity" />
+                    <asp:BoundField HeaderText="Sub-Total" DataField="Total" />
+                </Columns>
+                <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                <HeaderStyle BackColor="#F2F2F2" Font-Bold="True" ForeColor="#5C5C5D" Font-Size="11px"
+                    BorderColor="#F2F2F2" BorderStyle="Solid" BorderWidth="1px" />
+                <PagerStyle BackColor="#99CCCC" ForeColor="#323232" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" ForeColor="#323232" Height="10px" Font-Size="13px" BorderColor="#F2F2F2"
+                    BorderStyle="Solid" BorderWidth="1px" />
+                <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#323232" />
             </asp:GridView>
-            <div align="center">
-                <asp:Button ID="OkButton" runat="server" Text="OK" />
-                <asp:Button ID="CancelButton" runat="server" Text="Cancel" />
+            <div>
+                <asp:Button ID="btnCountiueShopping" runat="server" Text="Close and Continue Shopping" />
+                <asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order" OnClick="btnPlaceOrder_Click" />
             </div>
         </asp:Panel>
         <br />
         <asp:ModalPopupExtender ID="ModalPopupExtender2" runat="server" TargetControlID="btncart"
-            PopupControlID="Panel1" BackgroundCssClass="modalBackground" DropShadow="true"
-            OkControlID="OkButton" OnOkScript="onOk()" CancelControlID="CancelButton">
+            PopupControlID="Panel1" DropShadow="true" OkControlID="btnCountiueShopping" CancelControlID="btnCountiueShopping">
         </asp:ModalPopupExtender>
     </div>
     </form>

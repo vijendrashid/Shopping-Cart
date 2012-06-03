@@ -99,31 +99,37 @@ go
 
 create table Order_details
 (
-	order_no int primary key IDENTITY(2200,10),
-	UserId uniqueidentifier not null,
+	order_id int IDENTITY(2200,10),
+	UserId uniqueidentifier,
+	prod_id int not null,
+	order_no int,
 	products_title nvarchar(300) not null,
 	order_date datetime default getdate(),
 	total_amount money not null,
 	quantities int  not null,
-	o_status nvarchar(20) default 'In Process',
+	o_status nvarchar(20) default 'processing',
 	FOREIGN KEY(UserId) REFERENCES aspnet_Membership(UserId),
 	prod_Added_by nvarchar(30),
 	prod_Modified_by nvarchar(30),
 	date_added datetime default getdate(),
-	date_modified datetime default getdate()
+	date_modified datetime default getdate(),
+	PRIMARY KEY(order_id,UserId),
+	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
 )
 
 create table track_orders
 (	
 	trackingID int primary key IDENTITY(1234,6),
 	emailId nvarchar(50) not null,
-	order_no int,
+	prod_id int not null,
+	order_id int,
 	t_status nvarchar(50),
-	FOREIGN KEY(emailId) REFERENCES aspnet_Membership(Email),
+	location nvarchar(20),
 	track_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),
 	track_Modified_by nvarchar(30) default 'super_admin',
-	date_modified datetime default getdate()
+	date_modified datetime default getdate(),
+	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
 )
 
 

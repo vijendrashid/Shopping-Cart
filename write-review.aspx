@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Shoping.master" AutoEventWireup="true" CodeFile="write-review.aspx.cs" Inherits="write_review" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ShoppingMasterHead" Runat="Server">
 </asp:Content>

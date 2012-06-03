@@ -5,7 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="CategoryWiseSql"
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate><asp:ListView ID="ListView1" runat="server" DataKeyNames="prod_id" DataSourceID="CategoryWiseSql"
         EnableModelValidation="True" GroupItemCount="3">
         <AlternatingItemTemplate>
             <td id="Td1" runat="server" class="itemTemplate">
@@ -78,7 +79,9 @@
                 </tr>
             </table>
         </LayoutTemplate>
-    </asp:ListView>
+    </asp:ListView></ContentTemplate>
+    </asp:UpdatePanel>
+    
     <asp:SqlDataSource ID="CategoryWiseSql" runat="server" ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
         SelectCommand="SELECT  [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] " FilterExpression="category LIKE '{0}%'">
         <FilterParameters>

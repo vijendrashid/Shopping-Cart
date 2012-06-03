@@ -28,7 +28,8 @@ public partial class Register : System.Web.UI.Page
         //try
         //{
             // Create an User
-            MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
+        MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
+        Roles.AddUserToRole(txtNewUserName.Text, "users");
 
             if (newUser == null)
             {
@@ -38,22 +39,6 @@ public partial class Register : System.Web.UI.Page
             {
                 Response.Redirect("login.aspx");
             }
-        //}
-        //catch
-        //{
-        //    lblmsg.Text = "An exception occurred creating the user. ";
-        //}
-
-             //If user created successfully, set password question and answer (if applicable) and 
-        //redirect to login page. Otherwise return an error message.
-        //http://msdn.microsoft.com/en-us/library/d8t4h2es
-        //if (Membership.RequiresQuestionAndAnswer)
-        //{
-        //    newUser.ChangePasswordQuestionAndAnswer(PasswordTextbox.Text,
-        //                                            PasswordQuestionTextbox.Text,
-        //                                            PasswordAnswerTextbox.Text);
-        //}
-
 
 
     }

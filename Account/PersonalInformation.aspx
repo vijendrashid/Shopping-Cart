@@ -40,7 +40,7 @@
                     <td>
                         <asp:TextBox ID="txtfirstname" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="revFName" runat="server" ControlToValidate="txtfirstname"
-                            Display="Dynamic" EnableViewState="False">(First Name is invalid)</asp:RegularExpressionValidator>
+                            Display="Dynamic" EnableViewState="False" Enabled="False">(First Name is invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -52,7 +52,7 @@
                     <td>
                         <asp:TextBox ID="txtlastname" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="revLName" runat="server" ControlToValidate="txtlastname"
-                            Display="Dynamic">(Last Name is invalid)</asp:RegularExpressionValidator>
+                            Display="Dynamic" Enabled="False">(Last Name is invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -64,7 +64,7 @@
                     <td>
                         <asp:TextBox ID="txtmobilenumber" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="revMNumber" runat="server" ControlToValidate="txtmobilenumber"
-                            Display="Dynamic">(Number is Invalid)</asp:RegularExpressionValidator>
+                            Display="Dynamic" Enabled="False">(Number is Invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>
@@ -76,7 +76,7 @@
                     <td>
                         <asp:TextBox ID="txtlandlinenumber" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="revLNumber" runat="server" ControlToValidate="txtlandlinenumber"
-                            Display="Dynamic">Land number is Invalid)</asp:RegularExpressionValidator>
+                            Display="Dynamic" Enabled="False">Land number is Invalid)</asp:RegularExpressionValidator>
                     </td>
                 </tr>
             </div>

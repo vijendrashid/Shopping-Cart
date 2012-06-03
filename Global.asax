@@ -34,5 +34,21 @@
         // or SQLServer, the event is not raised.
 
     }
+
+    //public void Profile_OnMigrateAnonymous(object sender, ProfileMigrateEventArgs args)
+    //{
+    //    // Get anonymous Profile
+    //    ProfileCommon anonProfile = Profile.GetProfile(args.AnonymousID);
+
+    //    // Copy anonymous properties to authenticated
+    //    //Profile.ShoppingCart = anonProfile.ShoppingCart;        
+    //    foreach ( prop in ProfileBase.Properties)
+    //        Profile[
+        
+    //    // Kill the anonymous profile
+    //    ProfileManager.DeleteProfile(args.AnonymousID);
+    //    AnonymousIdentificationModule.ClearAnonymousIdentifier();
+            
+    //}
        
 </script>

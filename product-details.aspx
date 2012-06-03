@@ -129,6 +129,11 @@
     </asp:ListView>
     <br />
     <br />
-    <div>
-    </div>
+    <asp:Panel ID="Panel1" runat="server" Visible="false">
+    <asp:Label ID="lblComments" Text="Comments:" AssociatedControlID="txtComment" runat="server" />
+    <br />
+    <asp:TextBox ID="txtComment" Text='<%# Bind("Comment") %>' TextMode="MultiLine" Columns="40"
+        Rows="3" runat="server" />
+    <br />
+    <asp:Button ID="lnkInsert" Text="Add Comment" CommandName="Insert" runat="server" /></asp:Panel>
 </asp:Content>

@@ -16,16 +16,15 @@ public partial class product_details : System.Web.UI.Page
     static String name;
     static String sPrice;
     static decimal price;
-    //void Page_PreRender()
-    //{
-    //    GridView1.DataSource = Profile.ShoppingCart.Items;
-    //    GridView1.DataBind();
-    //}
-    //string getQuery = ClientQueryString; //obtain variables from passed link ?passedinstruction
+    static string itemPic;
+    static string type;
+    static int quantity;
+    static decimal total;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        // Request to querystring value for retriving product details
+
+        #region Request to querystring value for retriving product details
         string getQuery = Request.QueryString["prod_id"];
 
         String strConnString = System.Configuration.ConfigurationManager
@@ -71,13 +70,19 @@ public partial class product_details : System.Web.UI.Page
             img.Attributes.Add("height", "80");
             anchor.Controls.Add(img);
         }
-        
+        #endregion
+
     }
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
-        CartItem newItem = new CartItem(name, price);
+        CartItem newItem = new CartItem(name, price, itemPic, type, quantity, total);
         Profile.ShoppingCart.Items.Add(newItem);
+
+        //GridView gridCart = Master.FindControl("gvCart") as GridView;
+
+        //gridCart.DataSource = Profile.ShoppingCart.Items;
+        //gridCart.DataBind();
 
     }
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -90,8 +95,12 @@ public partial class product_details : System.Web.UI.Page
             name = rowView["prod_title"].ToString();
             sPrice = rowView["O_price"].ToString();
             price = decimal.Parse(sPrice);
+            itemPic = rowView["prod_img1"].ToString();
+            type = rowView["category"].ToString();
+            quantity = 1;
+            total = quantity * price;
         }
-        
+
     }
     protected void ButtonSubmit_Click(object sender, EventArgs e)
     {

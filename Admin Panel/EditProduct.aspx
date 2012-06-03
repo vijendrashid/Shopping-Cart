@@ -3,5 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="AdminPanelhead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="AdminPanelMaster" Runat="Server">
+<%--Extending the GridView Control--%>
+
 </asp:Content>
 
