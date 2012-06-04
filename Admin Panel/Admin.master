@@ -20,7 +20,7 @@
             <li><a href="orders.aspx">Orders</a></li>
             <li><a href="Profiles.aspx">Profiles</a></li>
             <li><a href="Tracking.aspx">Tracking</a></li>
-            <li><a href="../Home.aspx">Mobile shop</a></li>
+            <li><a href="../Default.aspx">Mobile shop</a></li>
         </ul>
     </div>
     <div>

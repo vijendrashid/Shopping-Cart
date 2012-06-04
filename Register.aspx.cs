@@ -10,6 +10,8 @@ public partial class Register : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request.IsAuthenticated)
+            Response.Redirect("Default.aspx");
 
     }
     protected void btnRegister_Click(object sender, EventArgs e)
@@ -18,6 +20,7 @@ public partial class Register : System.Web.UI.Page
         MembershipCreateStatus status;
         string passwordQuestion = "How old Are you?";
         string passwordAnswer = "25";
+        Profile.PersonalInformation.EmailID = txtEmailID.Text;
 
         //if(Membership.RequiresQuestionAndAnswer)
         //{

@@ -11,18 +11,27 @@ public partial class login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // If user is authenticated redirect to Home.aspx page
         if (Request.IsAuthenticated)
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Default.aspx");
+
+        if (PreviousPage != null)
+        {
+            Label preMsg = (Label)PreviousPage.FindControl("msgLogin");
+            if (preMsg != null)
+            {
+                lblError.Text = preMsg.Text;
+            }
+        }
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        
-
-        if(Membership.ValidateUser(txtUserName.Text, txtPassword.Text))
+        //Get username and password  to validate a login.
+        if (Membership.ValidateUser(txtUserName.Text, txtPassword.Text))
         {
             FormsAuthentication.RedirectFromLoginPage(txtUserName.Text, chkRememberMe.Checked);
-     
+
         }
         else
             lblError.Text = "Invalid user name/password";

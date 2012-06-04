@@ -41,13 +41,17 @@
     //    ProfileCommon anonProfile = Profile.GetProfile(args.AnonymousID);
 
     //    // Copy anonymous properties to authenticated
-    //    //Profile.ShoppingCart = anonProfile.ShoppingCart;        
-    //    foreach ( prop in ProfileBase.Properties)
-    //        Profile[
+    //    Profile.ShoppingCart = anonProfile.ShoppingCart;        
+    //    //foreach ( prop in ProfileBase.Properties)
+    //    //    Profile[
+
+    //    if (Request.IsAuthenticated)
+    //    {
+    //        // Kill the anonymous profile
+    //        ProfileManager.DeleteProfile(args.AnonymousID);
+    //        AnonymousIdentificationModule.ClearAnonymousIdentifier();
+    //    } 
         
-    //    // Kill the anonymous profile
-    //    ProfileManager.DeleteProfile(args.AnonymousID);
-    //    AnonymousIdentificationModule.ClearAnonymousIdentifier();
             
     //}
        

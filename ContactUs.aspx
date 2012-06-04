@@ -4,8 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ShoppingMasterHead" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <form id="form5" action="/" method="post">
-    <fieldset>
+    <form >
+    <fieldset style=" " >
         <legend>Contact form</legend>
         <p class="first">
             <label for="name">

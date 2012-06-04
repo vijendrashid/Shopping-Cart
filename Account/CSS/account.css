@@ -1,0 +1,75 @@
+﻿/* For Accoujnt holders Form
+ File Created: June 4, 2012 */
+
+/* General forms */
+
+.formStyle
+{
+    width: auto;
+    margin: 25px;
+}
+.labelstyle
+{
+    width: 43.3333%;
+}
+.textBoxStyle
+{
+    margin-left: 20px;
+}
+.buttonStyle
+{
+    margin-top: 10px;
+}
+.line
+{
+    width: 500px;
+    margin: 0;
+    display: block;
+    text-align: left;
+}
+.co_note
+{
+    margin-left: 119px;
+    color: Gray;
+}
+.unit
+{
+    float: left;
+    _zoom: 1;
+    display: inline;
+}
+.lastUnit
+{
+    float: none;
+    _position: relative;
+    _left: -3px;
+    _margin-right: -3px;
+    width: auto;
+}
+.size1of3
+{
+    width: 24%;
+}
+.rw
+{
+    margin: 10px 0;
+    line-height: 28px;
+}
+.line, .lastUnit
+{
+    overflow: hidden;
+    _overflow: visible;
+    _zoom: 1;
+}
+.ms1234-font-verybig
+{
+    font-size: 22px;
+}
+.ms1234-font-small {
+font-size: small;
+	
+
+
+
+
+}

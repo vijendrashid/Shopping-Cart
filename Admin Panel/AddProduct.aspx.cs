@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 {
+    #region Initialize Varables
     string prodId = null;
     string skuNo = null;
     string productTitle = null;
@@ -41,6 +42,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
     String filePath9 = null;
     String filePath10 = null;
     String filePath11 = null;
+    #endregion
 
     protected void Page_Load(object sender, EventArgs e)
     {

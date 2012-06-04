@@ -100,7 +100,7 @@ go
 create table Order_details
 (
 	order_id int IDENTITY(2200,10),
-	UserId uniqueidentifier,
+	email_id varchar(255),
 	prod_id int not null,
 	order_no int,
 	products_title nvarchar(300) not null,
@@ -108,28 +108,33 @@ create table Order_details
 	total_amount money not null,
 	quantities int  not null,
 	o_status nvarchar(20) default 'processing',
-	FOREIGN KEY(UserId) REFERENCES aspnet_Membership(UserId),
+	phone_number varchar(12),
+	shipping_address varchar(150),
 	prod_Added_by nvarchar(30),
 	prod_Modified_by nvarchar(30),
 	date_added datetime default getdate(),
 	date_modified datetime default getdate(),
-	PRIMARY KEY(order_id,UserId),
+	PRIMARY KEY(order_id,email_id),
 	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
 )
 
 create table track_orders
 (	
-	trackingID int primary key IDENTITY(1234,6),
-	emailId nvarchar(50) not null,
+	trackingID int IDENTITY(1234,6),
+	email_id nvarchar(50) not null,
 	prod_id int not null,
 	order_id int,
 	t_status nvarchar(50),
 	location nvarchar(20),
+	phone_number varchar(12),
+	shipping_address varchar(150),
 	track_added_by nvarchar(30) default 'super_admin',
 	date_added datetime default getdate(),
 	track_Modified_by nvarchar(30) default 'super_admin',
 	date_modified datetime default getdate(),
+	PRIMARY KEY(trackingID,email_id),
 	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
+	
 )
 
 
