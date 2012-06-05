@@ -1,25 +1,87 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+// Added Namespaces
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-// Added Namespaces
-using System.IO;
 using System.Web.UI.HtmlControls;
-using System.Data;
-using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 using customCart;
 
 public partial class product_details : System.Web.UI.Page
 {
-    static String name;
-    static String sPrice;
-    static decimal price;
     static string itemPic;
-    static string type;
+    static String name;
+    static decimal price;
     static int quantity;
+    static String sPrice;
     static decimal total;
+    static string type;
+
+    protected void addToCart1_Click(object sender, EventArgs e)
+    {
+        CartItem newItem = new CartItem(name, price, itemPic, type, quantity, total);
+        Profile.ShoppingCart.Items.Add(newItem);
+
+        //GridView gridCart = Master.FindControl("gvCart") as GridView;
+
+        //gridCart.DataSource = Profile.ShoppingCart.Items;
+        //gridCart.DataBind();
+
+    }
+
+    protected void ButtonSubmit_Click(object sender, EventArgs e)
+    {
+        string howMuch = "[unknown]";
+
+        switch (likeRating.CurrentRating)
+        {
+            case 1:
+                howMuch = "a bit.";
+                break;
+            case 2:
+                howMuch = "some.";
+                break;
+            case 3:
+                howMuch = "a fair bit.";
+                break;
+            case 4:
+                howMuch = "a lot.";
+                break;
+            case 5:
+                howMuch = "more than any thing.";
+                break;
+        }
+
+        LabelResponse.Text = "You like ASP.NET AJAX <b>" + howMuch + "</b>.";
+
+    }
+
+    protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            DataRowView rowView = (DataRowView)dataItem.DataItem;
+
+            name = rowView["prod_title"].ToString();
+            sPrice = rowView["O_price"].ToString();
+            price = decimal.Parse(sPrice);
+            itemPic = rowView["prod_img1"].ToString();
+            type = rowView["category"].ToString();
+            quantity = 1;
+            total = quantity * price;
+        }
+
+    }
+
+    protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
+    {
+
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -71,66 +133,6 @@ public partial class product_details : System.Web.UI.Page
             anchor.Controls.Add(img);
         }
         #endregion
-
-    }
-
-    protected void addToCart1_Click(object sender, EventArgs e)
-    {
-        CartItem newItem = new CartItem(name, price, itemPic, type, quantity, total);
-        Profile.ShoppingCart.Items.Add(newItem);
-
-        //GridView gridCart = Master.FindControl("gvCart") as GridView;
-
-        //gridCart.DataSource = Profile.ShoppingCart.Items;
-        //gridCart.DataBind();
-
-    }
-    protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-        ListViewDataItem dataItem = (ListViewDataItem)e.Item;
-        if (e.Item.ItemType == ListViewItemType.DataItem)
-        {
-            DataRowView rowView = (DataRowView)dataItem.DataItem;
-
-            name = rowView["prod_title"].ToString();
-            sPrice = rowView["O_price"].ToString();
-            price = decimal.Parse(sPrice);
-            itemPic = rowView["prod_img1"].ToString();
-            type = rowView["category"].ToString();
-            quantity = 1;
-            total = quantity * price;
-        }
-
-    }
-    protected void ButtonSubmit_Click(object sender, EventArgs e)
-    {
-        string howMuch = "[unknown]";
-
-        switch (likeRating.CurrentRating)
-        {
-            case 1:
-                howMuch = "a bit.";
-                break;
-            case 2:
-                howMuch = "some.";
-                break;
-            case 3:
-                howMuch = "a fair bit.";
-                break;
-            case 4:
-                howMuch = "a lot.";
-                break;
-            case 5:
-                howMuch = "more than any thing.";
-                break;
-        }
-
-        LabelResponse.Text = "You like ASP.NET AJAX <b>" + howMuch + "</b>.";
-
-    }
-
-    protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
-    {
 
     }
 }
