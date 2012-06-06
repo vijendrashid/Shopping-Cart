@@ -10,13 +10,14 @@
   runat="Server">
   <asp:Wizard ID="Wizard"
     runat="server"
-    ActiveStepIndex="1"
+    ActiveStepIndex="3"
     BackColor="#EFF3FB"
-    BorderColor="#FFFFFF"
+    BorderColor="White"
     BorderWidth="1px"
     Font-Names="Verdana"
     Width="600px"
-    OnFinishButtonClick="Wizard_FinishButtonClick">
+    OnFinishButtonClick="Wizard_FinishButtonClick"
+    OnActiveStepChanged="Wizard_ActiveStepChanged">
     <NavigationButtonStyle
       BackColor="White"
       BorderColor="#F8F8F8"
@@ -411,13 +412,68 @@
           </div>
         </asp:Panel>
       </asp:WizardStep>
+      <asp:WizardStep
+        ID="thankyou"
+        runat="server"
+        Title="Thank you">
+        <br />
+        <asp:Label ID="lblThankyou"
+          runat="server"
+          Font-Bold="True"
+          Font-Size="Large"
+          ForeColor="#009933"
+          Text="Thank you for  your Order!!"
+          Visible="False"></asp:Label>
+        <asp:Label ID="lblConfirmO"
+          runat="server"
+          Font-Bold="True"
+          Font-Size="Medium"
+          ForeColor="#0066CC"
+          Text="Please, Confirm your order."></asp:Label>
+        <br />
+        <br />
+        <asp:Literal ID="ltlThankOrder"
+          runat="server"
+          Text="Your order is currently pending verification.  One of our executives will call you shorlty to cinfirm the same."
+          Visible="False"></asp:Literal>
+        <br />
+        <asp:Panel ID="Panel3"
+          runat="server"
+          Visible="False"
+          CssClass="formStyle">
+          <div class="line rw">
+            <div class="unit size1of3">
+              <asp:Label ID="LabelOrderId"
+                runat="server"
+                Text="Order ID: "></asp:Label></div>
+            <div class="unit size1of3 lastUnit">
+              <asp:Label ID="lblOrderID"
+                runat="server"></asp:Label>
+            </div>
+          </div>
+          <div class="line rw">
+            <div class="unit size1of3">
+              <asp:Label ID="LabelOrderPlaced"
+                runat="server"
+                Text="Order Placed"></asp:Label>
+            </div>
+            <div class="unit size1of3 lastUnit">
+              <asp:Label ID="lblOrderPlaced"
+                runat="server"></asp:Label>
+            </div>
+          </div>
+          <div class="line rw">
+            <div class="unit size1of3">
+            </div>
+            <div class="unit size1of3 lastUnit">
+            </div>
+          </div>
+        </asp:Panel>
+        <br />
+        <br />
+      </asp:WizardStep>
     </WizardSteps>
   </asp:Wizard>
   <p>
     &nbsp;</p>
-  <div>
-    <asp:Button ID="btnConfirmOrder"
-      runat="server"
-      Text="Confirm Order"
-      OnClick="btnConfirmOrder_Click" /></div>
 </asp:Content>

@@ -1,33 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Profile;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 public partial class Account_checkout : System.Web.UI.Page
 {
-
-    void Page_PreRender()
+    private void Page_PreRender()
     {
-
         gvCart.DataSource = Profile.ShoppingCart.Items;
         gvCart.DataBind();
-
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
     }
+
     protected void btnConfirmOrder_Click(object sender, EventArgs e)
     {
-
         //MembershipUser user;
         //user = Membership.GetUser(Page.User.Identity.Name);
         //string emailID = user.Email;
@@ -38,19 +28,16 @@ public partial class Account_checkout : System.Web.UI.Page
         //decimal total;
         //string strQuery;
 
-
         //for(int i=0; i < Profile.ShoppingCart.Items.Count; i++)
         //{
         //    strQuery = "INSERT INTO Order_details (";
 
         //}
 
-
         //string titles;
         //string name = "";
         //for (int r = 0; r < gvCart.Rows.Count; r++)
         //{
-
         //    titles = gvCart.Rows[r].Cells[0].Text;
         //    Response.Write(titles);
         //    for (int c = 1; c <= GridView1.Rows[r].Cells.Count; c++)
@@ -70,10 +57,10 @@ public partial class Account_checkout : System.Web.UI.Page
         if (gvCart.Rows.Count >= 0)
             Profile.ShoppingCart.Items.RemoveAt(e.RowIndex);
     }
+
     protected void Wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
     {
         // Process the order
-        int order_no = 548470;
         string phone_number = txtRcvPhNo.Text;
         string shipping_address = txtName.Text + "<br/>"
                                 + Profile.Address.StreetAddress + "<br/>"
@@ -90,11 +77,11 @@ public partial class Account_checkout : System.Web.UI.Page
         SqlConnection con = new SqlConnection(strConnString);
 
         // Insert Statement
-        string strQuery = "INSERT INTO Order_details (email_id, prod_id, order_no,"
+        string strQuery = "INSERT INTO Order_details (email_id, prod_id, "
                         + "category, products_title, O_price,  "
                         + "quantities, phone_number, "
                         + "shipping_address) VALUES (@email_id, @prod_id, "
-                        + "@order_no, @category, @products_title, @O_price, "
+                        + "@category, @products_title, @O_price, "
                         + "@quantities, "
                         + "@phone_number, @shipping_address)";
 
@@ -111,10 +98,10 @@ public partial class Account_checkout : System.Web.UI.Page
                 Label lblType = (Label)row.Cells[0].FindControl("lblType");
                 Label lblPrice = (Label)row.Cells[0].FindControl("lblPrice");
                 Label lblQuantity = (Label)row.Cells[0].FindControl("lblQuantity");
+
                 // Parameteres to pass with the strQuery
                 cmd.Parameters.AddWithValue("@email_id", txtYrEmailID.Text);
                 cmd.Parameters.AddWithValue("@prod_Id", lblProd_Id.Text);
-                cmd.Parameters.AddWithValue("@order_no", order_no);
                 cmd.Parameters.AddWithValue("@category", lblType.Text);
                 cmd.Parameters.AddWithValue("@products_title", lblGvName.Text);
                 cmd.Parameters.AddWithValue("@O_price", lblPrice.Text);
@@ -124,18 +111,28 @@ public partial class Account_checkout : System.Web.UI.Page
 
                 // Execute the order
                 cmd.ExecuteNonQuery();
+
                 // Clear th parameteres to avoid error; value must be unique
                 cmd.Parameters.Clear();
+
+                cmd.CommandText = "SELECT @@IDENTITY";
+
+                //Get th last inserted id.
+                string insertOrderID = cmd.ExecuteScalar().ToString();
+                lblConfirmO.Text += insertOrderID + "<b/>";
+
+                cmd.Dispose();
+                cmd = null;
+
                 con.Close();
 
-                Profile.ShoppingCart.Items.RemoveAt(row.DataItemIndex);
+                // Remove Item from Cart after order was process on the server
+                for (int i = 0; i < Profile.ShoppingCart.Items.Count; i++)
+                {
+                    Profile.ShoppingCart.Items.RemoveAt(i);
+                }
             }
         }
-
-        //ProfileManager.DeleteProfile(User.Identity.Name);
-
-
-        // Profile.SetPropertyValue("ShoppingCart", null);
     }
 
     protected void rblOldAddress_CheckedChanged(object sender, EventArgs e)
@@ -166,7 +163,6 @@ public partial class Account_checkout : System.Web.UI.Page
 
     protected void gvCart_DataBound(object sender, EventArgs e)
     {
-
         lblTitle.Text = string.Empty;
         lblDelivery.Text = string.Empty;
         lblMSPrice.Text = string.Empty;
@@ -181,13 +177,10 @@ public partial class Account_checkout : System.Web.UI.Page
                 lblDelivery.Text = Delivery.Text;
             }
         }
-
     }
 
-    decimal _total;
-    decimal _mTotal;
-    //private int _daysDelivered = 0;
-    //private decimal _discount = 0;
+    private decimal _total;
+    private decimal _mTotal;
 
     protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -211,5 +204,9 @@ public partial class Account_checkout : System.Web.UI.Page
         }
         decimal discount = _mTotal - _total;
         lblDiscount.Text = string.Format("{0:N0}", discount);
+    }
+
+    protected void Wizard_ActiveStepChanged(object sender, EventArgs e)
+    {
     }
 }
