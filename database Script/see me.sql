@@ -103,15 +103,17 @@ create table Order_details
 	email_id varchar(255),
 	prod_id int not null,
 	order_no int,
+	category varchar(30),
 	products_title nvarchar(300) not null,
 	order_date datetime default getdate(),
-	total_amount money not null,
-	quantities int  not null,
+	O_price money ,
+	quantities int ,
 	o_status nvarchar(20) default 'processing',
-	phone_number varchar(12),
-	shipping_address varchar(150),
-	prod_Added_by nvarchar(30),
-	prod_Modified_by nvarchar(30),
+	is_sold varchar(30) default 'not',
+	phone_number varchar(500),
+	shipping_address varchar(300),
+	prod_Added_by nvarchar(30) default 'SuperAdmin',
+	prod_Modified_by nvarchar(30) default 'SuperAdmin',
 	date_added datetime default getdate(),
 	date_modified datetime default getdate(),
 	PRIMARY KEY(order_id,email_id),
@@ -133,8 +135,7 @@ create table track_orders
 	track_Modified_by nvarchar(30) default 'super_admin',
 	date_modified datetime default getdate(),
 	PRIMARY KEY(trackingID,email_id),
-	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id)
-	
+	FOREIGN KEY(prod_id) REFERENCES Product_Details(prod_id),
 )
 
 

@@ -53,7 +53,7 @@
 						Price: Rs.
 						<asp:Label ID="O_priceLabel"
 							runat="server"
-							Text='<%# Eval("O_price", "{0:n2}") %>' />
+							Text='<%# Eval("O_price", "{0:N0}") %>' />
 						<br />
 						<br />
 					</td>
@@ -107,7 +107,7 @@
 						Price: Rs.
 						<asp:Label ID="O_priceLabel"
 							runat="server"
-							Text='<%# Eval("O_price", "{0:n2}") %>' />
+							Text='<%# Eval("O_price", "{0:N0}") %>' />
 						<br />
 						<br />
 					</td>

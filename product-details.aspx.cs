@@ -13,6 +13,7 @@ using customCart;
 
 public partial class product_details : System.Web.UI.Page
 {
+    // Shopping Cart Varibles initialized
     static string itemPic;
     static String name;
     static decimal price;
@@ -20,10 +21,18 @@ public partial class product_details : System.Web.UI.Page
     static String sPrice;
     static decimal total;
     static string type;
+    static String _smPrice;
+    static decimal mPrice;
+    static String days;
+    static int dayDelivered;
+    static String sDiscount;
+    static decimal discount;
+    static string prod_id;
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
-        CartItem newItem = new CartItem(name, price, itemPic, type, quantity, total);
+        CartItem newItem = new CartItem(name, price, itemPic, type, 
+                            quantity, total, mPrice, dayDelivered, discount, prod_id);
         Profile.ShoppingCart.Items.Add(newItem);
 
         //GridView gridCart = Master.FindControl("gvCart") as GridView;
@@ -68,12 +77,26 @@ public partial class product_details : System.Web.UI.Page
             DataRowView rowView = (DataRowView)dataItem.DataItem;
 
             name = rowView["prod_title"].ToString();
+
             sPrice = rowView["O_price"].ToString();
             price = decimal.Parse(sPrice);
+
             itemPic = rowView["prod_img1"].ToString();
             type = rowView["category"].ToString();
+
             quantity = 1;
             total = quantity * price;
+
+            _smPrice = rowView["M_Price"].ToString();
+            mPrice = decimal.Parse(_smPrice) * quantity;
+
+            days = rowView["days_delivered"].ToString();
+            dayDelivered = Convert.ToInt32(days);
+
+            sDiscount = rowView["discount_percent"].ToString();
+            discount = decimal.Parse(sDiscount);
+
+            prod_id = rowView["prod_Id"].ToString();
         }
 
     }

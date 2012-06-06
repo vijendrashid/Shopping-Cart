@@ -11,8 +11,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1"
 	runat="server">
-	<title>Welcome to Mobile
-		Shop 1234...!
+	<title>Welcome to
+		Mobile Shop 1234...!
 	</title>
 	<asp:ContentPlaceHolder
 		ID="ShoppingMasterHead"
@@ -55,7 +55,7 @@
 					</td>
 					<td align="right">
 						<% if (!HttpContext.Current.User.IsInRole("users") & Request.IsAuthenticated)
-		 {%>
+							 {%>
 						<asp:HyperLink ID="hlAdminPanel"
 							runat="server"
 							Font-Size="Small"
@@ -97,7 +97,7 @@
 						<%--<asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
 							NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>--%>
 						<%if (!Request.IsAuthenticated)
-		{ %>
+							{ %>
 						<strong>&nbsp; |&nbsp;&nbsp;
 						</strong>
 						<asp:HyperLink ID="hpSignup"
@@ -131,8 +131,7 @@
 								</li>
 								<li class="slide p2">
 									<a href="categorywise.aspx?category=Tab">
-										Tab</a>
-								</li>
+										Tab</a> </li>
 								<li class="slide p3">
 									<a href="categorywise.aspx?category=Qwerty">
 										Qwerty</a>
@@ -192,8 +191,7 @@
 		<div>
 			<asp:Label ID="lblmsg"
 				runat="server"
-				Text="Label"
-				ForeColor="#30A9A2"></asp:Label>
+				Text="Label" ForeColor="#30A9A2"></asp:Label>
 			<br />
 		</div>
 		<%--<div>
@@ -317,14 +315,16 @@
 								DataField="Name" />
 							<asp:BoundField
 								HeaderText="Price"
-								DataField="Price" />
+								DataField="Price"
+								DataFormatString="{0:N0}" />
 							<asp:BoundField
 								HeaderText="Quantity"
 								DataField="Quantity"
 								ApplyFormatInEditMode="true" />
 							<asp:BoundField
 								HeaderText="Sub-Total"
-								DataField="Total" />
+								DataField="Total"
+								DataFormatString="{0:N0}" />
 						</Columns>
 						<FooterStyle BackColor="#99CCCC"
 							ForeColor="#003399" />

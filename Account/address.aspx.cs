@@ -15,6 +15,8 @@ public partial class Account_address : System.Web.UI.Page
         txtCity.Text = Profile.Address.City;
         txtState.Text =  Profile.Address.State;
         txtContryName.Text = Profile.Address.Country;
+        txtPin.Text = Profile.Address.Pincode;
+        txtPNum.Text = Profile.Address.PhoneNumber;
     }
     protected void Page_Load(object sender, EventArgs e)
     {

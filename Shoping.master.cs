@@ -23,8 +23,11 @@ public partial class Shoping : System.Web.UI.MasterPage
     }
     void Page_PreRender()
     {
-        gvCart.DataSource = Profile.ShoppingCart.Items;
-        gvCart.DataBind();
+        
+          gvCart.DataSource = Profile.ShoppingCart.Items;
+           gvCart.DataBind();
+
+        
 
         if (gvCart.Rows.Count > 0)
         {
@@ -66,7 +69,8 @@ public partial class Shoping : System.Web.UI.MasterPage
     }
     protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        Profile.ShoppingCart.Items.RemoveAt(e.RowIndex);
+        if (gvCart.Rows.Count > 0)
+            Profile.ShoppingCart.Items.RemoveAt(e.RowIndex);
         if (gvCart.Rows.Count < 0)
         {
             btnPlaceOrder.Enabled = false;
@@ -77,8 +81,8 @@ public partial class Shoping : System.Web.UI.MasterPage
 
     protected void btncart_PreRender(object sender, EventArgs e)
     {
-
-        btncart.Text = "Cart( " + Profile.ShoppingCart.Items.Count() + " )";
+       // if(Profile.ShoppingCart.Items == null)
+           btncart.Text = "Cart( " + Profile.ShoppingCart.Items.Count() + " )";
 
     }
 }
