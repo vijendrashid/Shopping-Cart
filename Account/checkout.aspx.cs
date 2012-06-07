@@ -119,7 +119,7 @@ public partial class Account_checkout : System.Web.UI.Page
 
                 //Get th last inserted id.
                 string insertOrderID = cmd.ExecuteScalar().ToString();
-                lblConfirmO.Text += insertOrderID + "<b/>";
+                lblOrderID.Text += insertOrderID + "<br/>";
 
                 cmd.Dispose();
                 cmd = null;
@@ -133,6 +133,11 @@ public partial class Account_checkout : System.Web.UI.Page
                 }
             }
         }
+
+        lblThankyou.Visible = true;
+        ltlThankOrder.Visible = true;
+        pnlOrderconfirm.Visible = true;
+
     }
 
     protected void rblOldAddress_CheckedChanged(object sender, EventArgs e)
@@ -165,7 +170,6 @@ public partial class Account_checkout : System.Web.UI.Page
     {
         lblTitle.Text = string.Empty;
         lblDelivery.Text = string.Empty;
-        lblMSPrice.Text = string.Empty;
 
         foreach (GridViewRow row in gvCart.Rows)
         {
@@ -200,7 +204,7 @@ public partial class Account_checkout : System.Web.UI.Page
 
             Label lblMPSummary = (Label)e.Row.FindControl("lblMPSummary");
             lblMPSummary.Text = String.Format("{0:N0}", _mTotal);
-            lblMSPrice.Text = _mTotal.ToString();
+            lblMarketPrice.Text = lblMPSummary.Text;
         }
         decimal discount = _mTotal - _total;
         lblDiscount.Text = string.Format("{0:N0}", discount);
@@ -208,5 +212,9 @@ public partial class Account_checkout : System.Web.UI.Page
 
     protected void Wizard_ActiveStepChanged(object sender, EventArgs e)
     {
+    }
+    protected void Wizard_CancelButtonClick(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default.aspx");
     }
 }

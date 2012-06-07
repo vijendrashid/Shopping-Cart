@@ -17,7 +17,10 @@
     Font-Names="Verdana"
     Width="600px"
     OnFinishButtonClick="Wizard_FinishButtonClick"
-    OnActiveStepChanged="Wizard_ActiveStepChanged">
+    OnActiveStepChanged="Wizard_ActiveStepChanged"
+    DisplayCancelButton="True"
+    
+    OnCancelButtonClick="Wizard_CancelButtonClick">
     <NavigationButtonStyle
       BackColor="White"
       BorderColor="#F8F8F8"
@@ -39,7 +42,7 @@
       <asp:WizardStep
         runat="server"
         Title="Step 1"
-        ID="WizardStep1">
+        ID="WizardStep1" StepType="Start">
         <asp:Panel ID="pnlShippingInformationAddress"
           runat="server"
           CssClass="formStyle">
@@ -149,7 +152,7 @@
       <asp:WizardStep
         runat="server"
         Title="Step 2"
-        ID="WizardStep2">
+        ID="WizardStep2" StepType="Step">
         <asp:UpdatePanel
           ID="UpdatePanel1"
           runat="server">
@@ -315,7 +318,8 @@
       <asp:WizardStep
         runat="server"
         Title="Step 3"
-        ID="WizardStep3">
+        ID="WizardStep3"
+        StepType="Finish">
         <asp:Panel ID="pnlDetailsOrder"
           runat="server">
           <div class="formStyle">
@@ -361,15 +365,16 @@
               <div class="unit size1of3">
                 <asp:Label ID="LabelPrice"
                   runat="server"
-                  Text="Price :"
+                  Text="Market Price :"
                   Font-Bold="True"></asp:Label>
               </div>
               <div class="unit size1of3 lastUnit">
-                <asp:Label ID="lblMSPrice"
+                <asp:Label ID="lblMarketPrice"
                   runat="server"
                   Font-Size="Small"
                   Font-Bold="True"
-                  ForeColor="Gray"></asp:Label>
+                  ForeColor="Gray"
+                  Visible="true"></asp:Label>
               </div>
             </div>
             <div class="line rw">
@@ -415,7 +420,8 @@
       <asp:WizardStep
         ID="thankyou"
         runat="server"
-        Title="Thank you">
+        Title="Thank you"
+        StepType="Complete">
         <br />
         <asp:Label ID="lblThankyou"
           runat="server"
@@ -437,7 +443,7 @@
           Text="Your order is currently pending verification.  One of our executives will call you shorlty to cinfirm the same."
           Visible="False"></asp:Literal>
         <br />
-        <asp:Panel ID="Panel3"
+        <asp:Panel ID="pnlOrderconfirm"
           runat="server"
           Visible="False"
           CssClass="formStyle">
