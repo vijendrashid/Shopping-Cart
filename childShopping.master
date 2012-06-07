@@ -1,81 +1,96 @@
 ﻿<%@ Master Language="C#"
-	MasterPageFile="~/Shoping.master" %>
+  MasterPageFile="~/Shoping.master" %>
 
 <asp:Content ID="masterhead"
-	ContentPlaceHolderID="ShoppingMasterHead"
-	runat="Server">
+  ContentPlaceHolderID="ShoppingMasterHead"
+  runat="Server">
 </asp:Content>
 <asp:Content ID="master"
-	ContentPlaceHolderID="ContentPlaceHolder1"
-	runat="Server">
-	<table width="100%">
-		<tr>
-			<td width="10%"
-				bgcolor="#DDFFFF">
-				<p>
-					<asp:Label ID="Label1"
-						runat="server"
-						Font-Bold="True"
-						Text="Orders"></asp:Label>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink1"
-						runat="server">My Order(s)</asp:HyperLink>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink2"
-						runat="server"
-						NavigateUrl="~/Account/OrderStatus.aspx"
-						Font-Underline="False">Order Status</asp:HyperLink>
-				</p>
-				<p>
-					<asp:Label ID="Label2"
-						runat="server"
-						Font-Bold="True"
-						Text="My Stuff"></asp:Label>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink3"
-						runat="server"
-						NavigateUrl="~/Account/WishList.aspx"
-						Font-Underline="False">My Wishlist</asp:HyperLink>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink4"
-						runat="server">My Profile</asp:HyperLink>
-				</p>
-				<p>
-					<asp:Label ID="Label3"
-						runat="server"
-						Font-Bold="True"
-						Text="Settings"></asp:Label>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink5"
-						runat="server"
-						NavigateUrl="~/Account/PersonalInformation.aspx"
-						Font-Underline="False">Personal Information</asp:HyperLink>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink6"
-						runat="server"
-						NavigateUrl="~/Account/ChangePassword.aspx"
-						Font-Underline="False">Change Password</asp:HyperLink>
-				</p>
-				<p>
-					<asp:HyperLink ID="HyperLink7"
-						runat="server"
-						NavigateUrl="~/Account/address.aspx"
-						Font-Underline="False">Address</asp:HyperLink>
-				</p>
-			</td>
-			<td valign="top"
-				width="90%">
-				<asp:ContentPlaceHolder
-					ID="ChildMaster"
-					runat="server">
-				</asp:ContentPlaceHolder>
-			</td>
-		</tr>
-	</table>
+  ContentPlaceHolderID="ContentPlaceHolder1"
+  runat="Server">
+  <table width="100%">
+    <tr>
+      <td width="10%"
+        bgcolor="#DDFFFF">
+        <p>
+          <asp:Label ID="Label1"
+            runat="server"
+            Font-Bold="True"
+            Text="Orders"></asp:Label>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink1"
+            runat="server" 
+            
+            NavigateUrl="~/Account/MyOrders.aspx" 
+            Font-Strikeout="False" 
+            Font-Underline="False" 
+            ForeColor="Black">My Order(s)</asp:HyperLink>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink2"
+            runat="server"
+            NavigateUrl="~/Account/CheckOrderStatus.aspx"
+            
+            Font-Underline="False" 
+            ForeColor="Black">Order Status</asp:HyperLink>
+        </p>
+        <p>
+          <asp:Label ID="Label2"
+            runat="server"
+            Font-Bold="True"
+            Text="My Stuff"></asp:Label>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink3"
+            runat="server"
+            NavigateUrl="~/Account/WishList.aspx"
+            
+            Font-Underline="False" 
+            ForeColor="Black">My Wishlist</asp:HyperLink>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink4"
+            runat="server">My Profile</asp:HyperLink>
+        </p>
+        <p>
+          <asp:Label ID="Label3"
+            runat="server"
+            Font-Bold="True"
+            Text="Settings"></asp:Label>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink5"
+            runat="server"
+            NavigateUrl="~/Account/PersonalInformation.aspx"
+            
+            Font-Underline="False" 
+            ForeColor="Black">Personal Information</asp:HyperLink>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink6"
+            runat="server"
+            NavigateUrl="~/Account/ChangePassword.aspx"
+            
+            Font-Underline="False" 
+            ForeColor="Black">Change Password</asp:HyperLink>
+        </p>
+        <p>
+          <asp:HyperLink ID="HyperLink7"
+            runat="server"
+            NavigateUrl="~/Account/address.aspx"
+            
+            Font-Underline="False" 
+            ForeColor="Black">Address</asp:HyperLink>
+        </p>
+      </td>
+      <td valign="top"
+        width="90%">
+        <asp:ContentPlaceHolder
+          ID="ChildMaster"
+          runat="server">
+        </asp:ContentPlaceHolder>
+      </td>
+    </tr>
+  </table>
 </asp:Content>

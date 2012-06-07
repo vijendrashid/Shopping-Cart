@@ -99,7 +99,7 @@ go
 
 create table Order_details
 (
-	order_id int IDENTITY(2200,10),
+	order_id int IDENTITY(22870,3),
 	email_id varchar(255),
 	prod_id int not null,
 	--order_no int,

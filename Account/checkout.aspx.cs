@@ -61,6 +61,8 @@ public partial class Account_checkout : System.Web.UI.Page
     protected void Wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
     {
         // Process the order
+        DateTime now = DateTime.Now;
+
         string phone_number = txtRcvPhNo.Text;
         string shipping_address = txtName.Text + "<br/>"
                                 + Profile.Address.StreetAddress + "<br/>"
@@ -133,7 +135,7 @@ public partial class Account_checkout : System.Web.UI.Page
                 }
             }
         }
-
+        lblOrderPlaced.Text = now.ToLongDateString() + "  " + now.ToShortTimeString();
         lblThankyou.Visible = true;
         ltlThankOrder.Visible = true;
         pnlOrderconfirm.Visible = true;

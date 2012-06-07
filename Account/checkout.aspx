@@ -10,7 +10,7 @@
   runat="Server">
   <asp:Wizard ID="Wizard"
     runat="server"
-    ActiveStepIndex="3"
+    ActiveStepIndex="0"
     BackColor="#EFF3FB"
     BorderColor="White"
     BorderWidth="1px"
@@ -19,8 +19,8 @@
     OnFinishButtonClick="Wizard_FinishButtonClick"
     OnActiveStepChanged="Wizard_ActiveStepChanged"
     DisplayCancelButton="True"
-    
-    OnCancelButtonClick="Wizard_CancelButtonClick">
+    OnCancelButtonClick="Wizard_CancelButtonClick"
+    DisplaySideBar="False">
     <NavigationButtonStyle
       BackColor="White"
       BorderColor="#F8F8F8"
@@ -42,7 +42,8 @@
       <asp:WizardStep
         runat="server"
         Title="Step 1"
-        ID="WizardStep1" StepType="Start">
+        ID="WizardStep1"
+        StepType="Start">
         <asp:Panel ID="pnlShippingInformationAddress"
           runat="server"
           CssClass="formStyle">
@@ -70,7 +71,8 @@
                 Font-Underline="False"
                 GroupName="Address"
                 Text="New Address"
-                OnCheckedChanged="rblNewAddress_CheckedChanged" /></div>
+                OnCheckedChanged="rblNewAddress_CheckedChanged"
+                Checked="True" /></div>
             <div class="unit size1of3 lastUnit">
               <asp:RadioButton
                 ID="rblOldAddress"
@@ -80,8 +82,7 @@
                 Font-Italic="True"
                 GroupName="Address"
                 Text="Default Address"
-                OnCheckedChanged="rblOldAddress_CheckedChanged"
-                Checked="True" /></div>
+                OnCheckedChanged="rblOldAddress_CheckedChanged" /></div>
           </div>
           <div class="line rw">
             <div class="unit size1of3">
@@ -95,6 +96,10 @@
                 runat="server"
                 Width="200px"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator
+              ID="rfname" runat="server"
+              ControlToValidate="txtName"
+              Display="Dynamic">(Required)</asp:RequiredFieldValidator>
           </div>
           <div class="line rw">
             <div class="unit size1of3">
@@ -107,8 +112,13 @@
               <asp:TextBox ID="txtAddress"
                 runat="server"
                 Rows="5" TextMode="MultiLine"
-                Columns="23"></asp:TextBox>
+                Columns="23" CausesValidation="True"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator
+              ID="rfvAddress"
+              runat="server"
+              ControlToValidate="txtAddress"
+              Display="Dynamic">(Required)</asp:RequiredFieldValidator>
           </div>
           <div class="line rw">
             <div class="unit size1of3">
@@ -121,6 +131,10 @@
               <asp:TextBox ID="txtPincode"
                 runat="server"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator
+              ID="rfvPin" runat="server"
+              ControlToValidate="txtPincode"
+              Display="Dynamic">(Required)</asp:RequiredFieldValidator>
           </div>
           <div class="line">
             <div class="unit size1of3">
@@ -133,6 +147,11 @@
               <asp:TextBox ID="txtRcvPhNo"
                 runat="server"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator
+              ID="rfvrcphno"
+              runat="server"
+              ControlToValidate="txtRcvPhNo"
+              Display="Dynamic">(Required)</asp:RequiredFieldValidator>
           </div>
           <div class="line rw">
             <div class="unit size1of3">
@@ -146,13 +165,19 @@
                 runat="server"
                 Width="200px"></asp:TextBox>
             </div>
+            <asp:RequiredFieldValidator
+              ID="rfvYourEmail"
+              runat="server"
+              ControlToValidate="txtYrEmailID"
+              Display="Dynamic">(Required)</asp:RequiredFieldValidator>
           </div>
         </asp:Panel>
       </asp:WizardStep>
       <asp:WizardStep
         runat="server"
         Title="Step 2"
-        ID="WizardStep2" StepType="Step">
+        ID="WizardStep2"
+        StepType="Step">
         <asp:UpdatePanel
           ID="UpdatePanel1"
           runat="server">
@@ -331,7 +356,7 @@
             </div>
             <div class="line rw">
               <div class="unit size1of3"
-                style="height: 150px">
+                style="height: 100px">
                 <asp:Label ID="LabelTitle"
                   runat="server"
                   Text="Title :"
@@ -430,12 +455,6 @@
           ForeColor="#009933"
           Text="Thank you for  your Order!!"
           Visible="False"></asp:Label>
-        <asp:Label ID="lblConfirmO"
-          runat="server"
-          Font-Bold="True"
-          Font-Size="Medium"
-          ForeColor="#0066CC"
-          Text="Please, Confirm your order."></asp:Label>
         <br />
         <br />
         <asp:Literal ID="ltlThankOrder"
@@ -448,11 +467,13 @@
           Visible="False"
           CssClass="formStyle">
           <div class="line rw">
-            <div class="unit size1of3">
+            <div class="unit size1of3"
+              style="height: 50px;">
               <asp:Label ID="LabelOrderId"
                 runat="server"
                 Text="Order ID: "></asp:Label></div>
-            <div class="unit size1of3 lastUnit">
+            <div class="unit size1of3 lastUnit"
+              style="line-height: normal;">
               <asp:Label ID="lblOrderID"
                 runat="server"></asp:Label>
             </div>
