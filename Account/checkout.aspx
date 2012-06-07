@@ -459,7 +459,8 @@
         <br />
         <asp:Literal ID="ltlThankOrder"
           runat="server"
-          Text="Your order is currently pending verification.  One of our executives will call you shorlty to cinfirm the same."
+          Text="Your order is currently pending verification.  One of our executives will call you shortly to confirm the same."
+          
           Visible="False"></asp:Literal>
         <br />
         <asp:Panel ID="pnlOrderconfirm"
