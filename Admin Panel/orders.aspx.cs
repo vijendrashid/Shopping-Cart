@@ -24,14 +24,14 @@ public partial class Admin_Panel_orders : System.Web.UI.Page
         //                        .ConnectionString;
 
         //SqlConnection con = new SqlConnection(strConnString);
-
-        Response.Write(e.NewValues);
+        string query = e.NewValues.ToString();
+        Response.Write(query);
 
 
     }
     protected void SqlDataSource1_Updated(object sender, SqlDataSourceStatusEventArgs e)
     {
-
+        
 
     }
     protected void SqlDataSource1_Updating(object sender, SqlDataSourceCommandEventArgs e)

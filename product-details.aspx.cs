@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using customCart;
+using System.Web.Security;
 
 public partial class product_details : System.Web.UI.Page
 {
@@ -31,7 +32,7 @@ public partial class product_details : System.Web.UI.Page
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
-        CartItem newItem = new CartItem(name, price, itemPic, type, 
+        CartItem newItem = new CartItem(name, price, itemPic, type,
                             quantity, total, mPrice, dayDelivered, discount, prod_id);
         Profile.ShoppingCart.Items.Add(newItem);
 
@@ -42,32 +43,6 @@ public partial class product_details : System.Web.UI.Page
 
     }
 
-    protected void ButtonSubmit_Click(object sender, EventArgs e)
-    {
-        string howMuch = "[unknown]";
-
-        switch (likeRating.CurrentRating)
-        {
-            case 1:
-                howMuch = "a bit.";
-                break;
-            case 2:
-                howMuch = "some.";
-                break;
-            case 3:
-                howMuch = "a fair bit.";
-                break;
-            case 4:
-                howMuch = "a lot.";
-                break;
-            case 5:
-                howMuch = "more than any thing.";
-                break;
-        }
-
-        LabelResponse.Text = "You like ASP.NET AJAX <b>" + howMuch + "</b>.";
-
-    }
 
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
@@ -103,7 +78,31 @@ public partial class product_details : System.Web.UI.Page
 
     protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
     {
+       // Guid userGuid = (Guid)Membership.GetUser().ProviderUserKey;
 
+        System.Threading.Thread.Sleep(500);
+        int iRate = Convert.ToInt16(e.Value);
+        string strMessage = string.Empty;
+        switch (iRate)
+        {
+            case 1:
+                strMessage = "Not Useful";
+                break;
+            case 2:
+                strMessage = "Average";
+                break;
+            case 3:
+                strMessage = "Useful";
+                break;
+            case 4:
+                strMessage = "Informative";
+                break;
+            case 5:
+                strMessage = "Excellent";
+                break;
+        }
+        strMessage = "Thanks for Rating, You found this Question " + strMessage;
+        e.CallbackResult = strMessage;
     }
 
     protected void Page_Load(object sender, EventArgs e)

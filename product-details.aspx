@@ -29,6 +29,13 @@
       $('#gallery a').lightBox();
 
     });
+
+    Sys.Application.add_load(function () {
+      $find("RatingBhvrId1").add_EndClientCallback(function (sender, e) {
+        var lblCtrl = document.getElementById('lblResponse');
+        lblCtrl.innerHTML = e.get_CallbackResult();
+      });
+    });
   </script>
   <style type="text/css">
     /* jQuery lightBox plugin - Gallery style */
@@ -103,13 +110,14 @@
               Text='<%# Eval("prod_title") %>'></asp:Label></h1>
           <span>(<%# Eval("prod_color")%>)</span>
         </div>
-        <div>
+        <div style="display: inline-block;">
           <asp:UpdatePanel
             ID="UpdatePanel1"
             runat="server">
             <ContentTemplate>
               <div>
                 <asp:Rating ID="likeRating"
+                  BehaviorID="RatingBhvrId1"
                   runat="server"
                   CurrentRating="3"
                   MaxRating="5"
@@ -121,18 +129,8 @@
                   Style="float: left;">
                 </asp:Rating>
               </div>
-              <div>
-                <br />
-                <br />
-                <asp:Button ID="ButtonSubmit"
-                  runat="server"
-                  Text="Submit"
-                  OnClick="ButtonSubmit_Click" /><br />
-                <br />
-                <asp:Label ID="LabelResponse"
-                  runat="server"
-                  Text="[ No response provioded yet.]"></asp:Label>
-              </div>
+              <span id="lblResponse">
+              </span>
             </ContentTemplate>
           </asp:UpdatePanel>
         </div>
@@ -168,11 +166,12 @@
             : </span><span>
               <%# Eval("prod_features") %></span>
         </div>
-        <asp:Button ID="addToCart1"
-          CssClass="buybtn"
-          runat="server"
-          Text="Buy Now"
-          OnClick="addToCart1_Click" />
+        <div style="display: inline-block;">
+          <asp:Button ID="addToCart1"
+            CssClass="buybtn"
+            runat="server"
+            Text="Buy Now"
+            OnClick="addToCart1_Click" /></div>
         <%--<span style="display: inline-block; text-align: left;"><a href="#" class="buybtn"><span
           class="buybtn-text">Buy Now</span> <span class="buybtn-hidden-text">Rs.<%# Eval("O_price", "{0:##}") %></span><span
             class="buybtn-image"><span></span></span></a></span>--%>

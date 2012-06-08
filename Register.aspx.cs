@@ -20,7 +20,7 @@ public partial class Register : System.Web.UI.Page
         MembershipCreateStatus status;
         string passwordQuestion = "How old Are you?";
         string passwordAnswer = "25";
-        Profile.PersonalInformation.EmailID = txtEmailID.Text;
+        
 
         //if(Membership.RequiresQuestionAndAnswer)
         //{
@@ -33,7 +33,7 @@ public partial class Register : System.Web.UI.Page
             // Create an User
         MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
         Roles.AddUserToRole(txtNewUserName.Text, "users");
-
+        
             if (newUser == null)
             {
                 lblmsg.Text = GetErrorMessage(status);
@@ -41,6 +41,7 @@ public partial class Register : System.Web.UI.Page
             else
             {
                 Response.Redirect("login.aspx");
+                
             }
 
 

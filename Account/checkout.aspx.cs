@@ -201,6 +201,7 @@ public partial class Account_checkout : System.Web.UI.Page
         {
             Label lblSummary = (Label)e.Row.FindControl("lblSummary");
             lblSummary.Text = String.Format("{0:N0}", _total);
+
             //Get Value for Wizrd 3 Payable Label
             lblPayable.Text = lblSummary.Text;
 
