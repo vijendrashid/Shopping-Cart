@@ -103,8 +103,7 @@
             <asp:HyperLink ID="hpSignup"
               runat="server"
               NavigateUrl="~/Register.aspx"
-              
-              Font-Underline="False" 
+              Font-Underline="False"
               ForeColor="Black">Signup</asp:HyperLink>
             <% } %>&nbsp;
           </td>
@@ -132,18 +131,22 @@
                     TouchScreen</a>
                 </li>
                 <li class="slide p2">
-                  <a href="categorywise.aspx?category=Tab">
+                  <a runat="server"
+                    href="categorywise.aspx?category=Tab">
                     Tab</a> </li>
                 <li class="slide p3">
-                  <a href="categorywise.aspx?category=Qwerty">
+                  <a runat="server"
+                    href="categorywise.aspx?category=Qwerty">
                     Qwerty</a>
                 </li>
                 <li class="slide p4">
-                  <a href="categorywise.aspx?category=Dual Sim">
+                  <a runat="server"
+                    href="categorywise.aspx?category=Dual Sim">
                     Dual Sim</a>
                 </li>
                 <li class="last p5">
-                  <a href="categorywise.aspx?category=Accessories">
+                  <a runat="server"
+                    href="~/categorywise.aspx?category=Accessories">
                     Accessories</a>
                 </li>
               </ul>
@@ -269,7 +272,16 @@
         &nbsp;&nbsp;<asp:Label
           ID="lbh2hhistory"
           runat="server"
-          Font-Size="XX-Small">© 2007-2012 h-2-h.com</asp:Label>
+          Font-Size="XX-Small">© 2007-2012 MobileShop1234.com</asp:Label>
+          &nbsp;&nbsp;|&nbsp;<asp:HyperLink
+          ID="hpCreatedBy"
+          
+          runat="server" 
+          Font-Size="XX-Small" 
+          Font-Strikeout="False" 
+          Font-Underline="False" 
+          ForeColor="Black" 
+          NavigateUrl="~/CreatedBy.aspx">Created-By</asp:HyperLink>
       </div>
     </div>
   </div>
