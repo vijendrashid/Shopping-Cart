@@ -12,11 +12,18 @@
 <asp:Content ID="Content2"
   ContentPlaceHolderID="ContentPlaceHolder1"
   runat="Server">
-  <p>
+  <p style="font-size: x-large;">
     Thanks for Visiting....</p>
-  <p>
-    Project Lead by:<br />
+  <p style="font-size: medium;
+    line-height: 25px">
+    <b>Project Lead by:</b><br />
     Vijendra Ram Shid
-    Contact No. <a href="tel:%9664584136" value="9664584136">9664584136</a>
+    <br />
+    Contact No. <a href="tel:%+91-9664584136">
+      +91-9664584136</a><br />
+    E-mail ID : <a href="mailto:vijendra.shid@gmail.com">
+      vijendra.shid@gmail.com</a>
+  </p>
+  <p>
   </p>
 </asp:Content>

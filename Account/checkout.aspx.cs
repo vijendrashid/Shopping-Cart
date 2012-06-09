@@ -180,7 +180,7 @@ public partial class Account_checkout : System.Web.UI.Page
                 Label Title = (Label)row.Cells[0].FindControl("lblGvName");
                 Label Delivery = (Label)row.Cells[0].FindControl("lblDaysDelivered");
                 lblTitle.Text += Title.Text + "<br/>";
-                lblDelivery.Text = Delivery.Text;
+                lblDelivery.Text = Delivery.Text + " Days";
             }
         }
     }
@@ -203,14 +203,14 @@ public partial class Account_checkout : System.Web.UI.Page
             lblSummary.Text = String.Format("{0:N0}", _total);
 
             //Get Value for Wizrd 3 Payable Label
-            lblPayable.Text = lblSummary.Text;
+            lblPayable.Text = "Rs." + lblSummary.Text;
 
             Label lblMPSummary = (Label)e.Row.FindControl("lblMPSummary");
             lblMPSummary.Text = String.Format("{0:N0}", _mTotal);
-            lblMarketPrice.Text = lblMPSummary.Text;
+            lblMarketPrice.Text = "Rs." + lblMPSummary.Text;
         }
         decimal discount = _mTotal - _total;
-        lblDiscount.Text = string.Format("{0:N0}", discount);
+        lblDiscount.Text = "Rs." + string.Format("{0:N0}", discount);
     }
 
     protected void Wizard_ActiveStepChanged(object sender, EventArgs e)

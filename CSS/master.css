@@ -1,46 +1,86 @@
-﻿body {
-	color:#333;
-	min-width: 970px;
+﻿/*   */
+body
+{
+    font-size: 13px;
+    font-family: tahoma,verdana,arial,sans-serif;
+    color: #333;
+    min-width: 970px;
+    text-align: left;
 }
 
-#form1
-{
-    height: 100%;
-}
-.style1
-{
-    height: 24px;
-}
-.style10
-{
-    width: 66px;
-}
-.tableColor
-{
-    background-color: #9c0;
-}
-.engineColor
-{
-    background-color: #C6F5FF;
-}
 
-.belowTable
+/* General forms */
+
+.formStyle
+{
+    width: auto;
+    margin: 25px;
+}
+.labelstyle
+{
+    width: 43.3333%;
+}
+.textBoxStyle
+{
+    margin-left: 20px;
+}
+.buttonStyle
 {
     margin-top: 10px;
+}
+.line
+{
+    width: 500px;
+    margin: 0;
+    display: block;
+    text-align: left;
+}
+.co_note
+{
+    margin-left: 119px;
+    color: Gray;
+}
+.unit
+{
+    float: left;
+    _zoom: 1;
+    display: inline;
+}
+.lastUnit
+{
+    float: none;
+    _position: relative;
+    _left: -3px;
+    _margin-right: -3px;
+    width: auto;
+}
+.size1of3
+{
+    width: 24%;
+}
+.rw
+{
+    margin: 10px 0;
+    line-height: 28px;
+}
+.line, .lastUnit
+{
+    overflow: hidden;
+    _overflow: visible;
+    _zoom: 1;
+}
+.ms1234-font-verybig
+{
+    font-size: 22px;
+}
+.ms1234-font-small
+{
+    font-size: small;
+}
+pre
+{
+    white-space: pre-line;
     width: 300px;
-    border-color: blue;
-    background-size: 10%;
-}
-.bottom
-{
-    margin: 130px;
-    text-align: center;
-    background-color: Azure;
-}
-
-.tdSearch
-{
-    height: 400px;
 }
 
 .Button
@@ -97,19 +137,17 @@ way to fit your requirements.
 =================================================================== */
 .stretchHolder
 {
-    width: 950px;
     height: 38px;
-    margin: 10px 150px 10px 150px;
-    position: relative;
+    margin: 2% 0 0 0;
+    position:relative;
     z-index: 100;
     font-family: arial, sans-serif;
-    top: 0px;
-    left: 0px;
+    
 }
 .stretchMenu
 {
     position: absolute;
-    width: 750px;
+    width: 800px;
     overflow: hidden;
 }
 .stretchDrop

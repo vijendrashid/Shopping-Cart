@@ -20,6 +20,8 @@
     OnActiveStepChanged="Wizard_ActiveStepChanged"
     DisplayCancelButton="True"
     OnCancelButtonClick="Wizard_CancelButtonClick"
+    
+    
     DisplaySideBar="False">
     <NavigationButtonStyle
       BackColor="White"
@@ -421,7 +423,8 @@
               <div class="unit size1of3">
                 <asp:Label ID="LabelPayable"
                   runat="server"
-                  Text="Payable :"
+                  Text="Amount Payable :"
+                  
                   Font-Bold="True"></asp:Label>
               </div>
               <div class="unit size1of3 lastUnit">
@@ -460,7 +463,6 @@
         <asp:Literal ID="ltlThankOrder"
           runat="server"
           Text="Your order is currently pending verification.  One of our executives will call you shortly to confirm the same."
-          
           Visible="False"></asp:Literal>
         <br />
         <asp:Panel ID="pnlOrderconfirm"
