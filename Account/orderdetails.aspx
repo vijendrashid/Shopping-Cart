@@ -5,6 +5,8 @@
   CodeFile="orderdetails.aspx.cs"
   Inherits="Account_orderdetails" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ChildMaster"
   runat="Server">
@@ -13,12 +15,12 @@
       runat="server"
       AutoGenerateColumns="False"
       DataSourceID="SqlDataSource1"
-      
-      EnableModelValidation="True" 
-      CellPadding="4" 
-      ForeColor="#333333" 
+      EnableModelValidation="True"
+      CellPadding="4"
+      ForeColor="#333333"
       GridLines="None">
-      <AlternatingRowStyle BackColor="White" />
+      <AlternatingRowStyle
+        BackColor="White" />
       <Columns>
         <asp:BoundField
           DataField="order_id"
@@ -40,18 +42,19 @@
           SortExpression="o_status" />
       </Columns>
       <EditRowStyle BackColor="#2461BF" />
-      <FooterStyle BackColor="#507CD1" 
-        Font-Bold="True" 
+      <FooterStyle BackColor="#507CD1"
+        Font-Bold="True"
         ForeColor="White" />
-      <HeaderStyle BackColor="#507CD1" 
-        Font-Bold="True" 
+      <HeaderStyle BackColor="#507CD1"
+        Font-Bold="True"
         ForeColor="White" />
-      <PagerStyle BackColor="#2461BF" 
-        ForeColor="White" 
+      <PagerStyle BackColor="#2461BF"
+        ForeColor="White"
         HorizontalAlign="Center" />
       <RowStyle BackColor="#EFF3FB" />
-      <SelectedRowStyle BackColor="#D1DDF1" 
-        Font-Bold="True" 
+      <SelectedRowStyle
+        BackColor="#D1DDF1"
+        Font-Bold="True"
         ForeColor="#333333" />
     </asp:GridView>
     <br />

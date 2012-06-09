@@ -3,6 +3,8 @@
   MasterPageFile="~/childShopping.master"
   AutoEventWireup="true" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="content1"
   ContentPlaceHolderID="ChildMaster"
   runat="server">
@@ -64,7 +66,9 @@
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT [order_id], [email_id], [products_title], [o_status] FROM [Order_details] WHERE ([email_id] = @email_id)">
     <SelectParameters>
-      <asp:ProfileParameter Name="email_id" PropertyName="PersonalInformation.EmailID" />
+      <asp:ProfileParameter
+        Name="email_id"
+        PropertyName="PersonalInformation.EmailID" />
     </SelectParameters>
   </asp:SqlDataSource>
 </asp:Content>

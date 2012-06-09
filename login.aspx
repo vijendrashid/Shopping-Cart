@@ -5,7 +5,10 @@
   CodeFile="login.aspx.cs"
   Inherits="login" %>
 
-<%--<%@ OutputCache Duration="120" VaryByParam="none" %>--%>
+<%@ OutputCache
+  Duration="3600"
+  VaryByParam="none"
+  Location="Client" %>
 <asp:Content ID="loginhead"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">

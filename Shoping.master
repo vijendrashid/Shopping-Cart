@@ -118,8 +118,8 @@
           <div class="stretchMenu">
             <ul class="stretchDrop">
               <li class="slide
-             p1"><a href="categorywise.aspx?category=Touch
-            Screen">TouchScreen</a>
+             p1"><a href="categorywise.aspx?category=Touch Screen">
+               TouchScreen</a>
               </li>
               <li class="slide
                p2"><a id="A1" runat="server"
@@ -132,8 +132,8 @@
               </li>
               <li class="slide
                p4"><a id="A3" runat="server"
-                 href="categorywise.aspx?category=Dual
-               Sim">Dual Sim</a>
+                 href="categorywise.aspx?category=Dual Sim">
+                 Dual Sim</a>
               </li>
               <li class="last p5">
                 <a id="A4" runat="server"
@@ -143,7 +143,7 @@
             </ul>
           </div>
         </div>
-        <div style="min-height: 750px;">
+        <div style="min-height: 750px; margin-top:2%;">
           <asp:ContentPlaceHolder
             ID="ContentPlaceHolder1"
             runat="server">
@@ -159,7 +159,8 @@
           <br />
           <br />
         </div>
-        <div style="width: 450px; margin-left:20%;">
+        <div style="width: 450px;
+          margin-left: 20%;">
           <asp:Label ID="lbpolicies"
             runat="server"
             Font-Size="X-Small">Policies:</asp:Label>

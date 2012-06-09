@@ -5,6 +5,8 @@
   CodeFile="checkout.aspx.cs"
   Inherits="Account_checkout" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ChildMaster"
   runat="Server">
@@ -20,8 +22,6 @@
     OnActiveStepChanged="Wizard_ActiveStepChanged"
     DisplayCancelButton="True"
     OnCancelButtonClick="Wizard_CancelButtonClick"
-    
-    
     DisplaySideBar="False">
     <NavigationButtonStyle
       BackColor="White"
@@ -424,7 +424,6 @@
                 <asp:Label ID="LabelPayable"
                   runat="server"
                   Text="Amount Payable :"
-                  
                   Font-Bold="True"></asp:Label>
               </div>
               <div class="unit size1of3 lastUnit">
@@ -451,19 +450,20 @@
         Title="Thank you"
         StepType="Complete">
         <br />
+        <br />
         <asp:Label ID="lblThankyou"
           runat="server"
           Font-Bold="True"
-          Font-Size="Large"
+          Font-Size="X-Large"
           ForeColor="#009933"
           Text="Thank you for  your Order!!"
           Visible="False"></asp:Label>
         <br />
         <br />
-        <asp:Literal ID="ltlThankOrder"
+        <asp:Label ID="labelThankYou"
           runat="server"
           Text="Your order is currently pending verification.  One of our executives will call you shortly to confirm the same."
-          Visible="False"></asp:Literal>
+          Font-Size="Medium"></asp:Label>
         <br />
         <asp:Panel ID="pnlOrderconfirm"
           runat="server"
@@ -474,22 +474,28 @@
               style="height: 50px;">
               <asp:Label ID="LabelOrderId"
                 runat="server"
-                Text="Order ID: "></asp:Label></div>
+                Text="Order ID: "
+                Font-Bold="True"
+                Font-Size="Small"></asp:Label></div>
             <div class="unit size1of3 lastUnit"
               style="line-height: normal;">
               <asp:Label ID="lblOrderID"
-                runat="server"></asp:Label>
+                runat="server"
+                Font-Size="Small"></asp:Label>
             </div>
           </div>
           <div class="line rw">
             <div class="unit size1of3">
               <asp:Label ID="LabelOrderPlaced"
                 runat="server"
-                Text="Order Placed"></asp:Label>
+                Text="Order Placed :"
+                Font-Bold="True"
+                Font-Size="Small"></asp:Label>
             </div>
             <div class="unit size1of3 lastUnit">
               <asp:Label ID="lblOrderPlaced"
-                runat="server"></asp:Label>
+                runat="server"
+                Font-Size="Small"></asp:Label>
             </div>
           </div>
           <div class="line rw">

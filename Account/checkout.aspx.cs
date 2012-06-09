@@ -137,7 +137,7 @@ public partial class Account_checkout : System.Web.UI.Page
         }
         lblOrderPlaced.Text = now.ToLongDateString() + "  " + now.ToShortTimeString();
         lblThankyou.Visible = true;
-        ltlThankOrder.Visible = true;
+        labelThankYou.Visible = true;
         pnlOrderconfirm.Visible = true;
 
     }

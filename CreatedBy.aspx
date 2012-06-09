@@ -5,6 +5,8 @@
   CodeFile="CreatedBy.aspx.cs"
   Inherits="CreatedBy" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">

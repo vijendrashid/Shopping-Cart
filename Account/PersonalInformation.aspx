@@ -3,6 +3,8 @@
   MasterPageFile="~/childShopping.master"
   AutoEventWireup="true" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <script runat="server">
   void Page_PreRender()
   {

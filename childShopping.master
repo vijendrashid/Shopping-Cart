@@ -10,77 +10,55 @@
   runat="Server">
   <table width="100%">
     <tr>
-      <td width="10%"
-        bgcolor="#DDFFFF">
+      <td width="10%">
         <p>
           <asp:Label ID="Label1"
             runat="server"
             Font-Bold="True"
-            Text="Orders"></asp:Label>
+            
+            Text="Orders" 
+            Font-Size="11pt" 
+            Font-Underline="True"></asp:Label>
         </p>
         <p>
           <asp:HyperLink ID="HyperLink1"
-            runat="server" 
-            
-            NavigateUrl="~/Account/MyOrders.aspx" 
-            Font-Strikeout="False" 
-            Font-Underline="False" 
+            runat="server"
+            NavigateUrl="~/Account/MyOrders.aspx"
+            Font-Strikeout="False"
+            Font-Underline="False"
             ForeColor="Black">My Order(s)</asp:HyperLink>
         </p>
         <p>
           <asp:HyperLink ID="HyperLink2"
             runat="server"
             NavigateUrl="~/Account/CheckOrderStatus.aspx"
-            
-            Font-Underline="False" 
+            Font-Underline="False"
             ForeColor="Black">Order Status</asp:HyperLink>
         </p>
-        <p>
-          <asp:Label ID="Label2"
-            runat="server"
-            Font-Bold="True"
-            Text="My Stuff"></asp:Label>
-        </p>
-        <p>
-          <asp:HyperLink ID="HyperLink3"
-            runat="server"
-            NavigateUrl="~/Account/WishList.aspx"
-            
-            Font-Underline="False" 
-            ForeColor="Black">My Wishlist</asp:HyperLink>
-        </p>
-        <p>
-          <asp:HyperLink ID="HyperLink4"
-            runat="server">My Profile</asp:HyperLink>
-        </p>
-        <p>
-          <asp:Label ID="Label3"
-            runat="server"
-            Font-Bold="True"
-            Text="Settings"></asp:Label>
-        </p>
+        <asp:Label ID="Label3"
+          runat="server"
+          Font-Bold="True"
+          Text="Settings"></asp:Label>
+       
         <p>
           <asp:HyperLink ID="HyperLink5"
             runat="server"
             NavigateUrl="~/Account/PersonalInformation.aspx"
-            
-            Font-Underline="False" 
+            Font-Underline="False"
             ForeColor="Black">Personal Information</asp:HyperLink>
         </p>
         <p>
           <asp:HyperLink ID="HyperLink6"
             runat="server"
             NavigateUrl="~/Account/ChangePassword.aspx"
-            
-            Font-Underline="False" 
+            Font-Underline="False"
             ForeColor="Black">Change Password</asp:HyperLink>
         </p>
         <p>
           <asp:HyperLink ID="HyperLink7"
             runat="server"
             NavigateUrl="~/Account/address.aspx"
-            
-            Font-Underline="False" 
+            Font-Underline="False"
             ForeColor="Black">Address</asp:HyperLink>
         </p>
       </td>

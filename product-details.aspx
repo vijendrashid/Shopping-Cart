@@ -8,7 +8,8 @@
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
   TagPrefix="asp" %>
-<%--<%@ OutputCache Duration="120" VaryByParam="prod_id" %>--%>
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="head"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -77,7 +78,9 @@
     ID="DetailsSql"
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-    SelectCommand="SELECT [prod_id], [category], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [stock], [days_delivered], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id">
+    SelectCommand="SELECT [prod_id], [category], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [stock], [days_delivered], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id"
+    CacheExpirationPolicy="Sliding"
+    EnableCaching="True">
     <SelectParameters>
       <asp:QueryStringParameter
         Name="prod_id"

@@ -5,7 +5,7 @@
   CodeFile="categorywise.aspx.cs"
   Inherits="categorywise" %>
 
-<%--<%@ OutputCache Duration="120" VaryByParam="category" %>--%>
+<%@ OutputCache Duration="120" VaryByParam="category" Location="Client" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -145,7 +145,9 @@
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT  [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] "
-    FilterExpression="category LIKE '{0}%'">
+    FilterExpression="category LIKE '{0}%'"
+    CacheExpirationPolicy="Sliding"
+    EnableCaching="True">
     <FilterParameters>
       <asp:QueryStringParameter
         Name="category"

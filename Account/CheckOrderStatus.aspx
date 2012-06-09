@@ -3,6 +3,8 @@
   MasterPageFile="~/childShopping.master"
   AutoEventWireup="true" %>
 
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <script runat="server">
 
   protected void btnorder_Click(object sender, EventArgs e)
