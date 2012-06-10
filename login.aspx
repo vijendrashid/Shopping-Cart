@@ -5,10 +5,7 @@
   CodeFile="login.aspx.cs"
   Inherits="login" %>
 
-<%@ OutputCache
-  Duration="3600"
-  VaryByParam="none"
-  Location="Client" %>
+<%@ OutputCache CacheProfile="Cache1Hour" %>
 <asp:Content ID="loginhead"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -22,6 +19,9 @@
     <div style="display: inline;
       width: 40%;">
       <br />
+      <pre>Username: demo 
+Password: demo
+      </pre>
       <asp:Label ID="lblError"
         EnableViewState="false"
         ForeColor="Red"
@@ -96,4 +96,5 @@
       </asp:PasswordRecovery>
     </div>
   </div>
+  </b>
 </asp:Content>

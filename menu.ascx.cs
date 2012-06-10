@@ -5,14 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_Panel_Roles : System.Web.UI.Page
+public partial class menu : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void gvRoles_DataBinding(object sender, EventArgs e)
     {
 
     }

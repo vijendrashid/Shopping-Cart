@@ -1,56 +1,52 @@
 ﻿<%@ Master Language="C#"
-	AutoEventWireup="true"
-	CodeFile="Admin.master.cs"
-	Inherits="Admin_Panel_Admin" %>
+  AutoEventWireup="true"
+  CodeFile="Admin.master.cs"
+  Inherits="Admin_Panel_Admin" %>
 
 <%@ Register Assembly="AjaxControlToolkit"
-	Namespace="AjaxControlToolkit"
-	TagPrefix="asp" %>
+  Namespace="AjaxControlToolkit"
+  TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-	<title></title>
-	<asp:ContentPlaceHolder
-		ID="AdminPanelhead"
-		runat="server">
-	</asp:ContentPlaceHolder>
-	<link rel="stylesheet"
-		type="text/css"
-		href="Css/adminMaster.css" />
+  <title></title>
+  <asp:ContentPlaceHolder
+    ID="AdminPanelhead"
+    runat="server">
+  </asp:ContentPlaceHolder>
+  <link rel="stylesheet"
+    type="text/css"
+    href="Css/adminMaster.css" />
 </head>
 <body>
-	<form id="form1"
-	runat="server">
-	<asp:ToolkitScriptManager
-		ID="ToolkitScriptManager1"
-		runat="server">
-	</asp:ToolkitScriptManager>
-	<div id="top_navigation"
-		class="stretchHolder">
-		<ul class="nav">
-			<li><a href="AddProduct.aspx">
-				Add Product</a></li>
-			<li><a href="EditProduct.aspx">
-				EditProduct</a></li>
-			<li><a href="orders.aspx">
-				Orders</a></li>
-			<li><a href="Profiles.aspx">
-				Profiles</a></li>
-			<li><a href="Tracking.aspx">
-				Tracking</a></li>
-			<li><a href="../Default.aspx">
-				Mobile shop</a></li>
-		</ul>
-	</div>
-	<div>
-		<hr />
-	</div>
-	<div>
-		<asp:ContentPlaceHolder
-			ID="AdminPanelMaster"
-			runat="server">
-		</asp:ContentPlaceHolder>
-	</div>
-	</form>
+  <form id="form1"
+  runat="server">
+  <asp:ToolkitScriptManager
+    ID="ToolkitScriptManager1"
+    runat="server">
+  </asp:ToolkitScriptManager>
+  <div id="top_navigation">
+    <ul class="nav">
+      <li><a href="AddProduct.aspx">
+        Add Product</a></li>
+      <li><a href="EditProduct.aspx">
+        EditProduct</a></li>
+      <li><a href="orders.aspx">
+        Orders</a></li>
+      <li><a href="Profiles.aspx">
+        Profiles</a></li>
+      <li><a href="Tracking.aspx">
+        Tracking</a></li>
+      <li><a href="../Default.aspx">
+        Mobile shop</a></li>
+    </ul>
+  </div>
+  <div>
+    <asp:ContentPlaceHolder
+      ID="AdminPanelMaster"
+      runat="server">
+    </asp:ContentPlaceHolder>
+  </div>
+  </form>
 </body>
 </html>

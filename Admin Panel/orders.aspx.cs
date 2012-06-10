@@ -19,13 +19,7 @@ public partial class Admin_Panel_orders : System.Web.UI.Page
     }
     protected void GridView1_RowUpdated(object sender, GridViewUpdatedEventArgs e)
     {
-        //String strConnString = System.Configuration.ConfigurationManager
-        //                        .ConnectionStrings["HomeConnectionString"]
-        //                        .ConnectionString;
-
-        //SqlConnection con = new SqlConnection(strConnString);
-        string query = e.NewValues.ToString();
-        Response.Write(query);
+        
 
 
     }

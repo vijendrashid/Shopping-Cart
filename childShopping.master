@@ -15,9 +15,8 @@
           <asp:Label ID="Label1"
             runat="server"
             Font-Bold="True"
-            
-            Text="Orders" 
-            Font-Size="11pt" 
+            Text="Orders"
+            Font-Size="11pt"
             Font-Underline="True"></asp:Label>
         </p>
         <p>
@@ -39,7 +38,6 @@
           runat="server"
           Font-Bold="True"
           Text="Settings"></asp:Label>
-       
         <p>
           <asp:HyperLink ID="HyperLink5"
             runat="server"

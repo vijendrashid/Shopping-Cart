@@ -3,6 +3,12 @@
   CodeFile="Shoping.master.cs"
   Inherits="Shoping" %>
 
+<%@ Register Src="~/mainnav.ascx"
+  TagPrefix="uc"
+  TagName="MainNav" %>
+<%@ Register Src="~/menu.ascx"
+  TagPrefix="uc"
+  TagName="menu" %>
 <%@ Import Namespace="customCart" %>
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
@@ -34,9 +40,11 @@
     <div style="margin: 0 0 0 10%;">
       <div style="margin: 0;
         background-color: White;">
-        <div style="display: block;">
+        <uc:MainNav runat="server"
+          ID="ucMainNav" />
+        <%--<div style="display: block;">
           <div style="display: inline;
-            width: 350px;">
+            width: 184px;">
             <asp:ImageButton
               ID="ImageButton1"
               runat="server"
@@ -48,8 +56,7 @@
           <div style="display: inline;">
             <asp:LoginName ID="LoginName1"
               runat="server"
-              ForeColor="Black"
-              Width="100px" />
+              ForeColor="Black" />
           </div>
           <div style="display: inline;
             margin: 0 25px 0 20px;">
@@ -80,6 +87,8 @@
               Font-Underline="False">Home</asp:HyperLink>
             <strong>&nbsp; |&nbsp;
             </strong>
+            <% if (Request.IsAuthenticated)
+               {%>
             <asp:HyperLink ID="hpaccount"
               runat="server"
               Font-Size="Small"
@@ -88,13 +97,12 @@
               Font-Underline="False">Account</asp:HyperLink>
             <strong>&nbsp; |&nbsp;
             </strong>
+            <%} %>
             <asp:LoginStatus
               ID="LoginStatus1"
               runat="server"
               Font-Underline="False"
               ForeColor="Black" />
-            <%--<asp:HyperLink ID="hpwishlist" runat="server" Font-Size="Small" ForeColor="Black"
-              NavigateUrl="~/Account/WishList.aspx">Wishlist</asp:HyperLink>--%>
             <%if (!Request.IsAuthenticated)
               { %>
             <strong>&nbsp; |&nbsp;&nbsp;
@@ -105,16 +113,16 @@
               Font-Underline="False"
               ForeColor="Black">Signup</asp:HyperLink>
             <% } %>&nbsp;</div>
-          <div style="display: inline;">
-            <asp:Button ID="btncart"
-              runat="server"
-              Text="Cart(No Item)"
-              CssClass="Button"
-              CausesValidation="False"
-              OnPreRender="btncart_PreRender" />
-          </div>
-        </div>
-        <div class="stretchHolder">
+          <asp:Button ID="btncart"
+            runat="server"
+            Text="Cart(No Item)"
+            CssClass="Button"
+            CausesValidation="False"
+            OnPreRender="btncart_PreRender" />
+        </div>--%>
+        <uc:menu ID="menu"
+          runat="server" />
+        <%--<div class="stretchHolder">
           <div class="stretchMenu">
             <ul class="stretchDrop">
               <li class="slide
@@ -142,8 +150,9 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div style="min-height: 750px; margin-top:2%;">
+        </div>--%>
+        <div style="min-height: 750px;
+          margin-top: 2%;">
           <asp:ContentPlaceHolder
             ID="ContentPlaceHolder1"
             runat="server">
@@ -186,8 +195,9 @@
             Font-Size="XX-Small"
             Font-Strikeout="False"
             Font-Underline="False"
-            ForeColor="Black"
-            NavigateUrl="~/CreatedBy.aspx">Created-By</asp:HyperLink>
+            ForeColor="#009933"
+            NavigateUrl="~/CreatedBy.aspx"
+            Font-Bold="True">Created-By</asp:HyperLink>
         </div>
       </div>
       <div>

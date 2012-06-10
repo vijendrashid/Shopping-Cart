@@ -5,7 +5,6 @@
   CodeFile="categorywise.aspx.cs"
   Inherits="categorywise" %>
 
-<%@ OutputCache Duration="120" VaryByParam="category" Location="Client" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">

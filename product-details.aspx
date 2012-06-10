@@ -8,8 +8,6 @@
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
   TagPrefix="asp" %>
-<%@ OutputCache
-  CacheProfile="Cache1Hour" %>
 <asp:Content ID="head"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">

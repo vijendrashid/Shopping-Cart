@@ -8,7 +8,6 @@
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
   TagPrefix="asp" %>
-<%@ OutputCache CacheProfile="Cache1Hour" %>
 <asp:Content ID="HomeHead"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -146,12 +145,10 @@
     </ContentTemplate>
   </asp:UpdatePanel>
   <asp:SqlDataSource
-    
     ID="homesql" runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
-    
-    SelectCommand="SELECT TOP 50 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details]" 
-    CacheExpirationPolicy="Sliding" 
+    SelectCommand="SELECT TOP 50 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details]"
+    CacheExpirationPolicy="Sliding"
     EnableCaching="True">
   </asp:SqlDataSource>
 </asp:Content>
