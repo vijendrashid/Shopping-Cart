@@ -2,8 +2,7 @@
   Language="C#"
   MasterPageFile="~/Shoping.master"
   AutoEventWireup="true"
-  CodeFile="CreatedBy.aspx.cs"
-  Inherits="CreatedBy" %>
+  %>
 
 <%@ OutputCache
   CacheProfile="Cache1Hour" %>
