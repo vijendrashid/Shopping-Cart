@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+
 // Added Namespaces
 using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using customCart;
-using System.Web.Security;
 
 public partial class product_details : System.Web.UI.Page
 {
+    private static String _smPrice;
+    private static int dayDelivered;
+    private static String days;
+    private static decimal discount;
+
     // Shopping Cart Varibles initialized
-    static string itemPic;
-    static String name;
-    static decimal price;
-    static int quantity;
-    static String sPrice;
-    static decimal total;
-    static string type;
-    static String _smPrice;
-    static decimal mPrice;
-    static String days;
-    static int dayDelivered;
-    static String sDiscount;
-    static decimal discount;
-    static string prod_id;
+    private static string itemPic;
+
+    private static decimal mPrice;
+    private static String name;
+    private static decimal price;
+    private static string prod_id;
+    private static int quantity;
+    private static String sDiscount;
+    private static String sPrice;
+    private static decimal total;
+    private static string type;
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
@@ -40,9 +40,7 @@ public partial class product_details : System.Web.UI.Page
 
         //gridCart.DataSource = Profile.ShoppingCart.Items;
         //gridCart.DataBind();
-
     }
-
 
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
@@ -73,12 +71,11 @@ public partial class product_details : System.Web.UI.Page
 
             prod_id = rowView["prod_Id"].ToString();
         }
-
     }
 
     protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
     {
-       // Guid userGuid = (Guid)Membership.GetUser().ProviderUserKey;
+        // Guid userGuid = (Guid)Membership.GetUser().ProviderUserKey;
 
         System.Threading.Thread.Sleep(500);
         int iRate = Convert.ToInt16(e.Value);
@@ -107,8 +104,8 @@ public partial class product_details : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         #region Request to querystring value for retriving product details
+
         string getQuery = Request.QueryString["prod_id"];
 
         String strConnString = System.Configuration.ConfigurationManager
@@ -154,7 +151,7 @@ public partial class product_details : System.Web.UI.Page
             img.Attributes.Add("height", "80");
             anchor.Controls.Add(img);
         }
-        #endregion
 
+        #endregion Request to querystring value for retriving product details
     }
 }

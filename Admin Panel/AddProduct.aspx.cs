@@ -1,67 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-// Added
-using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+
+// Added
+using System.IO;
+using System.Web;
+
 public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 {
     #region Initialize Varables
-    string prodId = null;
-    string skuNo = null;
-    string productTitle = null;
-    decimal weight = 0;
-    string metaKeywords = null;
-    string metaDesc = null;
-    string category = null;
-    string brandName = null;
-    string color = null;
-    string features = null;
-    string description = null;
-    float productPrice = 0;
-    float marketPrice = 0;
-    int quantity = 0;
-    int delivrdDays = 0;
-    string folderName = null;
 
-    String activeDir = null;
-    String newFolderPath = null;
+    private string prodId = null;
+    private string skuNo = null;
+    private string productTitle = null;
+    private decimal weight = 0;
+    private string metaKeywords = null;
+    private string metaDesc = null;
+    private string category = null;
+    private string brandName = null;
+    private string color = null;
+    private string features = null;
+    private string description = null;
+    private float productPrice = 0;
+    private float marketPrice = 0;
+    private int quantity = 0;
+    private int delivrdDays = 0;
+    private string folderName = null;
+
+    private String activeDir = null;
+    private String newFolderPath = null;
+
     //String rootDir = null;
-    String filePath1 = null;
-    String filePath2 = null;
-    String filePath3 = null;
-    String filePath4 = null;
-    String filePath5 = null;
-    String filePath6 = null;
-    String filePath7 = null;
-    String filePath8 = null;
-    String filePath9 = null;
-    String filePath10 = null;
-    String filePath11 = null;
-    #endregion
+    private String filePath1 = null;
+
+    private String filePath2 = null;
+    private String filePath3 = null;
+    private String filePath4 = null;
+    private String filePath5 = null;
+    private String filePath6 = null;
+    private String filePath7 = null;
+    private String filePath8 = null;
+    private String filePath9 = null;
+    private String filePath10 = null;
+    private String filePath11 = null;
+
+    #endregion Initialize Varables
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-       
-
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        
         skuNo = txtSku.Text;
         productTitle = txtPro_Title.Text;
         // If Product weight is not available
-        if(weight != 0)
+        if (weight != 0)
         {
             weight = Convert.ToDecimal(txtWeight.Text);
         }
-        
+
         metaKeywords = txtMetaKeywords.Text;
         metaDesc = txtMetaDescription.Text;
         category = ddlCategory.SelectedItem.Text;
@@ -76,6 +74,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         folderName = txtPro_Title.Text + "-" + txtColour.Text;
 
         #region Upload Files
+
         if (fupl_img1.HasFile)
         {
             // Specify a "Application folder"
@@ -83,8 +82,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
             //Specify a "currently active folder"
             activeDir = HttpContext.Current.Request.MapPath(appPath + "/images/Products");
-           // string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
-
+            // string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
 
             //Create a new subfolder under the current active folder
             newFolderPath = Path.Combine(activeDir, folderName);
@@ -98,13 +96,13 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
             folderName = "images/Products/" + folderName + "/";
 
-            // Append Filename with the Virtual path to images               
+            // Append Filename with the Virtual path to images
             filePath1 = rootDir + fupl_img1.FileName;
 
             //Image1
             fupl_img1.SaveAs(MapPath(filePath1));
 
-            //image2               
+            //image2
             if (fupl_img2.HasFile)
             {
                 filePath2 = rootDir + fupl_img2.FileName;
@@ -114,7 +112,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             {
                 filePath2 = "";
             }
-            //image3   
+            //image3
             if (fupl_img3.HasFile)
             {
                 filePath3 = rootDir + fupl_img3.FileName;
@@ -124,7 +122,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             {
                 filePath3 = "";
             }
-            //image4              
+            //image4
             if (fupl_img4.HasFile)
             {
                 filePath4 = rootDir + fupl_img4.FileName;
@@ -135,7 +133,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath4 = "";
             }
 
-            //image5               
+            //image5
             if (fupl_img5.HasFile)
             {
                 filePath5 = rootDir + fupl_img5.FileName;
@@ -146,7 +144,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath5 = "";
             }
 
-            //image6               
+            //image6
             if (fupl_img6.HasFile)
             {
                 filePath6 = rootDir + fupl_img6.FileName;
@@ -157,7 +155,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath6 = "";
             }
 
-            //image7         
+            //image7
             if (fupl_img7.HasFile)
             {
                 filePath7 = rootDir + fupl_img7.FileName;
@@ -168,7 +166,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath7 = "";
             }
 
-            //image8               
+            //image8
             if (fupl_img8.HasFile)
             {
                 filePath8 = rootDir + fupl_img8.FileName;
@@ -179,7 +177,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath8 = "";
             }
 
-            //image9 
+            //image9
             if (fupl_img9.HasFile)
             {
                 filePath9 = rootDir + fupl_img9.FileName;
@@ -190,7 +188,7 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath9 = "";
             }
 
-            //image10        
+            //image10
             if (fupl_img10.HasFile)
             {
                 filePath10 = rootDir + fupl_img10.FileName;
@@ -212,9 +210,11 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
                 filePath11 = "";
             }
         }
-        #endregion
+
+        #endregion Upload Files
 
         #region Add Entry to Database
+
         String strConnString = System.Configuration.ConfigurationManager
                                 .ConnectionStrings["HomeConnectionString"]
                                 .ConnectionString;
@@ -284,17 +284,17 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
             con.Dispose();
             Response.Redirect("AddProduct.aspx");
         }
-        #endregion
+
+        #endregion Add Entry to Database
 
         ////Note: Finding Controls from FormView and giving same name as id
         //var txtProdutFolderName = AddProductFormView1.FindControl("txtProdutFolderName") as TextBox;
     }
+
     protected void btnGetData_Click(object sender, EventArgs e)
     {
-
-
-
     }
+
     protected void txtProd_id_TextChanged(object sender, EventArgs e)
     {
         //string prodId = txtProd_id.Text;
@@ -312,8 +312,8 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         }
 
         reader.Close();
-
     }
+
     protected void btnEdit_Click(object sender, EventArgs e)
     {
         //strQuery = "UPDATE Product_Details SET sku=@sku, prod_title=@prod_title,prod_weight_kgs=@prod_weight_kgs, "

@@ -128,16 +128,12 @@ a
     opacity: 1;
 }
 
-
 /* Active Style */
 
 .buybtn:active
 {
     background: #ff5a00;
 }
-
-
-
 
 /* Rating */
 .ratingStar

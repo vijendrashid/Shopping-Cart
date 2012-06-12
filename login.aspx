@@ -5,7 +5,8 @@
   CodeFile="login.aspx.cs"
   Inherits="login" %>
 
-<%@ OutputCache CacheProfile="Cache1Hour" %>
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="loginhead"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -19,7 +20,7 @@
     <div style="display: inline;
       width: 40%;">
       <br />
-      <pre>Username: demo 
+      <pre>Username: demo
 Password: demo
       </pre>
       <asp:Label ID="lblError"

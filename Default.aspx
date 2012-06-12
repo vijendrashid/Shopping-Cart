@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Shoping.master"
-  AutoEventWireup="true"
-  CodeFile="Default.aspx.cs"
-  Inherits="Home" %>
+  AutoEventWireup="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
@@ -33,7 +31,7 @@
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
               PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
-              Height="200" Width="100" />
+              Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
               runat="server"
@@ -86,7 +84,7 @@
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
               PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
-              Height="200" Width="100" />
+              Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
               runat="server"
@@ -148,7 +146,6 @@
     ID="homesql" runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT TOP 50 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details]"
-    CacheExpirationPolicy="Sliding"
     EnableCaching="True">
   </asp:SqlDataSource>
 </asp:Content>

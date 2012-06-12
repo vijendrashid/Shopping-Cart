@@ -26,7 +26,7 @@
         <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
         <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnSubmit_Click" /></div>
     <br />
-    <asp:Label ID="lblProd_id" runat="server" Text="Product ID : " 
+    <asp:Label ID="lblProd_id" runat="server" Text="Product ID : "
         AssociatedControlID="txtProd_id"></asp:Label>
     <asp:TextBox ID="txtProd_id" runat="server" OnTextChanged="txtProd_id_TextChanged"
         TextMode="MultiLine"></asp:TextBox>
@@ -251,7 +251,7 @@
   <br />
   <%--<asp:Label ID="lbl_productFolderName" runat="server" Text="Product Folder Name : "></asp:Label>
     <asp:TextBox ID="txtProductFolderName" runat="server"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rfvProductFolderName" runat="server" 
+    <asp:RequiredFieldValidator ID="rfvProductFolderName" runat="server"
         ControlToValidate="txtProductFolderName" Display="Dynamic">(Required)</asp:RequiredFieldValidator>
     <br />
     <br />--%>

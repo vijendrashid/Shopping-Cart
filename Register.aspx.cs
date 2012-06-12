@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.Security;
 
 public partial class Register : System.Web.UI.Page
@@ -12,15 +7,14 @@ public partial class Register : System.Web.UI.Page
     {
         if (Request.IsAuthenticated)
             Response.Redirect("Default.aspx");
-
     }
+
     protected void btnRegister_Click(object sender, EventArgs e)
-    { 
+    {
         // Create new user and retrieve create status result.
         MembershipCreateStatus status;
         string passwordQuestion = "How old Are you?";
         string passwordAnswer = "25";
-        
 
         //if(Membership.RequiresQuestionAndAnswer)
         //{
@@ -30,21 +24,18 @@ public partial class Register : System.Web.UI.Page
 
         //try
         //{
-            // Create an User
+        // Create an User
         MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
         Roles.AddUserToRole(txtNewUserName.Text, "users");
-        
-            if (newUser == null)
-            {
-                lblmsg.Text = GetErrorMessage(status);
-            }
-            else
-            {
-                Response.Redirect("login.aspx");
-                
-            }
 
-
+        if (newUser == null)
+        {
+            lblmsg.Text = GetErrorMessage(status);
+        }
+        else
+        {
+            Response.Redirect("login.aspx");
+        }
     }
 
     public string GetErrorMessage(MembershipCreateStatus status)

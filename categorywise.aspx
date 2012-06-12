@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Shoping.master"
-  AutoEventWireup="true"
-  CodeFile="categorywise.aspx.cs"
-  Inherits="categorywise" %>
+  AutoEventWireup="true" %>
 
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
@@ -30,7 +28,7 @@
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
               PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
-              Height="200" Width="100" />
+             Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
               runat="server"
@@ -82,7 +80,7 @@
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
               PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
-              Height="200" Width="100" />
+              Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
               runat="server"
@@ -145,7 +143,6 @@
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT  [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details] "
     FilterExpression="category LIKE '{0}%'"
-    CacheExpirationPolicy="Sliding"
     EnableCaching="True">
     <FilterParameters>
       <asp:QueryStringParameter

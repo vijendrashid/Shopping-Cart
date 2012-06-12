@@ -1,10 +1,10 @@
-﻿/* ================================================================ 
+﻿/* ================================================================
 This copyright notice must be untouched at all times.
 
 The original version of this stylesheet and the associated (x)html
 is available at http://www.cssplay.co.uk/menus/cssplay-stretch-drop.html
 Copyright (c) Stu Nicholls. All rights reserved.
-This stylesheet and the associated (x)html may be modified in any 
+This stylesheet and the associated (x)html may be modified in any
 way to fit your requirements.
 =================================================================== */
 .stretchHolder
@@ -220,7 +220,6 @@ way to fit your requirements.
 {
     color: #906;
 }
-
 
 .stretchDrop > li > div dl dd
 {

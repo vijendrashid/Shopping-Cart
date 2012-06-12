@@ -3,8 +3,6 @@
   MasterPageFile="~/childShopping.master"
   AutoEventWireup="true" %>
 
-<%@ OutputCache
-  CacheProfile="Cache1Hour" %>
 <script runat="server">
   void Page_PreRender()
   {
@@ -23,7 +21,6 @@
       txtEmailID.Text = Profile.PersonalInformation.EmailID;
     }
 
-    //Profile.PersonalInformation.EmailID;
     if (drpgender.SelectedItem.Text != "")
     {
       drpgender.SelectedItem.Text = Profile.PersonalInformation.Gender;

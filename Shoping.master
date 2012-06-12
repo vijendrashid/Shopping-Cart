@@ -3,12 +3,6 @@
   CodeFile="Shoping.master.cs"
   Inherits="Shoping" %>
 
-<%@ Register Src="~/mainnav.ascx"
-  TagPrefix="uc"
-  TagName="MainNav" %>
-<%@ Register Src="~/menu.ascx"
-  TagPrefix="uc"
-  TagName="menu" %>
 <%@ Import Namespace="customCart" %>
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"
@@ -40,9 +34,7 @@
     <div style="margin: 0 0 0 10%;">
       <div style="margin: 0;
         background-color: White;">
-        <uc:MainNav runat="server"
-          ID="ucMainNav" />
-        <%--<div style="display: block;">
+        <div style="display: block;">
           <div style="display: inline;
             width: 184px;">
             <asp:ImageButton
@@ -119,14 +111,13 @@
             CssClass="Button"
             CausesValidation="False"
             OnPreRender="btncart_PreRender" />
-        </div>--%>
-        <uc:menu ID="menu"
-          runat="server" />
-        <%--<div class="stretchHolder">
+        </div>
+        <div class="stretchHolder">
           <div class="stretchMenu">
             <ul class="stretchDrop">
               <li class="slide
-             p1"><a href="categorywise.aspx?category=Touch Screen">
+             p1"><a id="A0" runat="server"
+               href="~/categorywise.aspx?category=Touch Screen">
                TouchScreen</a>
               </li>
               <li class="slide
@@ -145,12 +136,116 @@
               </li>
               <li class="last p5">
                 <a id="A4" runat="server"
-                  href="~/categorywise.aspx?category=Accessories">
+                  href="categorywise.aspx?category=Accessories">
                   Accessories</a>
               </li>
             </ul>
           </div>
-        </div>--%>
+        </div>
+        <div>
+          <asp:Panel ID="Panel1"
+            runat="server"
+            Style="display: none;
+            width: 500px;
+            height: 440px;"
+            BackColor="White"
+            BorderStyle="Solid"
+            BorderWidth="5px"
+            ScrollBars="Auto">
+            <asp:UpdatePanel
+              ID="UpdatePanel1"
+              runat="server">
+              <ContentTemplate>
+                <asp:GridView ID="gvCart"
+                  runat="server"
+                  BackColor="White"
+                  BorderStyle="None"
+                  BorderWidth="1px"
+                  CellPadding="4"
+                  ForeColor="#323232"
+                  EnableModelValidation="True"
+                  Style="width: 380px;"
+                  OnRowDeleting="gvCart_RowDeleting"
+                  AutoGenerateColumns="false">
+                  <Columns>
+                    <asp:CommandField
+                      DeleteImageUrl="~/images/deleteItem.png"
+                      DeleteText="Delete Item"
+                      ButtonType="Image"
+                      ShowDeleteButton="true" />
+                    <asp:ImageField
+                      HeaderText="Item"
+                      DataImageUrlField="ItemPic"
+                      ControlStyle-Height="75px"
+                      ControlStyle-Width="42px" />
+                    <asp:BoundField
+                      HeaderText="Type"
+                      DataField="Type" />
+                    <asp:BoundField
+                      HeaderText="Item Description"
+                      DataField="Name" />
+                    <asp:BoundField
+                      HeaderText="Price"
+                      DataField="Price"
+                      DataFormatString="{0:N0}" />
+                    <asp:BoundField
+                      HeaderText="Quantity"
+                      DataField="Quantity"
+                      ApplyFormatInEditMode="true" />
+                    <asp:BoundField
+                      HeaderText="Sub-Total"
+                      DataField="Total"
+                      DataFormatString="{0:N0}" />
+                  </Columns>
+                  <FooterStyle BackColor="#99CCCC"
+                    ForeColor="#003399" />
+                  <HeaderStyle BackColor="#F2F2F2"
+                    Font-Bold="True"
+                    ForeColor="#5C5C5D"
+                    Font-Size="11px"
+                    BorderColor="#F2F2F2"
+                    BorderStyle="Solid"
+                    BorderWidth="1px" />
+                  <PagerStyle BackColor="#99CCCC"
+                    ForeColor="#323232"
+                    HorizontalAlign="Left" />
+                  <RowStyle BackColor="White"
+                    ForeColor="#323232"
+                    Height="10px"
+                    Font-Size="13px"
+                    BorderColor="#F2F2F2"
+                    BorderStyle="Solid"
+                    BorderWidth="1px" />
+                  <SelectedRowStyle
+                    BackColor="#009999"
+                    Font-Bold="True"
+                    ForeColor="#323232" />
+                </asp:GridView>
+              </ContentTemplate>
+            </asp:UpdatePanel>
+            <br />
+            <br />
+            <div>
+              <asp:Button ID="btnCountiueShopping"
+                runat="server"
+                Text="Close and Continue Shopping" />
+              <asp:Button ID="btnPlaceOrder"
+                runat="server"
+                Text="Place Order"
+                OnClick="btnPlaceOrder_Click"
+                EnableViewState="False" />
+            </div>
+          </asp:Panel>
+          <br />
+          <asp:ModalPopupExtender
+            ID="ModalPopupExtender2"
+            runat="server"
+            TargetControlID="btncart"
+            PopupControlID="Panel1"
+            OkControlID="btnCountiueShopping"
+            CancelControlID="btnCountiueShopping">
+          </asp:ModalPopupExtender>
+        </div>
         <div style="min-height: 750px;
           margin-top: 2%;">
           <asp:ContentPlaceHolder
@@ -199,110 +294,6 @@
             NavigateUrl="~/CreatedBy.aspx"
             Font-Bold="True">Created-By</asp:HyperLink>
         </div>
-      </div>
-      <div>
-        <asp:Panel ID="Panel1"
-          runat="server"
-          Style="display: none;
-          width: 500px;
-          height: 440px;"
-          BackColor="White"
-          BorderStyle="Solid"
-          BorderWidth="5px"
-          ScrollBars="Auto">
-          <asp:UpdatePanel
-            ID="UpdatePanel1"
-            runat="server">
-            <ContentTemplate>
-              <asp:GridView ID="gvCart"
-                runat="server"
-                BackColor="White"
-                BorderStyle="None"
-                BorderWidth="1px"
-                CellPadding="4"
-                ForeColor="#323232"
-                EnableModelValidation="True"
-                Style="width: 380px;"
-                OnRowDeleting="gvCart_RowDeleting"
-                AutoGenerateColumns="false">
-                <Columns>
-                  <asp:CommandField
-                    DeleteImageUrl="~/images/deleteItem.png"
-                    DeleteText="Delete Item"
-                    ButtonType="Image"
-                    ShowDeleteButton="true" />
-                  <asp:ImageField
-                    HeaderText="Item"
-                    DataImageUrlField="ItemPic"
-                    ControlStyle-Height="75px"
-                    ControlStyle-Width="42px" />
-                  <asp:BoundField
-                    HeaderText="Type"
-                    DataField="Type" />
-                  <asp:BoundField
-                    HeaderText="Item Description"
-                    DataField="Name" />
-                  <asp:BoundField
-                    HeaderText="Price"
-                    DataField="Price"
-                    DataFormatString="{0:N0}" />
-                  <asp:BoundField
-                    HeaderText="Quantity"
-                    DataField="Quantity"
-                    ApplyFormatInEditMode="true" />
-                  <asp:BoundField
-                    HeaderText="Sub-Total"
-                    DataField="Total"
-                    DataFormatString="{0:N0}" />
-                </Columns>
-                <FooterStyle BackColor="#99CCCC"
-                  ForeColor="#003399" />
-                <HeaderStyle BackColor="#F2F2F2"
-                  Font-Bold="True"
-                  ForeColor="#5C5C5D"
-                  Font-Size="11px"
-                  BorderColor="#F2F2F2"
-                  BorderStyle="Solid"
-                  BorderWidth="1px" />
-                <PagerStyle BackColor="#99CCCC"
-                  ForeColor="#323232"
-                  HorizontalAlign="Left" />
-                <RowStyle BackColor="White"
-                  ForeColor="#323232"
-                  Height="10px"
-                  Font-Size="13px"
-                  BorderColor="#F2F2F2"
-                  BorderStyle="Solid"
-                  BorderWidth="1px" />
-                <SelectedRowStyle
-                  BackColor="#009999"
-                  Font-Bold="True"
-                  ForeColor="#323232" />
-              </asp:GridView>
-            </ContentTemplate>
-          </asp:UpdatePanel>
-          <br />
-          <br />
-          <div>
-            <asp:Button ID="btnCountiueShopping"
-              runat="server"
-              Text="Close and Continue Shopping" />
-            <asp:Button ID="btnPlaceOrder"
-              runat="server"
-              Text="Place Order"
-              OnClick="btnPlaceOrder_Click"
-              EnableViewState="False" />
-          </div>
-        </asp:Panel>
-        <br />
-        <asp:ModalPopupExtender
-          ID="ModalPopupExtender2"
-          runat="server"
-          TargetControlID="btncart"
-          PopupControlID="Panel1"
-          OkControlID="btnCountiueShopping"
-          CancelControlID="btnCountiueShopping">
-        </asp:ModalPopupExtender>
       </div>
     </div>
   </div>

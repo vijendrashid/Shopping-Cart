@@ -1,8 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Shoping.master"
-  AutoEventWireup="true"
-  %>
+  AutoEventWireup="true" %>
 
 <%@ OutputCache
   CacheProfile="Cache1Hour" %>

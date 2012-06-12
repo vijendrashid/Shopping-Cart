@@ -6,50 +6,53 @@ using System.Web.UI.WebControls;
 
 public partial class Account_checkout : System.Web.UI.Page
 {
-    private void Page_PreRender()
-    {
-        gvCart.DataSource = Profile.ShoppingCart.Items;
-        gvCart.DataBind();
-    }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-    }
+    private decimal _mTotal;
+    private decimal _total;
 
     protected void btnConfirmOrder_Click(object sender, EventArgs e)
     {
-        //MembershipUser user;
-        //user = Membership.GetUser(Page.User.Identity.Name);
-        //string emailID = user.Email;
-        //decimal price;
-        //string itemPic;
-        //string type;
-        //int quantities;
-        //decimal total;
-        //string strQuery;
+    }
 
-        //for(int i=0; i < Profile.ShoppingCart.Items.Count; i++)
-        //{
-        //    strQuery = "INSERT INTO Order_details (";
+    protected void gvCart_DataBound(object sender, EventArgs e)
+    {
+        lblTitle.Text = string.Empty;
+        lblDelivery.Text = string.Empty;
 
-        //}
+        foreach (GridViewRow row in gvCart.Rows)
+        {
+            if (row.RowType == DataControlRowType.DataRow)
+            {
+                Label Title = (Label)row.Cells[0].FindControl("lblGvName");
+                Label Delivery = (Label)row.Cells[0].FindControl("lblDaysDelivered");
+                lblTitle.Text += Title.Text + "<br/>";
+                lblDelivery.Text = Delivery.Text + " Days";
+            }
+        }
+    }
 
-        //string titles;
-        //string name = "";
-        //for (int r = 0; r < gvCart.Rows.Count; r++)
-        //{
-        //    titles = gvCart.Rows[r].Cells[0].Text;
-        //    Response.Write(titles);
-        //    for (int c = 1; c <= GridView1.Rows[r].Cells.Count; c++)
-        //    {
-        //        titles = GridView1.Rows[r].Cells[c].Text;
-        //        name = name + " " + titles;
-        //        c++;
-        //    }
+    protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            decimal total = (decimal)DataBinder.Eval(e.Row.DataItem, "Total");
+            _total += total;
+            decimal mTotal = (decimal)DataBinder.Eval(e.Row.DataItem, "mPrice");
+            _mTotal += mTotal;
+        }
+        if (e.Row.RowType == DataControlRowType.Footer)
+        {
+            Label lblSummary = (Label)e.Row.FindControl("lblSummary");
+            lblSummary.Text = String.Format("{0:N0}", _total);
 
-        //}
-        //string name = GridView1.Rows[0].Cells[0].Text;
-        //decimal totalprice = decimal.Parse(GridView1.Rows[0].Cells[1].Text);
+            //Get Value for Wizrd 3 Payable Label
+            lblPayable.Text = "Rs." + lblSummary.Text;
+
+            Label lblMPSummary = (Label)e.Row.FindControl("lblMPSummary");
+            lblMPSummary.Text = String.Format("{0:N0}", _mTotal);
+            lblMarketPrice.Text = "Rs." + lblMPSummary.Text;
+        }
+        decimal discount = _mTotal - _total;
+        lblDiscount.Text = "Rs." + string.Format("{0:N0}", discount);
     }
 
     protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -58,19 +61,54 @@ public partial class Account_checkout : System.Web.UI.Page
             Profile.ShoppingCart.Items.RemoveAt(e.RowIndex);
     }
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+
+    protected void rblNewAddress_CheckedChanged(object sender, EventArgs e)
+    {
+        txtName.Text = null;
+        txtAddress.Text = null;
+        txtPincode.Text = null;
+        txtRcvPhNo.Text = null;
+    }
+
+    protected void rblOldAddress_CheckedChanged(object sender, EventArgs e)
+    {
+        txtName.Text = Profile.Address.FullName;
+        txtAddress.Text = Profile.Address.StreetAddress + "\r\n"
+                        + Profile.Address.Landmark + "\r\n"
+                        + Profile.Address.City + "\r\n"
+                        + Profile.Address.State + "\r\n"
+                        + Profile.Address.Country;
+
+        txtPincode.Text = Profile.Address.Pincode;
+        txtRcvPhNo.Text = Profile.Address.PhoneNumber;
+        txtYrEmailID.Text = Profile.PersonalInformation.EmailID;
+    }
+
+    protected void Wizard_ActiveStepChanged(object sender, EventArgs e)
+    {
+    }
+
+    protected void Wizard_CancelButtonClick(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default.aspx");
+    }
+
     protected void Wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
     {
         // Process the order
         DateTime now = DateTime.Now;
 
         string phone_number = txtRcvPhNo.Text;
-        string shipping_address = txtName.Text + "<br/>"
-                                + Profile.Address.StreetAddress + "<br/>"
-                                + Profile.Address.Landmark + "<br/>"
-                                + Profile.Address.City + "<br/>"
-                                + Profile.Address.State + "<br/>"
-                                + Profile.Address.Country + "<br/>"
-                                + txtPincode.Text;
+        string shipping_address = txtName.Text + ",<br/>"
+                                + Profile.Address.StreetAddress + ",<br/>"
+                                + Profile.Address.Landmark + ",<br/>"
+                                + Profile.Address.City + ",<br/>"
+                                + Profile.Address.State + ",<br/>"
+                                + Profile.Address.Country + "<br/>."
+                                + txtPincode.Text + ".";
 
         String strConnString = System.Configuration.ConfigurationManager
                                .ConnectionStrings["HomeConnectionString"]
@@ -139,85 +177,11 @@ public partial class Account_checkout : System.Web.UI.Page
         lblThankyou.Visible = true;
         labelThankYou.Visible = true;
         pnlOrderconfirm.Visible = true;
-
     }
 
-    protected void rblOldAddress_CheckedChanged(object sender, EventArgs e)
+    private void Page_PreRender()
     {
-        //MembershipUser user;
-        //user = Membership.GetUser(Page.User.Identity.Name);
-        //string emailID = user.Email;
-
-        txtName.Text = Profile.Address.FullName;
-        txtAddress.Text = Profile.Address.StreetAddress + "\r\n"
-                        + Profile.Address.Landmark + "\r\n"
-                        + Profile.Address.City + "\r\n"
-                        + Profile.Address.State + "\r\n"
-                        + Profile.Address.Country;
-
-        txtPincode.Text = Profile.Address.Pincode;
-        txtRcvPhNo.Text = Profile.Address.PhoneNumber;
-        txtYrEmailID.Text = Profile.PersonalInformation.EmailID;
-    }
-
-    protected void rblNewAddress_CheckedChanged(object sender, EventArgs e)
-    {
-        txtName.Text = null;
-        txtAddress.Text = null;
-        txtPincode.Text = null;
-        txtRcvPhNo.Text = null;
-    }
-
-    protected void gvCart_DataBound(object sender, EventArgs e)
-    {
-        lblTitle.Text = string.Empty;
-        lblDelivery.Text = string.Empty;
-
-        foreach (GridViewRow row in gvCart.Rows)
-        {
-            if (row.RowType == DataControlRowType.DataRow)
-            {
-                Label Title = (Label)row.Cells[0].FindControl("lblGvName");
-                Label Delivery = (Label)row.Cells[0].FindControl("lblDaysDelivered");
-                lblTitle.Text += Title.Text + "<br/>";
-                lblDelivery.Text = Delivery.Text + " Days";
-            }
-        }
-    }
-
-    private decimal _total;
-    private decimal _mTotal;
-
-    protected void gvCart_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            decimal total = (decimal)DataBinder.Eval(e.Row.DataItem, "Total");
-            _total += total;
-            decimal mTotal = (decimal)DataBinder.Eval(e.Row.DataItem, "mPrice");
-            _mTotal += mTotal;
-        }
-        if (e.Row.RowType == DataControlRowType.Footer)
-        {
-            Label lblSummary = (Label)e.Row.FindControl("lblSummary");
-            lblSummary.Text = String.Format("{0:N0}", _total);
-
-            //Get Value for Wizrd 3 Payable Label
-            lblPayable.Text = "Rs." + lblSummary.Text;
-
-            Label lblMPSummary = (Label)e.Row.FindControl("lblMPSummary");
-            lblMPSummary.Text = String.Format("{0:N0}", _mTotal);
-            lblMarketPrice.Text = "Rs." + lblMPSummary.Text;
-        }
-        decimal discount = _mTotal - _total;
-        lblDiscount.Text = "Rs." + string.Format("{0:N0}", discount);
-    }
-
-    protected void Wizard_ActiveStepChanged(object sender, EventArgs e)
-    {
-    }
-    protected void Wizard_CancelButtonClick(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Default.aspx");
+        gvCart.DataSource = Profile.ShoppingCart.Items;
+        gvCart.DataBind();
     }
 }

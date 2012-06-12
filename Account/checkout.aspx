@@ -5,8 +5,6 @@
   CodeFile="checkout.aspx.cs"
   Inherits="Account_checkout" %>
 
-<%@ OutputCache
-  CacheProfile="Cache1Hour" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ChildMaster"
   runat="Server">

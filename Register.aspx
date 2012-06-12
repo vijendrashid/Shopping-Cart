@@ -5,7 +5,8 @@
   CodeFile="Register.aspx.cs"
   Inherits="Register" %>
 
-<%@ OutputCache CacheProfile="Cache1Hour" %>
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">

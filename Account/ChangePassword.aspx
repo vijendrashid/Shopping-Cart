@@ -3,7 +3,8 @@
   MasterPageFile="~/childShopping.master"
   AutoEventWireup="true" %>
 
-<%@ OutputCache CacheProfile="Cache1Hour" %>
+<%@ OutputCache
+  CacheProfile="Cache1Hour" %>
 <asp:Content ID="content1"
   ContentPlaceHolderID="ChildMaster"
   runat="server">

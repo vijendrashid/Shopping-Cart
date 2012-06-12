@@ -77,7 +77,6 @@
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT [prod_id], [category], [prod_color], [prod_title], [prod_features], [O_price], [m_price], [stock], [days_delivered], [prod_img1], [discount_percent], [prod_description] FROM [Product_Details] WHERE [prod_id] = @prod_id"
-    CacheExpirationPolicy="Sliding"
     EnableCaching="True">
     <SelectParameters>
       <asp:QueryStringParameter

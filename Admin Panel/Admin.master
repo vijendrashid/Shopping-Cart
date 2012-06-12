@@ -21,10 +21,12 @@
 <body>
   <form id="form1"
   runat="server">
-  <asp:ToolkitScriptManager
+  <asp:ScriptManager
     ID="ToolkitScriptManager1"
-    runat="server">
-  </asp:ToolkitScriptManager>
+    runat="server"
+    EnablePageMethods="True"
+    LoadScriptsBeforeUI="False">
+  </asp:ScriptManager>
   <div id="top_navigation">
     <ul class="nav">
       <li><a href="AddProduct.aspx">

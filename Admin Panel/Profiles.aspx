@@ -41,8 +41,9 @@
         HeaderText="DataSize"
         ReadOnly="True"
         SortExpression="DataSize" />
-      <asp:BoundField DataField="Email" 
-        HeaderText="Email" 
+      <asp:BoundField
+        DataField="Email"
+        HeaderText="Email"
         SortExpression="Email" />
     </Columns>
     <EditRowStyle BackColor="#2461BF" />
@@ -67,8 +68,8 @@
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT vw_aspnet_Profiles.UserId, LastUpdatedDate, DataSize, Email FROM vw_aspnet_Profiles LEFT OUTER JOIN vw_aspnet_MembershipUsers ON vw_aspnet_MembershipUsers.UserId = vw_aspnet_Profiles.UserId"
-    DeleteCommand="DELETE FROM [vw_aspnet_Profiles] WHERE UserId = @UserId ">
+    DeleteCommand="DELETE FROM [vw_aspnet_Profiles] WHERE UserId = @UserId "
+    EnableCaching="True">
   </asp:SqlDataSource>
   <br />
-  
 </asp:Content>

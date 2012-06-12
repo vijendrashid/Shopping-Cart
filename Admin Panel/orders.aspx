@@ -101,7 +101,8 @@
     UpdateCommand="UPDATE Order_details set o_status=@o_status WHERE order_id=@order_id"
     DeleteCommand="DELETE FROM Order_details WHERE order_id=@order_id"
     OnUpdated="SqlDataSource1_Updated"
-    OnUpdating="SqlDataSource1_Updating">
+    OnUpdating="SqlDataSource1_Updating"
+    EnableCaching="True">
     <SelectParameters>
       <asp:Parameter DefaultValue="processing"
         Name="o_status"

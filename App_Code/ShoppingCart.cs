@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Web.Profile;
 
 namespace customCart
 {
@@ -75,16 +73,19 @@ namespace customCart
             get { return _mPrice; }
             set { _mPrice = value; }
         }
+
         public int DaysDelivered
         {
             get { return _daysDelivered; }
             set { _daysDelivered = value; }
         }
+
         public decimal Discount
         {
             get { return _discount; }
             set { _discount = value; }
         }
+
         public string Prod_Id
         {
             get { return _prod_Id; }

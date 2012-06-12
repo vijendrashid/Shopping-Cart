@@ -18,7 +18,9 @@
   <div style="margin-left: 25px;">
     <br />
     <asp:TextBox ID="txtEnterOrderID"
-      runat="server"></asp:TextBox>
+      runat="server"
+      AutoCompleteType="Search"
+      AutoPostBack="True"></asp:TextBox>
     <asp:TextBoxWatermarkExtender
       ID="TextBoxWatermarkExtender1"
       runat="server"
@@ -33,7 +35,8 @@
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT [order_id], [o_status], [location], [phone_number], [shipping_address], [is_sold], [date_modified] FROM [Order_details] WHERE order_id LIKE @order_id+'%'"
-    UpdateCommand="UPDATE Order_details SET o_status=@o_status, location=@location, is_sold=@is_sold WHERE order_id=@order_id">
+    UpdateCommand="UPDATE Order_details SET o_status=@o_status, location=@location, is_sold=@is_sold WHERE order_id=@order_id"
+    EnableCaching="True">
     <SelectParameters>
       <asp:ControlParameter
         Name="order_id"
@@ -75,11 +78,12 @@
         HeaderText="phone_number"
         SortExpression="phone_number"
         ReadOnly="True" />
-      <asp:TemplateField HeaderText="shipping_address" 
+      <asp:TemplateField
+        HeaderText="shipping_address"
         SortExpression="shipping_address">
         <ItemTemplate>
-          <asp:Label ID="Label1" 
-            runat="server" 
+          <asp:Label ID="Label1"
+            runat="server"
             Text='<%# Bind("shipping_address") %>'></asp:Label>
         </ItemTemplate>
       </asp:TemplateField>
