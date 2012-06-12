@@ -98,7 +98,7 @@
     runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT [order_id], [products_title], [O_price], [order_date], [o_status], [quantities] FROM [Order_details] WHERE o_status=@o_status"
-    UpdateCommand="UPDATE Order_details set o_status=@o_status WHERE order_id=@order_id"
+    UpdateCommand="UPDATE Order_details SET o_status=@o_status WHERE order_id=@order_id"
     DeleteCommand="DELETE FROM Order_details WHERE order_id=@order_id"
     OnUpdated="SqlDataSource1_Updated"
     OnUpdating="SqlDataSource1_Updating"

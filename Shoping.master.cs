@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 public partial class Shoping : System.Web.UI.MasterPage
 {
-    public void conection()
-    {
-        String strConnString = System.Configuration.ConfigurationManager
-                                       .ConnectionStrings["HomeConnectionString"]
-                                       .ConnectionString;
-        SqlConnection con = new SqlConnection(strConnString);
-    }
-
     protected void btncart_PreRender(object sender, EventArgs e)
     {
-        if (Profile.ShoppingCart.Items == null)
-            btncart.Text = "Cart( " + Profile.ShoppingCart.Items.Count + " )";
+        btncart.Text = "Cart( " + Profile.ShoppingCart.Items.Count + " )";
     }
 
     protected void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -47,16 +37,7 @@ public partial class Shoping : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Response.Cache.SetExpires(DateTime.Now.AddMonths(1));
-        //Response.Cache.SetCacheability(HttpCacheability.ServerAndPrivate);
-        //Response.Cache.SetValidUntilExpires(true);
-
         lblmsg.Text = "This website has been visited " + (Application["PageRequestCount"]) + " times.";
-
-        //if(Request.IsAuthenticated)
-        //{
-        //    lblLoginName.Text = Page.User.Identity.Name;
-        //}
     }
 
     private void Page_PreRender()

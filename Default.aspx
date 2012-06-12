@@ -1,4 +1,4 @@
-﻿<%@ Page Title=""
+﻿<%@ Page Title="MobileShop1234.com One Way to Shopping Mobiles and Accessories."
   Language="C#"
   MasterPageFile="~/Shoping.master"
   AutoEventWireup="true" %>
@@ -146,6 +146,12 @@
     ID="homesql" runat="server"
     ConnectionString="<%$ ConnectionStrings:HomeConnectionString %>"
     SelectCommand="SELECT TOP 50 [prod_id], [category], [prod_title], [prod_features], [O_price], [prod_img1] FROM [Product_Details]"
+    FilterExpression="category LIKE '{0}%'"
     EnableCaching="True">
+    <FilterParameters>
+      <asp:QueryStringParameter
+        Name="category"
+        QueryStringField="category" />
+    </FilterParameters>
   </asp:SqlDataSource>
 </asp:Content>

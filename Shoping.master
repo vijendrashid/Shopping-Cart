@@ -117,26 +117,26 @@
             <ul class="stretchDrop">
               <li class="slide
              p1"><a id="A0" runat="server"
-               href="~/categorywise.aspx?category=Touch Screen">
+               href="~/Default.aspx?category=Touch Screen">
                TouchScreen</a>
               </li>
               <li class="slide
                p2"><a id="A1" runat="server"
-                 href="categorywise.aspx?category=Tab">
+                 href="Default.aspx?category=Tab">
                  Tab</a> </li>
               <li class="slide p3">
                 <a id="A2" runat="server"
-                  href="categorywise.aspx?category=Qwerty">
+                  href="Default.aspx?category=Qwerty">
                   Qwerty</a>
               </li>
               <li class="slide
                p4"><a id="A3" runat="server"
-                 href="categorywise.aspx?category=Dual Sim">
+                 href="Default.aspx?category=Dual Sim">
                  Dual Sim</a>
               </li>
               <li class="last p5">
                 <a id="A4" runat="server"
-                  href="categorywise.aspx?category=Accessories">
+                  href="Default.aspx?category=Accessories">
                   Accessories</a>
               </li>
             </ul>

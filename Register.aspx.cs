@@ -16,15 +16,6 @@ public partial class Register : System.Web.UI.Page
         string passwordQuestion = "How old Are you?";
         string passwordAnswer = "25";
 
-        //if(Membership.RequiresQuestionAndAnswer)
-        //{
-        //    passwordQuestion = PasswordQuestionTextbox.Text;
-        //    passwordAnswer = PasswordAnswerTextbox.Text;
-        //}
-
-        //try
-        //{
-        // Create an User
         MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
         Roles.AddUserToRole(txtNewUserName.Text, "users");
 
