@@ -172,9 +172,6 @@
             runat="server"
             Text="Buy Now"
             OnClick="addToCart1_Click" /></div>
-        <%--<span style="display: inline-block; text-align: left;"><a href="#" class="buybtn"><span
-          class="buybtn-text">Buy Now</span> <span class="buybtn-hidden-text">Rs.<%# Eval("O_price", "{0:##}") %></span><span
-            class="buybtn-image"><span></span></span></a></span>--%>
         <div style="display: block;
           text-align: left;">
           <span style="display: inline;
