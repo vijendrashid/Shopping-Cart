@@ -243,7 +243,8 @@
             TargetControlID="btncart"
             PopupControlID="Panel1"
             OkControlID="btnCountiueShopping"
-            CancelControlID="btnCountiueShopping">
+            CancelControlID="btnCountiueShopping"
+            DropShadow="False">
           </asp:ModalPopupExtender>
         </div>
         <div style="min-height: 750px;

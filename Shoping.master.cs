@@ -49,5 +49,8 @@ public partial class Shoping : System.Web.UI.MasterPage
         {
             btnPlaceOrder.Enabled = true;
         }
+
+        string uname = Profile.UserName;
+
     }
 }
