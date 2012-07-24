@@ -257,9 +257,6 @@
         <div>
           <br />
           <br />
-          <asp:Label ID="lblmsg"
-            runat="server"
-            Text="Label" ForeColor="#30A9A2"></asp:Label>
           <br />
           <br />
           <br />
@@ -295,6 +292,7 @@
             NavigateUrl="~/CreatedBy.aspx"
             Font-Bold="True">Created-By</asp:HyperLink>
         </div>
+        <div></div>
       </div>
     </div>
   </div>

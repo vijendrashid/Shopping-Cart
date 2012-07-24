@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Admin Panel/Admin.master"
-  AutoEventWireup="true"
-  CodeFile="Profiles.aspx.cs"
-  Inherits="Admin_Panel_Profiles" %>
+  AutoEventWireup="true" %>
 
 <asp:Content ID="Content1"
   ContentPlaceHolderID="AdminPanelhead"

@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/childShopping.master"
-  AutoEventWireup="true"
-  CodeFile="orderdetails.aspx.cs"
-  Inherits="Account_orderdetails" %>
+  AutoEventWireup="true" %>
 
 <%@ OutputCache
   CacheProfile="Cache1Hour" %>

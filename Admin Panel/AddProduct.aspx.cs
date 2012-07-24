@@ -46,12 +46,10 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
     #endregion Initialize Varables
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-    }
-
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        #region Assign relevant data to associated varables
+
         skuNo = txtSku.Text;
         productTitle = txtPro_Title.Text;
         // If Product weight is not available
@@ -59,7 +57,6 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         {
             weight = Convert.ToDecimal(txtWeight.Text);
         }
-
         metaKeywords = txtMetaKeywords.Text;
         metaDesc = txtMetaDescription.Text;
         category = ddlCategory.SelectedItem.Text;
@@ -73,23 +70,23 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
         delivrdDays = Convert.ToInt16(txtDelivrd_Days.Text);
         folderName = txtPro_Title.Text + "-" + txtColour.Text;
 
+        #endregion Assign relevant data to associated varables
+
         #region Upload Files
 
         if (fupl_img1.HasFile)
         {
-            // Specify a "Application folder"
+            // Specify a "Application root folder".
             string appPath = HttpContext.Current.Request.ApplicationPath;
 
-            //Specify a "currently active folder"
+            //Specify a "currently active folder" for product's image uploading.
             activeDir = HttpContext.Current.Request.MapPath(appPath + "/images/Products");
-            // string activeDir = "E:/Git Hub/Shopping-Cart/images/Products";
 
-            //Create a new subfolder under the current active folder
+            // Combine a new subfolder(with Product name) and the current active folder.
             newFolderPath = Path.Combine(activeDir, folderName);
 
-            // Create the subfolder
+            // Create the subfolder(s)
             Directory.CreateDirectory(newFolderPath);
-            //newFolderPath = newFolderPath + "/";
 
             // Note: Virtual Root Folder Specified explicitly
             string rootDir = "~/images/Products/" + folderName + "/";
@@ -215,13 +212,15 @@ public partial class Admin_Panel_AddProduct : System.Web.UI.Page
 
         #region Add Entry to Database
 
+        // Get Connection string from Web.config
         String strConnString = System.Configuration.ConfigurationManager
                                 .ConnectionStrings["HomeConnectionString"]
                                 .ConnectionString;
 
+        //
         SqlConnection con = new SqlConnection(strConnString);
 
-        // Insert Query
+        // Add Product to the database : Sql Insert Query.
         string strQuery = "INSERT INTO Product_Details (sku, prod_title, "
                         + "prod_weight_kgs, meta_keywords_optional, meta_description, "
                         + "category, prod_brand,prod_color, prod_features, "

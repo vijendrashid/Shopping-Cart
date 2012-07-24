@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Admin Panel/Admin.master"
-  AutoEventWireup="true"
-  CodeFile="Tracking.aspx.cs"
-  Inherits="Admin_Panel_Tracking" %>
+  AutoEventWireup="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit"
   Namespace="AjaxControlToolkit"

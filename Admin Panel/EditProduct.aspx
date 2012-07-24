@@ -1,9 +1,7 @@
 ﻿<%@ Page Title=""
   Language="C#"
   MasterPageFile="~/Admin Panel/Admin.master"
-  AutoEventWireup="true"
-  CodeFile="EditProduct.aspx.cs"
-  Inherits="Admin_Panel_EditProduct" %>
+  AutoEventWireup="true" %>
 
 <%@ Register Assembly="CKEditor.NET"
   Namespace="CKEditor.NET"

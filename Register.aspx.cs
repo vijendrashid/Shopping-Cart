@@ -5,6 +5,7 @@ public partial class Register : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Redirect to Default.aspx when user is already logged in.
         if (Request.IsAuthenticated)
             Response.Redirect("Default.aspx");
     }
@@ -13,22 +14,30 @@ public partial class Register : System.Web.UI.Page
     {
         // Create new user and retrieve create status result.
         MembershipCreateStatus status;
+
+        //Default Question and Answer for Createuser to work!!
         string passwordQuestion = "How old Are you?";
         string passwordAnswer = "25";
 
+        //Get All Registration data, to create new user account...
         MembershipUser newUser = Membership.CreateUser(txtNewUserName.Text, txtNewPassword.Text, txtEmailID.Text, passwordQuestion, passwordAnswer, true, out status);
+        // Apply default role 'users' to all users at the time registration.
         Roles.AddUserToRole(txtNewUserName.Text, "users");
 
+        //Check that if user is not successfully registered show error message.
         if (newUser == null)
         {
+            // Pass error message to GetErrorMessage method.
             lblmsg.Text = GetErrorMessage(status);
         }
         else
         {
+            // Redirect to Login.aspx
             Response.Redirect("login.aspx");
         }
     }
 
+    // After passing error message, it returns user friendly message to the user to resolve the issue.
     public string GetErrorMessage(MembershipCreateStatus status)
     {
         switch (status)

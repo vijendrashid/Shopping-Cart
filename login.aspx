@@ -63,7 +63,7 @@ Password: demo
         CausesValidation="False" />
       <br />
     </div>
-    <div>
+    <%--<div>
       <asp:PasswordRecovery
         ID="PasswordRecovery1"
         runat="server"
@@ -95,7 +95,7 @@ Password: demo
           Font-Size="0.9em"
           ForeColor="White" />
       </asp:PasswordRecovery>
-    </div>
+    </div>--%>
   </div>
   </b>
 </asp:Content>

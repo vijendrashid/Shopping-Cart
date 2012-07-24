@@ -17,12 +17,14 @@
     runat="server" 
     Enabled="False" 
     ReadOnly="True" 
-    Width="200px" /><br>
+    
+    Width="250px" /><br>
   Message from:
   <asp:TextBox ID="txtFrom"
     
     runat="server" 
-    Width="200px" />
+    
+    Width="230px" />
   <asp:RequiredFieldValidator ID="rfvFrom" 
     runat="server" 
     ControlToValidate="txtFrom">(Required)</asp:RequiredFieldValidator>
@@ -41,7 +43,8 @@
     runat="server"
     Height="171px"
     TextMode="MultiLine"
-    Width="270px" />
+    
+    Width="360px" />
   <asp:RequiredFieldValidator ID="rfvMsgBody" 
     runat="server" 
     ControlToValidate="txtBody">(Required)</asp:RequiredFieldValidator>

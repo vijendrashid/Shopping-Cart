@@ -5,6 +5,13 @@
 
 <%@ OutputCache
   CacheProfile="Cache1Hour" %>
+<script runat="server">
+
+  protected void Page_Load(object sender, EventArgs e)
+  {
+
+  }
+</script>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -58,6 +65,24 @@
           <span style="font-family: times new roman,times,serif;">
             <span style="font-size: 18px;">
               MS SQL</span></span></div>
+      </li>
+      <li>
+        <div>
+          <span style="font-family: times new roman,times,serif;">
+            <span style="font-size: 18px;">
+              Ajax</span></span></div>
+      </li>
+      <li>
+        <div>
+          <span style="font-family: times new roman,times,serif;">
+            <span style="font-size: 18px;">
+              HTML</span></span></div>
+      </li>
+      <li>
+        <div>
+          <span style="font-family: times new roman,times,serif;">
+            <span style="font-size: 18px;">
+              CSS3</span></span></div>
       </li>
     </ol>
     <div>

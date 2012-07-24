@@ -19,7 +19,6 @@ public partial class product_details : System.Web.UI.Page
 
     // Shopping Cart Varibles initialized
     private static string itemPic;
-
     private static decimal mPrice;
     private static String name;
     private static decimal price;
@@ -32,8 +31,11 @@ public partial class product_details : System.Web.UI.Page
 
     protected void addToCart1_Click(object sender, EventArgs e)
     {
+        // 
         CartItem newItem = new CartItem(name, price, itemPic, type,
                             quantity, total, mPrice, dayDelivered, discount, prod_id);
+
+        // Add Current product to Shopping cart when button clicked
         Profile.ShoppingCart.Items.Add(newItem);
 
         //GridView gridCart = Master.FindControl("gvCart") as GridView;
@@ -44,11 +46,17 @@ public partial class product_details : System.Web.UI.Page
 
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
+        //Get the item object.
         ListViewDataItem dataItem = (ListViewDataItem)e.Item;
+
+
         if (e.Item.ItemType == ListViewItemType.DataItem)
         {
+            // Retrieve the underlying data item. In this example 
+            // the underlying data item is a DataRowView object.  
             DataRowView rowView = (DataRowView)dataItem.DataItem;
 
+            // Retrive and Assign Product details to Shopping Cart
             name = rowView["prod_title"].ToString();
 
             sPrice = rowView["O_price"].ToString();

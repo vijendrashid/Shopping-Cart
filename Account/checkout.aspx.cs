@@ -9,10 +9,6 @@ public partial class Account_checkout : System.Web.UI.Page
     private decimal _mTotal;
     private decimal _total;
 
-    protected void btnConfirmOrder_Click(object sender, EventArgs e)
-    {
-    }
-
     protected void gvCart_DataBound(object sender, EventArgs e)
     {
         lblTitle.Text = string.Empty;
@@ -59,10 +55,6 @@ public partial class Account_checkout : System.Web.UI.Page
     {
         if (gvCart.Rows.Count >= 0)
             Profile.ShoppingCart.Items.RemoveAt(e.RowIndex);
-    }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
     }
 
     protected void rblNewAddress_CheckedChanged(object sender, EventArgs e)
@@ -166,7 +158,7 @@ public partial class Account_checkout : System.Web.UI.Page
 
                 con.Close();
 
-                // Remove Item from Cart after order was process on the server
+                // Remove all Item(s) from Cart after order was process on the server
                 for (int i = 0; i < Profile.ShoppingCart.Items.Count; i++)
                 {
                     Profile.ShoppingCart.Items.RemoveAt(i);

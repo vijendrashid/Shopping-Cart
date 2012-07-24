@@ -30,7 +30,7 @@
               ID="ImageButton1"
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
-              PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+              PostBackUrl='<%# Eval("prod_id","~/product-details.aspx?prod_id={0}" ) %>'
               Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
@@ -40,7 +40,7 @@
             <asp:HyperLink ID="HyperLink1"
               runat="server"
               Text='<%# Eval("prod_title") %>'
-              NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+              NavigateUrl='<%# Eval("prod_id","~/product-details.aspx?prod_id={0}" ) %>'
               Target="_self"
               Font-Underline="False"></asp:HyperLink>
             <asp:Label ID="Label1"
@@ -83,7 +83,7 @@
               ID="ImageButton1"
               runat="server"
               ImageUrl='<%# Eval("prod_img1") %>'
-              PostBackUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+              PostBackUrl='<%# Eval("prod_id","~/product-details.aspx?prod_id={0}" ) %>'
               Height="150" Width="80" />
             <br />
             <asp:Label ID="prod_idLabel"
@@ -93,7 +93,7 @@
             <asp:HyperLink ID="HyperLink1"
               runat="server"
               Text='<%# Eval("prod_title") %>'
-              NavigateUrl='<%# DataBinder.Eval(Container.DataItem,"prod_id","~/product-details.aspx?prod_id={0}" ) %>'
+              NavigateUrl='<%# Eval("prod_id","~/product-details.aspx?prod_id={0}" ) %>'
               Target="_self"
               Font-Underline="False"></asp:HyperLink>
             <asp:Label ID="Label1"
