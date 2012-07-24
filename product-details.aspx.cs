@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-
 // Added Namespaces
 using System.IO;
 using System.Linq;
@@ -16,7 +15,6 @@ public partial class product_details : System.Web.UI.Page
     private static int dayDelivered;
     private static String days;
     private static decimal discount;
-
     // Shopping Cart Varibles initialized
     private static string itemPic;
     private static decimal mPrice;
@@ -37,11 +35,6 @@ public partial class product_details : System.Web.UI.Page
 
         // Add Current product to Shopping cart when button clicked
         Profile.ShoppingCart.Items.Add(newItem);
-
-        //GridView gridCart = Master.FindControl("gvCart") as GridView;
-
-        //gridCart.DataSource = Profile.ShoppingCart.Items;
-        //gridCart.DataBind();
     }
 
     protected void DetailsListView_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -81,34 +74,6 @@ public partial class product_details : System.Web.UI.Page
         }
     }
 
-    protected void likeRating_Changed(object sender, AjaxControlToolkit.RatingEventArgs e)
-    {
-        // Guid userGuid = (Guid)Membership.GetUser().ProviderUserKey;
-
-        System.Threading.Thread.Sleep(500);
-        int iRate = Convert.ToInt16(e.Value);
-        string strMessage = string.Empty;
-        switch (iRate)
-        {
-            case 1:
-                strMessage = "Not Useful";
-                break;
-            case 2:
-                strMessage = "Average";
-                break;
-            case 3:
-                strMessage = "Useful";
-                break;
-            case 4:
-                strMessage = "Informative";
-                break;
-            case 5:
-                strMessage = "Excellent";
-                break;
-        }
-        strMessage = "Thanks for Rating, You found this Question " + strMessage;
-        e.CallbackResult = strMessage;
-    }
 
     protected void Page_Load(object sender, EventArgs e)
     {

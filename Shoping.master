@@ -129,8 +129,7 @@
                   href="Default.aspx?category=Qwerty">
                   Qwerty</a>
               </li>
-              <li class="slide
-               p4"><a id="A3" runat="server"
+              <li class="slide p4"><a id="A3" runat="server"
                  href="Default.aspx?category=Dual Sim">
                  Dual Sim</a>
               </li>

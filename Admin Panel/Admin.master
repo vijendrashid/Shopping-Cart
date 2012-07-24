@@ -27,7 +27,7 @@
     EnablePageMethods="True"
     LoadScriptsBeforeUI="False">
   </asp:ScriptManager>
-  <div id="top_navigation">
+  <div >
     <ul class="nav">
       <li><a href="AddProduct.aspx">
         Add Product</a></li>

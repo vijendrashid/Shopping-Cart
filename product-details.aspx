@@ -28,13 +28,6 @@
       $('#gallery a').lightBox();
 
     });
-
-    Sys.Application.add_load(function () {
-      $find("RatingBhvrId1").add_EndClientCallback(function (sender, e) {
-        var lblCtrl = document.getElementById('lblResponse');
-        lblCtrl.innerHTML = e.get_CallbackResult();
-      });
-    });
   </script>
   <style type="text/css">
     /* jQuery lightBox plugin - Gallery style */
@@ -110,30 +103,7 @@
               Text='<%# Eval("prod_title") %>'></asp:Label></h1>
           <span>(<%# Eval("prod_color")%>)</span>
         </div>
-        <div style="display: inline-block;">
-          <asp:UpdatePanel
-            ID="UpdatePanel1"
-            runat="server">
-            <ContentTemplate>
-              <div>
-                <asp:Rating ID="likeRating"
-                  BehaviorID="RatingBhvrId1"
-                  runat="server"
-                  CurrentRating="3"
-                  MaxRating="5"
-                  StarCssClass="ratingStar"
-                  WaitingStarCssClass="savedRatingStar"
-                  FilledStarCssClass="filledRatingStar"
-                  EmptyStarCssClass="emptyRatingStar"
-                  OnChanged="likeRating_Changed"
-                  Style="float: left;">
-                </asp:Rating>
-              </div>
-              <span id="lblResponse">
-              </span>
-            </ContentTemplate>
-          </asp:UpdatePanel>
-        </div>
+        
         <div style="display: block;
           text-align: left;">
           <div style="display: inline;
