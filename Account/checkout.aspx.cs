@@ -91,7 +91,9 @@ public partial class Account_checkout : System.Web.UI.Page
     protected void Wizard_FinishButtonClick(object sender, WizardNavigationEventArgs e)
     {
         // Process the order
-        DateTime now = DateTime.Now;
+        TimeZoneInfo INDIAN_ZONE = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+        //DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
+        DateTime indianTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, INDIAN_ZONE);
 
         string phone_number = txtRcvPhNo.Text;
         string shipping_address = txtName.Text + ",<br/>"
@@ -147,9 +149,8 @@ public partial class Account_checkout : System.Web.UI.Page
                 // Clear th parameteres to avoid error; value must be unique
                 cmd.Parameters.Clear();
 
-                cmd.CommandText = "SELECT @@IDENTITY";
-
                 //Get th last inserted id.
+                cmd.CommandText = "SELECT @@IDENTITY";
                 string insertOrderID = cmd.ExecuteScalar().ToString();
                 lblOrderID.Text += insertOrderID + "<br/>";
 
@@ -158,14 +159,14 @@ public partial class Account_checkout : System.Web.UI.Page
 
                 con.Close();
 
-                // Remove all Item(s) from Cart after order was process on the server
+                // Remove all Item(s) from the Cart after order was process on the server
                 for (int i = 0; i < Profile.ShoppingCart.Items.Count; i++)
                 {
                     Profile.ShoppingCart.Items.RemoveAt(i);
                 }
             }
         }
-        lblOrderPlaced.Text = now.ToLongDateString() + "  " + now.ToShortTimeString();
+        lblOrderPlaced.Text = indianTime.ToLongDateString() + "  " + indianTime.ToShortTimeString();
         lblThankyou.Visible = true;
         labelThankYou.Visible = true;
         pnlOrderconfirm.Visible = true;

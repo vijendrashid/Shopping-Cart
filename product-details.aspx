@@ -26,7 +26,6 @@
   <script type="text/javascript">
     $(function () {
       $('#gallery a').lightBox();
-
     });
   </script>
   <style type="text/css">

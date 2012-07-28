@@ -129,9 +129,10 @@
                   href="Default.aspx?category=Qwerty">
                   Qwerty</a>
               </li>
-              <li class="slide p4"><a id="A3" runat="server"
-                 href="Default.aspx?category=Dual Sim">
-                 Dual Sim</a>
+              <li class="slide p4">
+                <a id="A3" runat="server"
+                  href="Default.aspx?category=Dual Sim">
+                  Dual Sim</a>
               </li>
               <li class="last p5">
                 <a id="A4" runat="server"
@@ -281,17 +282,20 @@
             ID="lbh2hhistory"
             runat="server"
             Font-Size="XX-Small">© 2007-2012 MobileShop1234.com</asp:Label>
-          &nbsp;&nbsp;|&nbsp;<asp:HyperLink
-            ID="hpCreatedBy"
-            runat="server"
-            Font-Size="XX-Small"
-            Font-Strikeout="False"
-            Font-Underline="False"
-            ForeColor="#009933"
-            NavigateUrl="~/CreatedBy.aspx"
-            Font-Bold="True">Created-By</asp:HyperLink>
+          &nbsp;&nbsp;|&nbsp;<asp:HyperLink ID="hpCreatedBy"
+              runat="server"
+              Font-Size="Small"
+              Font-Strikeout="False"
+              Font-Underline="True"
+              ForeColor="#CC0000"
+              NavigateUrl="~/CreatedBy.aspx"
+              
+            Font-Bold="True" 
+            Font-Italic="False" 
+            Font-Overline="False">Creator</asp:HyperLink>
+            </div>
+        <div>
         </div>
-        <div></div>
       </div>
     </div>
   </div>

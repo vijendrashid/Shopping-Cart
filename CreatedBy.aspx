@@ -5,13 +5,6 @@
 
 <%@ OutputCache
   CacheProfile="Cache1Hour" %>
-<script runat="server">
-
-  protected void Page_Load(object sender, EventArgs e)
-  {
-
-  }
-</script>
 <asp:Content ID="Content1"
   ContentPlaceHolderID="ShoppingMasterHead"
   runat="Server">
@@ -30,6 +23,15 @@
         +91-9664584136</a><br />
       E-mail ID : <a href="mailto:vijendra.shid@gmail.com">
         vijendra.shid@gmail.com</a></p>
+    <p style="font-size: medium;
+      line-height: 25px">
+      <strong>View 
+      Full Source 
+      Code On 
+      GitHub.com</strong> 
+      :
+      <a href="https://github.com/vjudragon/Shopping-Cart">
+      https://github.com/vjudragon/Shopping-Cart</a></p>
     <div>
       <span style="font-family: times new roman,times,serif;">
         <span style="font-size: 20px;">

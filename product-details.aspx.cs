@@ -41,7 +41,7 @@ public partial class product_details : System.Web.UI.Page
     {
         //Get the item object.
         ListViewDataItem dataItem = (ListViewDataItem)e.Item;
-
+        
 
         if (e.Item.ItemType == ListViewItemType.DataItem)
         {
@@ -73,8 +73,6 @@ public partial class product_details : System.Web.UI.Page
             prod_id = rowView["prod_Id"].ToString();
         }
     }
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
         #region Request to querystring value for retriving product details
